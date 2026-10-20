@@ -72,7 +72,7 @@ async function Members({ params }) {
       </div>
 
       {manage && (
-        <Card title="Undang anggota" description="Kirim link undangan ke orang yang Anda undang. Link berlaku 7 hari dan hanya bisa dipakai dengan email tersebut.">
+        <Card title="Undang anggota" description="Undangan dikirim ke email orang yang Anda undang; link-nya juga bisa disalin di bawah. Berlaku 7 hari dan hanya bisa dipakai dengan email tersebut.">
           <InviteForm site={slug} />
           {invites.length > 0 && (
             <ul className="mt-6 divide-y divide-line border-t border-line">
