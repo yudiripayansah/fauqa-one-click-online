@@ -6,7 +6,7 @@ import { siteUrl, PROTOCOL } from '@/lib/hosts';
 import { PageHeader, TableSkeleton, btn, inlineInputCls } from '@/components/admin/ui';
 import SuspendForm from './SuspendForm';
 
-export const metadata = { title: 'Situs' };
+export const metadata = { title: { absolute: 'Situs · Platform · Fauqa One Click' } };
 const PER = 50;
 
 async function Sites({ searchParams }) {

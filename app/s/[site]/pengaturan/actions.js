@@ -96,7 +96,8 @@ export async function saveAdvanced(fd) {
 export async function deleteSite(fd) {
   const { site, supabase } = await contentAction(fd, ['owner']);
   if (str(fd, 'confirm', 200) !== site.slug) go(`/s/${site.slug}/pengaturan?tab=hapus`, 'Ketik alamat situs dengan benar untuk menghapus.');
-  const { error } = await supabase.from('sites').update({ deleted_at: new Date().toISOString(), status: 'unpublished' }).eq('id', site.id);
+  // Status suspend dibiarkan (hanya platform admin yang boleh mengubahnya); situs terhapus sudah offline lewat deleted_at.
+  const { error } = await supabase.from('sites').update({ deleted_at: new Date().toISOString(), ...(site.status === 'suspended' ? {} : { status: 'unpublished' }) }).eq('id', site.id);
   if (error) go(`/s/${site.slug}/pengaturan?tab=hapus`, error.message);
   await supabase.rpc('log_audit', { p_site: site.id, p_action: 'site.delete' });
   revalidateSite(site);
