@@ -2,6 +2,7 @@
 import { requireSite } from '@/lib/dal';
 import { createClient } from '@/lib/supabase/server';
 import { csvResponse } from '@/lib/csv';
+import { todayIn } from '@/lib/analytics-report';
 
 export async function GET(req, { params }) {
   const { site: slug } = await params;
@@ -13,6 +14,6 @@ export async function GET(req, { params }) {
   const { data } = await q;
   const keys = [...new Set(data.flatMap((r) => Object.keys(r.fields)))];
   const head = ['waktu', 'jenis', 'status', 'produk', 'halaman', ...keys, 'catatan'];
-  return csvResponse(`form-${site.slug}-${new Date().toISOString().slice(0, 10)}.csv`, head,
+  return csvResponse(`form-${site.slug}-${todayIn(site.timezone)}.csv`, head,
     data.map((r) => [r.created_at, r.form_type, r.status, r.products?.title, r.page_path, ...keys.map((k) => r.fields[k]), r.note]));
 }

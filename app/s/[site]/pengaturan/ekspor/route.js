@@ -5,6 +5,7 @@ import { requireSite } from '@/lib/dal';
 import { createClient } from '@/lib/supabase/server';
 import { fileUrl } from '@/lib/site/data';
 import { fileSlug, themeZipEntries } from '@/lib/theme/export';
+import { todayIn } from '@/lib/analytics-report';
 
 const TABLES = {
   pages: '*', products: 'id, handle, title, summary, body, media, specs, price_label, tags, downloads, cta, related_ids, template_suffix, seo, status, position, created_at, updated_at',
@@ -31,6 +32,6 @@ export async function GET(_req, { params }) {
 
   await supabase.rpc('log_audit', { p_site: site.id, p_action: 'site.export' });
   return new Response(zipSync(entries, { level: 6 }), {
-    headers: { 'content-type': 'application/zip', 'content-disposition': `attachment; filename="${site.slug}-${new Date().toISOString().slice(0, 10)}.zip"`, 'cache-control': 'no-store' },
+    headers: { 'content-type': 'application/zip', 'content-disposition': `attachment; filename="${site.slug}-${todayIn(site.timezone)}.zip"`, 'cache-control': 'no-store' },
   });
 }

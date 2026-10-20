@@ -12,7 +12,7 @@ const RANGES = [['today', 'Hari ini', 1], ['7', '7 hari', 7], ['30', '30 hari', 
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const fmt = (n) => Math.round(n).toLocaleString('id-ID');
 const pct = (a, b) => (b ? `${Math.round((a / b) * 100)}%` : '–');
-const dur = (s) => (s >= 60 ? `${Math.floor(s / 60)} m ${Math.round(s % 60)} d` : `${Math.round(s)} d`);
+const dur = (s) => (s >= 60 ? `${Math.floor(s / 60)} mnt ${Math.round(s % 60)} dtk` : `${Math.round(s)} dtk`);
 const EVENT_LABEL = { whatsapp: 'Klik WhatsApp', phone: 'Klik telepon', email: 'Klik email', download: 'Unduh file', outbound: 'Link keluar', form_submit: 'Kirim form' };
 
 // Rentang dari query: r = today | 7 | 30 | 90 | custom (from, to).

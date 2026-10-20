@@ -83,9 +83,11 @@ export async function GET(req, { params }) {
   // Preview, pencarian, dan status form selalu dirender ulang; sisanya dari cache.
   if (preview || q != null || form) {
     const result = await renderSite(site, host, pathname, { preview, query: { page: pageNo, q, form }, themeId: preview ? viewer.t : null });
-    return respond(result, preview || form ? 'private, no-store' : 'public, max-age=0, s-maxage=60', baseUrl);
+    return respond(result, preview || form ? 'private, no-store' : 'public, max-age=0, s-maxage=10', baseUrl);
   }
-  return respond(await renderPublished(host, pathname, pageNo), 'public, max-age=0, s-maxage=60, stale-while-revalidate=86400', baseUrl);
+  // CDN hanya menahan sebentar: render sudah di-cache server (tag situs dibuang saat disimpan), jadi edit/hapus/suspend
+  // terlihat pengunjung dalam ±10 detik, bukan menunggu revalidasi stale-while-revalidate yang panjang.
+  return respond(await renderPublished(host, pathname, pageNo), 'public, max-age=0, s-maxage=10, stale-while-revalidate=30', baseUrl);
 }
 
 export async function POST(req, { params }) {
