@@ -93,7 +93,7 @@ async function Domains({ params }) {
                         </tbody>
                       </table>
                     </div>
-                    <p className="mt-2 text-xs text-muted">Status dicek otomatis setiap 15 menit{d.last_checked_at ? `; terakhir ${new Date(d.last_checked_at).toLocaleString('id-ID')}` : ''}.</p>
+                    <p className="mt-2 text-xs text-muted">Status dicek otomatis setiap hari; klik &ldquo;Cek sekarang&rdquo; setelah mengubah DNS{d.last_checked_at ? `; terakhir ${new Date(d.last_checked_at).toLocaleString('id-ID')}` : ''}.</p>
                   </div>
                 )}
               </li>

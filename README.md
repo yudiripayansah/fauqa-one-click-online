@@ -19,7 +19,7 @@ Platform website company profile multi-tenant dengan theme Liquid bergaya Shopif
 - Domain di project Vercel: `oneclick.fau-qa.com`, `app.oneclick.fau-qa.com`, `*.oneclick.fau-qa.com`.
 - Wildcard SSL butuh DNS di Vercel: delegasikan subdomain `oneclick` dengan record NS ke `ns1.vercel-dns.com` & `ns2.vercel-dns.com` bila DNS `fau-qa.com` ada di tempat lain.
 - Turnstile (opsional): daftarkan hostname `oneclick.fau-qa.com`. Widget hanya dipasang di subdomain platform; custom domain tenant memakai honeypot + rate limit.
-- Custom domain: isi `VERCEL_TOKEN`, `VERCEL_PROJECT_ID` (+ `VERCEL_TEAM_ID` bila project milik team) dan `CRON_SECRET`. Cron cek DNS di `vercel.json` berjalan tiap 15 menit (butuh Vercel Pro; Hobby hanya harian).
+- Custom domain: isi `VERCEL_TOKEN`, `VERCEL_PROJECT_ID` (+ `VERCEL_TEAM_ID` bila project milik team) dan `CRON_SECRET`. Cron di `vercel.json` berjalan harian karena paket Hobby hanya mengizinkan sekali sehari. Di Pro, ubah jadwal `/api/cron/domains` ke `*/15 * * * *` agar status DNS dan jadwal terbit lebih cepat terbarui.
 - AI generator (opsional): `ANTHROPIC_API_KEY`. Tanpa kunci, wizard memakai teks preset industri.
 
 ## Struktur
@@ -40,7 +40,7 @@ Platform website company profile multi-tenant dengan theme Liquid bergaya Shopif
 | `presets/*.json` | Preset industri wizard (teks contoh ID/EN, produk, artikel); disinkron ke tabel `industry_presets` oleh `npm run seed` |
 | `lib/preset.js`, `lib/ai.js` | Isi situs baru dari preset / Claude API (fallback ke preset) |
 | `lib/translate.js` | Katalog teks yang bisa diterjemahkan (konten, menu, teks section theme) |
-| `lib/domains.js`, `app/api/cron/domains` | Vercel Domains API, instruksi DNS, cron 15 menit (DNS, alias, jadwal terbit) |
+| `lib/domains.js`, `app/api/cron/domains` | Vercel Domains API, instruksi DNS, cron cek DNS, alias subdomain lama, jadwal terbit |
 | `lib/site/analytics.js`, `lib/analytics-report.js`, `app/api/cron/harian` | Analytics: script & `/api/collect`, laporan dashboard, cron rollup/retensi/pembersihan |
 | `app/platform/` | Platform admin (`profiles.is_platform_admin`) |
 | `themes/<key>/` | Layout, header/footer/hero, `base.css`, settings & preset tiap theme; digabung dengan `_shared` oleh `npm run seed` |

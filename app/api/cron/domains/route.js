@@ -1,5 +1,5 @@
-// Vercel Cron (vercel.json, tiap 15 menit): cek DNS custom domain (PRD §4.10), hapus alias subdomain lama yang kedaluwarsa,
-// dan tayangkan konten terjadwal.
+// Vercel Cron (vercel.json, harian di paket Hobby; bisa tiap 15 menit di Pro): cek DNS custom domain (PRD §4.10),
+// hapus alias subdomain lama yang kedaluwarsa, dan tayangkan konten terjadwal.
 import { revalidateTag } from 'next/cache';
 import { createAdminClient } from '@/lib/supabase/server';
 import { checkDomain, vercelConfigured } from '@/lib/domains';
