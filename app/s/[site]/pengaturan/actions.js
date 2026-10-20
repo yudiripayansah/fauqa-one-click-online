@@ -101,5 +101,6 @@ export async function deleteSite(fd) {
   if (error) go(`/s/${site.slug}/pengaturan?tab=hapus`, error.message);
   await supabase.rpc('log_audit', { p_site: site.id, p_action: 'site.delete' });
   revalidateSite(site);
-  redirect(`/?msg=${encodeURIComponent(`${site.name} dihapus. Bisa dipulihkan dalam 30 hari.`)}`);
+  // Ke halaman Buat website: di sana ada daftar situs yang baru dihapus + tombol Pulihkan.
+  redirect(`/s/baru?msg=${encodeURIComponent(`${site.name} dihapus. Bisa dipulihkan dalam 30 hari dari daftar di bawah.`)}`);
 }

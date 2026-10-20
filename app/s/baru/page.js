@@ -4,7 +4,7 @@ import { Brand } from '@/components/admin/AuthShell';
 import { ROOT_DOMAIN } from '@/lib/hosts';
 import { createClient } from '@/lib/supabase/server';
 import { getSession, requireSession, INDUSTRIES } from '@/lib/dal';
-import { SubmitButton } from '@/components/admin/client';
+import { Flash, SubmitButton } from '@/components/admin/client';
 import { btn } from '@/components/admin/ui';
 import { restoreSite } from '../actions';
 import NewSiteForm from './NewSiteForm';
@@ -71,6 +71,7 @@ export default function NewSitePage() {
       </div>
       <Suspense fallback={<div className="h-96 rounded-card border border-line bg-surface" aria-busy="true" />}><Wizard /></Suspense>
       <Suspense><Deleted /></Suspense>
+      <Suspense><Flash /></Suspense>
     </main>
   );
 }
