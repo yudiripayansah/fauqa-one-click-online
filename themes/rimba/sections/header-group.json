@@ -1,0 +1,23 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "disabled": true,
+      "settings": {}
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "cta_label": "Hubungi kami",
+        "cta_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "current": "Kertas",
+  "presets": {
+    "Kertas": {
+      "color_accent": "#8B1E1E",
+      "color_ink": "#1A1A1A",
+      "color_background": "#FBFAF7",
+      "font_heading": "Newsreader",
+      "font_body": "Source Serif 4",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#8B1E1E",
+      "radius": 0,
+      "page_width": 1240
+    },
+    "Malam": {
+      "color_accent": "#D9B26F",
+      "color_ink": "#EDEAE3",
+      "color_background": "#141517",
+      "font_heading": "Newsreader",
+      "font_body": "Source Serif 4",
+      "color_on_accent": "#141517",
+      "color_accent_text": "#D9B26F",
+      "radius": 0,
+      "page_width": 1240
+    },
+    "Samudra": {
+      "color_accent": "#1B365D",
+      "color_ink": "#14171C",
+      "color_background": "#FFFFFF",
+      "font_heading": "Fraunces",
+      "font_body": "Source Serif 4",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#1B365D",
+      "radius": 0,
+      "page_width": 1240
+    }
+  }
+}

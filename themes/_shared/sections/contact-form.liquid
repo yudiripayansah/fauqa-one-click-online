@@ -1,0 +1,18 @@
+<section class="section contact-form" id="contact" {{ section.fauqa_attributes }}>
+  <div class="container container--narrow">
+    {%- if section.settings.heading != blank %}<h2>{{ section.settings.heading }}</h2>{% endif -%}
+    {%- if section.settings.text != blank %}<p class="muted">{{ section.settings.text }}</p>{% endif -%}
+    {%- form 'contact' -%}
+      {%- render 'form-fields', form: form -%}
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Form kontak",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Hubungi kami" },
+    { "type": "textarea", "id": "text", "label": "Teks" }
+  ],
+  "presets": [{ "name": "Form kontak" }] }
+{% endschema %}

@@ -1,0 +1,39 @@
+<section class="section multicolumn" {{ section.fauqa_attributes }}>
+  <div class="container">
+    {%- if section.settings.heading != blank %}<h2 class="section__heading">{{ section.settings.heading }}</h2>{% endif -%}
+    <ul class="multicolumn__list" style="--cols: {{ section.settings.columns }}">
+      {%- for block in section.blocks -%}
+        <li class="multicolumn__item" {{ block.fauqa_attributes }}>
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.title, width: 600, height: 400 }}
+          {%- endif -%}
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+          {%- if block.settings.link != blank %}<a class="link" href="{{ block.settings.link }}">{{ block.settings.link_label | default: 'Selengkapnya' }}</a>{% endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Multikolom",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Layanan kami" },
+    { "type": "range", "id": "columns", "label": "Kolom (desktop)", "min": 2, "max": 4, "step": 1, "default": 3 }
+  ],
+  "blocks": [
+    { "type": "column", "name": "Kolom",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Gambar" },
+        { "type": "text", "id": "title", "label": "Judul", "default": "Judul kolom" },
+        { "type": "textarea", "id": "text", "label": "Teks" },
+        { "type": "text", "id": "link_label", "label": "Teks link" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "Multikolom", "blocks": [{ "type": "column" }, { "type": "column" }, { "type": "column" }] }]
+}
+{% endschema %}

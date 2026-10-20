@@ -1,0 +1,38 @@
+{
+  "current": "Hijau",
+  "presets": {
+    "Hijau": {
+      "color_accent": "#3FB950",
+      "color_ink": "#E6EDF3",
+      "color_background": "#0B0F14",
+      "font_heading": "JetBrains Mono",
+      "font_body": "IBM Plex Sans",
+      "color_on_accent": "#0B0F14",
+      "color_accent_text": "#3FB950",
+      "radius": 8,
+      "page_width": 1240
+    },
+    "Sian": {
+      "color_accent": "#38BDF8",
+      "color_ink": "#E2E8F0",
+      "color_background": "#0A0F1C",
+      "font_heading": "JetBrains Mono",
+      "font_body": "IBM Plex Sans",
+      "color_on_accent": "#0A0F1C",
+      "color_accent_text": "#38BDF8",
+      "radius": 8,
+      "page_width": 1240
+    },
+    "Amber": {
+      "color_accent": "#F2CC60",
+      "color_ink": "#EDEAE0",
+      "color_background": "#12100C",
+      "font_heading": "IBM Plex Mono",
+      "font_body": "IBM Plex Sans",
+      "color_on_accent": "#12100C",
+      "color_accent_text": "#F2CC60",
+      "radius": 8,
+      "page_width": 1240
+    }
+  }
+}

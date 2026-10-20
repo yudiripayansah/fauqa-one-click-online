@@ -1,0 +1,23 @@
+<section class="section downloads-section" {{ section.fauqa_attributes }}>
+  <div class="container container--narrow">
+    {%- if section.settings.heading != blank %}<h2 class="section__heading">{{ section.settings.heading }}</h2>{% endif -%}
+    <ul class="downloads">
+      {%- for block in section.blocks -%}
+        {%- assign url = block.settings.file | file_url | default: block.settings.file -%}
+        <li {{ block.fauqa_attributes }}><a href="{{ url }}" download data-fauqa-event="download">{{ block.settings.title }}</a>
+          {%- if block.settings.note != blank %} <span class="muted">{{ block.settings.note }}</span>{% endif -%}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Unduhan", "settings": [{ "type": "text", "id": "heading", "label": "Judul", "default": "Unduh brosur" }],
+  "blocks": [{ "type": "file", "name": "File", "settings": [
+    { "type": "text", "id": "title", "label": "Nama", "default": "Company profile (PDF)" },
+    { "type": "video", "id": "file", "label": "File (file manager)", "info": "Pilih PDF/dokumen dari file manager. (Tipe setting \"video\" dipakai sebagai pemilih file umum.)" },
+    { "type": "text", "id": "note", "label": "Keterangan", "default": "PDF" }
+  ] }],
+  "max_blocks": 20,
+  "presets": [{ "name": "Unduhan", "blocks": [{ "type": "file" }] }] }
+{% endschema %}

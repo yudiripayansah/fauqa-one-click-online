@@ -1,0 +1,229 @@
+{
+  "key": "umum",
+  "name": "Umum",
+  "themes": [
+    "lumen",
+    "bento",
+    "warta"
+  ],
+  "id": {
+    "tagline": "Mitra tepercaya untuk kebutuhan Anda",
+    "hero": {
+      "kicker": "Selamat datang",
+      "heading": "Solusi terbaik untuk kebutuhan Anda",
+      "text": "Kami melayani dengan sepenuh hati, profesional, dan tepat waktu.",
+      "cta": "Hubungi kami"
+    },
+    "about": {
+      "heading": "Kenali kami lebih dekat",
+      "text": "Pengalaman dan komitmen kami adalah jaminan kualitas layanan."
+    },
+    "services": {
+      "heading": "Layanan kami",
+      "items": [
+        [
+          "Layanan utama",
+          "Penjelasan singkat layanan utama Anda."
+        ],
+        [
+          "Layanan kedua",
+          "Penjelasan singkat layanan kedua."
+        ],
+        [
+          "Layanan ketiga",
+          "Penjelasan singkat layanan ketiga."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "10+",
+        "Tahun pengalaman"
+      ],
+      [
+        "500+",
+        "Pelanggan puas"
+      ],
+      [
+        "24/7",
+        "Dukungan"
+      ]
+    ],
+    "faq": [
+      [
+        "Bagaimana cara memesan?",
+        "Hubungi kami lewat WhatsApp atau form kontak."
+      ],
+      [
+        "Di mana lokasi kami?",
+        "Lihat alamat lengkap di halaman kontak."
+      ],
+      [
+        "Berapa lama respons?",
+        "Kami membalas dalam 1 hari kerja."
+      ]
+    ],
+    "cta": {
+      "heading": "Siap bekerja sama?",
+      "text": "Ceritakan kebutuhan Anda, kami siap membantu.",
+      "button": "Hubungi kami"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "Tentang Kami",
+        "body": "<p>Ceritakan sejarah, visi, dan misi perusahaan Anda di sini.</p>"
+      },
+      "kontak": {
+        "title": "Kontak",
+        "body": "<p>Hubungi kami untuk informasi lebih lanjut.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Kebijakan Privasi",
+        "body": "<p>Kami hanya mengumpulkan data yang Anda kirim lewat formulir (nama, email, telepon, dan pesan) untuk menjawab pertanyaan Anda. Data tidak dijual atau dibagikan ke pihak lain.</p><h2>Analytics</h2><p>Kami mengukur kunjungan tanpa cookie dan tanpa menyimpan alamat IP.</p><h2>Hak Anda</h2><p>Anda dapat meminta data Anda dihapus dengan menghubungi kami.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Produk / Layanan 1",
+        "summary": "Ringkasan singkat.",
+        "price": "Hubungi kami",
+        "specs": []
+      },
+      {
+        "title": "Produk / Layanan 2",
+        "summary": "Ringkasan singkat.",
+        "price": "Hubungi kami",
+        "specs": []
+      },
+      {
+        "title": "Produk / Layanan 3",
+        "summary": "Ringkasan singkat.",
+        "price": "Hubungi kami",
+        "specs": []
+      }
+    ],
+    "collection": "Produk & Layanan",
+    "articles": [
+      {
+        "title": "Selamat datang di website kami",
+        "excerpt": "Website baru kami resmi diluncurkan.",
+        "body": "<p>Ikuti kabar terbaru dari kami di sini.</p>"
+      },
+      {
+        "title": "Cara kami melayani pelanggan",
+        "excerpt": "Nilai yang kami pegang dalam setiap pekerjaan.",
+        "body": "<p>Profesional, jujur, dan tepat waktu.</p>"
+      }
+    ]
+  },
+  "en": {
+    "tagline": "A trusted partner for your needs",
+    "hero": {
+      "kicker": "Welcome",
+      "heading": "The best solution for your needs",
+      "text": "We serve wholeheartedly, professionally, and on time.",
+      "cta": "Contact us"
+    },
+    "about": {
+      "heading": "Get to know us",
+      "text": "Our experience and commitment guarantee quality service."
+    },
+    "services": {
+      "heading": "Our services",
+      "items": [
+        [
+          "Main service",
+          "A short description of your main service."
+        ],
+        [
+          "Second service",
+          "A short description of your second service."
+        ],
+        [
+          "Third service",
+          "A short description of your third service."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "10+",
+        "Years of experience"
+      ],
+      [
+        "500+",
+        "Happy customers"
+      ],
+      [
+        "24/7",
+        "Support"
+      ]
+    ],
+    "faq": [
+      [
+        "How do I order?",
+        "Contact us via WhatsApp or the contact form."
+      ],
+      [
+        "Where are you located?",
+        "See the full address on the contact page."
+      ],
+      [
+        "How fast do you respond?",
+        "We reply within 1 business day."
+      ]
+    ],
+    "cta": {
+      "heading": "Ready to work together?",
+      "text": "Tell us what you need and we are ready to help.",
+      "button": "Contact us"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "About Us",
+        "body": "<p>Tell your company’s history, vision, and mission here.</p>"
+      },
+      "kontak": {
+        "title": "Contact",
+        "body": "<p>Contact us for more information.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Privacy Policy",
+        "body": "<p>We only collect the data you send through our forms (name, email, phone, and message) to answer your enquiry. Your data is never sold or shared.</p><h2>Analytics</h2><p>We measure visits without cookies and without storing IP addresses.</p><h2>Your rights</h2><p>You can ask us to delete your data at any time.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Product / Service 1",
+        "summary": "A short summary.",
+        "price": "Contact us",
+        "specs": []
+      },
+      {
+        "title": "Product / Service 2",
+        "summary": "A short summary.",
+        "price": "Contact us",
+        "specs": []
+      },
+      {
+        "title": "Product / Service 3",
+        "summary": "A short summary.",
+        "price": "Contact us",
+        "specs": []
+      }
+    ],
+    "collection": "Products & Services",
+    "articles": [
+      {
+        "title": "Welcome to our website",
+        "excerpt": "Our new website is officially live.",
+        "body": "<p>Follow our latest news here.</p>"
+      },
+      {
+        "title": "How we serve our customers",
+        "excerpt": "The values behind every job.",
+        "body": "<p>Professional, honest, and on time.</p>"
+      }
+    ]
+  }
+}

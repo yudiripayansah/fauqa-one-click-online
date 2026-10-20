@@ -1,0 +1,155 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Agensi kreatif · Jakarta",
+        "heading": "Kampanye yang bikin orang berhenti scroll",
+        "text": "Agensi kreatif untuk brand yang berani tampil beda: strategi, desain, video, dan aktivasi event."
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Mulai proyek",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Lihat karya",
+            "link": "/collections/all",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Yang kami kerjakan",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Brand identity",
+            "text": "Logo, sistem visual, dan panduan brand."
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Konten sosial",
+            "text": "Video pendek dan desain feed yang konsisten."
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Aktivasi event",
+            "text": "Booth, panggung, dan pengalaman langsung."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Karya terbaru",
+        "limit": 3
+      }
+    },
+    "stats": {
+      "type": "stats",
+      "settings": {
+        "band": false
+      },
+      "blocks": {
+        "b1": {
+          "type": "stat",
+          "settings": {
+            "value": "80+",
+            "label": "Brand dibantu"
+          }
+        },
+        "b2": {
+          "type": "stat",
+          "settings": {
+            "value": "12",
+            "label": "Penghargaan"
+          }
+        },
+        "b3": {
+          "type": "stat",
+          "settings": {
+            "value": "3 jt",
+            "label": "Penonton kampanye"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "Kata klien kami"
+      },
+      "blocks": {
+        "b1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Ide-idenya liar tapi selalu kena ke target market kami.",
+            "name": "Brand Manager",
+            "role": "Minuman kemasan"
+          }
+        },
+        "b2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Deadline mepet tetap dikejar tanpa drama.",
+            "name": "Marketing Lead",
+            "role": "Startup fintech"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Punya brief seru?",
+        "text": "Ceritakan, kami balas dengan ide awal dalam 3 hari.",
+        "button_label": "Kirim brief",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "products",
+    "stats",
+    "testimonials",
+    "cta"
+  ]
+}

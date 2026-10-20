@@ -1,0 +1,261 @@
+{
+  "key": "jasa",
+  "name": "Jasa / Konsultan",
+  "themes": [
+    "lumen",
+    "warta",
+    "raster"
+  ],
+  "id": {
+    "tagline": "Konsultan yang membantu bisnis Anda tumbuh",
+    "hero": {
+      "kicker": "Konsultasi profesional",
+      "heading": "Solusi tepat untuk tantangan bisnis Anda",
+      "text": "Tim berpengalaman yang mendampingi dari analisis sampai implementasi.",
+      "cta": "Jadwalkan konsultasi"
+    },
+    "about": {
+      "heading": "Pendekatan yang terukur",
+      "text": "Setiap rekomendasi didasarkan pada data dan disesuaikan dengan kondisi bisnis Anda."
+    },
+    "services": {
+      "heading": "Layanan kami",
+      "items": [
+        [
+          "Konsultasi strategis",
+          "Analisis kondisi bisnis dan rencana kerja yang jelas."
+        ],
+        [
+          "Pendampingan",
+          "Implementasi bersama tim Anda sampai hasilnya terasa."
+        ],
+        [
+          "Pelatihan",
+          "Meningkatkan kemampuan tim internal secara berkelanjutan."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "10+",
+        "Tahun pengalaman"
+      ],
+      [
+        "300+",
+        "Klien terlayani"
+      ],
+      [
+        "95%",
+        "Klien kembali"
+      ]
+    ],
+    "faq": [
+      [
+        "Bagaimana proses konsultasi dimulai?",
+        "Dimulai dengan pertemuan awal gratis untuk memahami kebutuhan Anda."
+      ],
+      [
+        "Apakah melayani klien di luar kota?",
+        "Ya, kami melayani secara daring maupun kunjungan langsung."
+      ],
+      [
+        "Bagaimana sistem biayanya?",
+        "Biaya per proyek atau retainer bulanan, disepakati di awal."
+      ]
+    ],
+    "cta": {
+      "heading": "Diskusikan kebutuhan Anda",
+      "text": "Pertemuan pertama gratis dan tanpa kewajiban.",
+      "button": "Jadwalkan konsultasi"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "Tentang Kami",
+        "body": "<p>Kami adalah tim konsultan yang membantu perusahaan mengambil keputusan yang lebih baik.</p><h2>Nilai kami</h2><p>Integritas, ketelitian, dan hasil yang terukur.</p>"
+      },
+      "kontak": {
+        "title": "Kontak",
+        "body": "<p>Jadwalkan pertemuan awal dengan tim konsultan kami.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Kebijakan Privasi",
+        "body": "<p>Kami hanya mengumpulkan data yang Anda kirim lewat formulir (nama, email, telepon, dan pesan) untuk menjawab pertanyaan Anda. Data tidak dijual atau dibagikan ke pihak lain.</p><h2>Analytics</h2><p>Kami mengukur kunjungan tanpa cookie dan tanpa menyimpan alamat IP.</p><h2>Hak Anda</h2><p>Anda dapat meminta data Anda dihapus dengan menghubungi kami.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Konsultasi Strategis",
+        "summary": "Analisis menyeluruh dan rekomendasi yang bisa dijalankan.",
+        "price": "Mulai Rp 5 jt",
+        "specs": [
+          [
+            "Durasi",
+            "2–4 minggu"
+          ]
+        ]
+      },
+      {
+        "title": "Pendampingan Bulanan",
+        "summary": "Konsultan mendampingi tim Anda setiap bulan.",
+        "price": "Mulai Rp 3 jt / bulan",
+        "specs": []
+      },
+      {
+        "title": "Pelatihan Tim",
+        "summary": "Workshop praktis untuk tim internal.",
+        "price": "Hubungi kami",
+        "specs": [
+          [
+            "Peserta",
+            "Maks. 25 orang"
+          ]
+        ]
+      },
+      {
+        "title": "Audit & Evaluasi",
+        "summary": "Tinjauan proses dan rekomendasi perbaikan.",
+        "price": "Hubungi kami",
+        "specs": []
+      }
+    ],
+    "collection": "Layanan",
+    "articles": [
+      {
+        "title": "5 tanda bisnis Anda butuh konsultan",
+        "excerpt": "Kenali kapan saatnya meminta bantuan pihak luar.",
+        "body": "<p>Pertumbuhan yang melambat dan proses yang tidak efisien sering menjadi tanda awal.</p>"
+      },
+      {
+        "title": "Cara memilih konsultan yang tepat",
+        "excerpt": "Pertanyaan penting sebelum menandatangani kontrak.",
+        "body": "<p>Tanyakan pengalaman, metode kerja, dan cara mengukur hasil.</p>"
+      }
+    ]
+  },
+  "en": {
+    "tagline": "Consultants who help your business grow",
+    "hero": {
+      "kicker": "Professional consulting",
+      "heading": "The right solutions for your business challenges",
+      "text": "An experienced team supporting you from analysis to implementation.",
+      "cta": "Book a consultation"
+    },
+    "about": {
+      "heading": "A measurable approach",
+      "text": "Every recommendation is data-driven and tailored to your business."
+    },
+    "services": {
+      "heading": "Our services",
+      "items": [
+        [
+          "Strategic consulting",
+          "Business analysis and a clear action plan."
+        ],
+        [
+          "Implementation support",
+          "We work alongside your team until results show."
+        ],
+        [
+          "Training",
+          "Building your internal team capabilities."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "10+",
+        "Years of experience"
+      ],
+      [
+        "300+",
+        "Clients served"
+      ],
+      [
+        "95%",
+        "Returning clients"
+      ]
+    ],
+    "faq": [
+      [
+        "How does a consultation start?",
+        "With a free first meeting to understand your needs."
+      ],
+      [
+        "Do you serve clients outside the city?",
+        "Yes, online or on-site."
+      ],
+      [
+        "How is pricing structured?",
+        "Per project or monthly retainer, agreed upfront."
+      ]
+    ],
+    "cta": {
+      "heading": "Discuss your needs",
+      "text": "The first meeting is free with no obligation.",
+      "button": "Book a consultation"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "About Us",
+        "body": "<p>We are a consulting team helping companies make better decisions.</p><h2>Our values</h2><p>Integrity, rigor, and measurable results.</p>"
+      },
+      "kontak": {
+        "title": "Contact",
+        "body": "<p>Schedule a first meeting with our consultants.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Privacy Policy",
+        "body": "<p>We only collect the data you send through our forms (name, email, phone, and message) to answer your enquiry. Your data is never sold or shared.</p><h2>Analytics</h2><p>We measure visits without cookies and without storing IP addresses.</p><h2>Your rights</h2><p>You can ask us to delete your data at any time.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Strategic Consulting",
+        "summary": "In-depth analysis and actionable recommendations.",
+        "price": "From IDR 5M",
+        "specs": [
+          [
+            "Duration",
+            "2–4 weeks"
+          ]
+        ]
+      },
+      {
+        "title": "Monthly Advisory",
+        "summary": "A consultant supports your team every month.",
+        "price": "From IDR 3M / month",
+        "specs": []
+      },
+      {
+        "title": "Team Training",
+        "summary": "Practical workshops for internal teams.",
+        "price": "Contact us",
+        "specs": [
+          [
+            "Participants",
+            "Up to 25"
+          ]
+        ]
+      },
+      {
+        "title": "Audit & Review",
+        "summary": "Process review with improvement recommendations.",
+        "price": "Contact us",
+        "specs": []
+      }
+    ],
+    "collection": "Services",
+    "articles": [
+      {
+        "title": "5 signs your business needs a consultant",
+        "excerpt": "Know when it is time to bring in outside help.",
+        "body": "<p>Slowing growth and inefficient processes are common early signs.</p>"
+      },
+      {
+        "title": "How to choose the right consultant",
+        "excerpt": "Key questions before signing a contract.",
+        "body": "<p>Ask about experience, methods, and how results are measured.</p>"
+      }
+    ]
+  }
+}

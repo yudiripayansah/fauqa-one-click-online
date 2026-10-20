@@ -1,0 +1,29 @@
+<section class="section collection-list" {{ section.fauqa_attributes }}>
+  <div class="container">
+    {%- if section.settings.heading != blank %}<h2 class="section__heading">{{ section.settings.heading }}</h2>{% endif -%}
+    <ul class="grid">
+      {%- assign list = section.settings.collections -%}
+      {%- if list == blank %}{% assign list = collections %}{% endif -%}
+      {%- for item in list limit: 6 -%}
+        {%- if item.handle -%}{%- assign collection = item -%}{%- else -%}{%- assign collection = collections[item] -%}{%- endif -%}
+        {%- if collection -%}
+        <li>
+          <a class="card" href="{{ collection.url }}">
+            <div class="card__media">{%- if collection.image -%}{{ collection.image | image_url: width: 600 | image_tag: alt: collection.title, sizes: '(min-width: 760px) 30vw, 100vw' }}{%- else -%}{{ 'collection' | placeholder_svg_tag }}{%- endif -%}</div>
+            <h3 class="card__title">{{ collection.title }}</h3>
+            <p class="card__meta">{{ 'collections.count' | t: count: collection.products_count }}</p>
+          </a>
+        </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Daftar koleksi", "settings": [
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Kategori produk" },
+    { "type": "collection_list", "id": "collections", "label": "Koleksi", "limit": 6, "info": "Kosongkan untuk menampilkan semua koleksi." }
+  ],
+  "presets": [{ "name": "Daftar koleksi" }] }
+{% endschema %}

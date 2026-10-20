@@ -1,0 +1,50 @@
+<section class="section product" {{ section.fauqa_attributes }}>
+  <div class="container product__grid">
+    <div class="product__media">
+      {%- for image in product.images -%}
+        <figure class="product__image{% if forloop.first %} product__image--main{% endif %}">
+          {%- if forloop.first -%}
+            {{ image | image_url: width: 1200 | image_tag: alt: product.title, loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 900px) 55vw, 100vw' }}
+          {%- else -%}
+            {{ image | image_url: width: 600 | image_tag: alt: product.title, sizes: '(min-width: 900px) 18vw, 33vw' }}
+          {%- endif -%}
+        </figure>
+      {%- else -%}
+        <figure class="product__image product__image--main">{{ 'product' | placeholder_svg_tag }}</figure>
+      {%- endfor -%}
+    </div>
+    <div class="product__info">
+      <h1 class="product__title">{{ product.title }}</h1>
+      {%- if product.price != blank %}<p class="product__price">{{ product.price | money }}</p>{% endif -%}
+      {%- if product.summary != blank %}<p class="product__summary">{{ product.summary }}</p>{% endif -%}
+      <a class="button button--primary product__cta" href="{{ product.cta.url }}"{% if product.cta.type != 'inquiry' %} target="_blank" rel="noopener"{% endif %}{% if product.cta.type == 'whatsapp' %} data-fauqa-event="whatsapp"{% endif %}>{{ product.cta.label }}</a>
+      {%- if product.specs.size > 0 -%}
+        <h2 class="product__subheading">{{ 'products.specs' | t }}</h2>
+        <dl class="specs">
+          {%- for spec in product.specs -%}<div><dt>{{ spec.label }}</dt><dd>{{ spec.value }}</dd></div>{%- endfor -%}
+        </dl>
+      {%- endif -%}
+      {%- if product.downloads.size > 0 -%}
+        <h2 class="product__subheading">{{ 'products.downloads' | t }}</h2>
+        <ul class="downloads">
+          {%- for file in product.downloads -%}<li><a href="{{ file.url }}" download>{{ file.name }}</a> <span class="muted">{{ file.extension | upcase }}</span></li>{%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+  {%- if product.content != blank -%}
+    <div class="container container--narrow product__body rte">{{ product.content }}</div>
+  {%- endif -%}
+  {%- if product.cta.type == 'inquiry' -%}
+    <div class="container container--narrow" id="inquiry">
+      <h2>{{ 'products.inquiry_heading' | t }}</h2>
+      {%- form 'inquiry', product -%}
+        {%- render 'form-fields', form: form, body_default: product.title -%}
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{ "name": "Produk", "settings": [], "enabled_on": { "templates": ["product"] } }
+{% endschema %}

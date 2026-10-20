@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": { "kicker": "Sejak 2004", "heading": "Material kuat untuk proyek besar", "text": "Produksi sendiri, stok siap kirim, dan tim teknis yang mendampingi dari perencanaan sampai pemasangan.", "height": "large" },
+      "blocks": {
+        "btn-1": { "type": "button", "settings": { "label": "Minta penawaran", "link": "/pages/kontak", "style": "primary" } },
+        "btn-2": { "type": "button", "settings": { "label": "Lihat produk", "link": "/collections/all", "style": "secondary" } }
+      },
+      "block_order": ["btn-1", "btn-2"]
+    },
+    "stats": {
+      "type": "stats",
+      "settings": {},
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "value": "20+", "label": "Tahun pengalaman" } },
+        "s2": { "type": "stat", "settings": { "value": "2.000 t", "label": "Kapasitas per bulan" } },
+        "s3": { "type": "stat", "settings": { "value": "28", "label": "Provinsi terlayani" } },
+        "s4": { "type": "stat", "settings": { "value": "SNI", "label": "Tersertifikasi" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
+    "products": { "type": "featured-products", "settings": { "heading": "Produk unggulan", "limit": 3 } },
+    "about": { "type": "image-with-text", "settings": { "heading": "Pabrik sendiri, kontrol mutu penuh", "text": "<p>Setiap batch diuji ketebalan dan lapisan pelindungnya sebelum dikirim.</p>", "button_label": "Tentang kami", "button_link": "/pages/tentang-kami", "layout": "image_right" } },
+    "clients": {
+      "type": "logo-list", "settings": { "heading": "Dipercaya kontraktor & developer" },
+      "blocks": { "l1": { "type": "logo", "settings": { "name": "Wijaya Karya" } }, "l2": { "type": "logo", "settings": { "name": "Adhi Persada" } }, "l3": { "type": "logo", "settings": { "name": "Sinar Mas Land" } }, "l4": { "type": "logo", "settings": { "name": "Ciputra" } } },
+      "block_order": ["l1", "l2", "l3", "l4"]
+    },
+    "news": { "type": "blog-posts", "settings": { "heading": "Kabar terbaru", "limit": 3 } },
+    "cta": { "type": "cta-banner", "settings": { "heading": "Butuh material untuk proyek Anda?", "text": "Kirim kebutuhan Anda, tim sales membalas dalam 1 hari kerja.", "button_label": "Minta penawaran", "button_link": "/pages/kontak" } }
+  },
+  "order": ["hero", "stats", "products", "about", "clients", "news", "cta"]
+}

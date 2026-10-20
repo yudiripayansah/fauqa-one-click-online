@@ -1,0 +1,15 @@
+{%- if product.related.size > 0 -%}
+<section class="section" {{ section.fauqa_attributes }}>
+  <div class="container">
+    <h2 class="section__heading">{{ section.settings.heading }}</h2>
+    <ul class="grid">
+      {%- for p in product.related -%}<li>{% render 'card-product', product: p %}</li>{%- endfor -%}
+    </ul>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{ "name": "Produk terkait", "settings": [{ "type": "text", "id": "heading", "label": "Judul", "default": "Produk terkait" }],
+  "enabled_on": { "templates": ["product"] }, "presets": [{ "name": "Produk terkait" }] }
+{% endschema %}

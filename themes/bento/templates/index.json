@@ -1,0 +1,177 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Managed cloud Indonesia",
+        "heading": "Infrastruktur cloud yang bisa Anda lupakan",
+        "text": "Kami mengelola server, keamanan, dan pemantauan 24/7 agar tim Anda fokus membangun produk.",
+        "tile1_value": "120+",
+        "tile1_label": "Klien aktif",
+        "tile2_value": "99,95%",
+        "tile2_label": "Uptime 12 bulan"
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Konsultasi gratis",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Lihat layanan",
+            "link": "/collections/all",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Apa yang kami kerjakan",
+        "columns": 2
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Migrasi ke cloud",
+            "text": "Pindah dari server fisik tanpa downtime, lengkap dengan rencana rollback."
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Keamanan & kepatuhan",
+            "text": "Audit, hardening, dan kesiapan ISO 27001."
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Pemantauan 24/7",
+            "text": "Alert real-time dan tim on-call lokal."
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "title": "Optimasi biaya",
+            "text": "Rata-rata tagihan cloud turun 30%."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "logos": {
+      "type": "logo-list",
+      "settings": {
+        "heading": "Dipercaya tim teknologi"
+      },
+      "blocks": {
+        "b1": {
+          "type": "logo",
+          "settings": {
+            "name": "Nusantara Group"
+          }
+        },
+        "b2": {
+          "type": "logo",
+          "settings": {
+            "name": "Bank Mitra"
+          }
+        },
+        "b3": {
+          "type": "logo",
+          "settings": {
+            "name": "Kota Mandiri"
+          }
+        },
+        "b4": {
+          "type": "logo",
+          "settings": {
+            "name": "Arta Logistik"
+          }
+        },
+        "b5": {
+          "type": "logo",
+          "settings": {
+            "name": "Sinar Energi"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "heading": "Pertanyaan yang sering diajukan",
+        "open_first": true
+      },
+      "blocks": {
+        "b1": {
+          "type": "question",
+          "settings": {
+            "question": "Berapa lama migrasi berlangsung?",
+            "answer": "<p>Rata-rata 4–8 minggu, tergantung jumlah layanan.</p>"
+          }
+        },
+        "b2": {
+          "type": "question",
+          "settings": {
+            "question": "Apakah ada kontrak minimum?",
+            "answer": "<p>Kontrak bulanan, bisa berhenti dengan pemberitahuan 30 hari.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "news": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Blog teknis",
+        "limit": 3
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Audit infrastruktur gratis",
+        "text": "Dapatkan laporan risiko & penghematan dalam 5 hari kerja.",
+        "button_label": "Ajukan audit",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "logos",
+    "faq",
+    "news",
+    "cta"
+  ]
+}

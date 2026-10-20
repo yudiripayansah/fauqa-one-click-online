@@ -1,0 +1,22 @@
+{%- assign col = collections[section.settings.collection] | default: collections.all -%}
+<section class="section" {{ section.fauqa_attributes }}>
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__heading">{{ section.settings.heading }}</h2>
+      <a class="link" href="{{ col.url }}">{{ 'general.view_all' | t }}</a>
+    </div>
+    <ul class="grid">
+      {%- for product in col.products limit: section.settings.limit -%}<li>{% render 'card-product', product: product %}</li>{%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Produk unggulan",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Produk unggulan" },
+    { "type": "collection", "id": "collection", "label": "Koleksi" },
+    { "type": "range", "id": "limit", "label": "Jumlah produk", "min": 2, "max": 12, "step": 1, "default": 3 }
+  ],
+  "presets": [{ "name": "Produk unggulan" }] }
+{% endschema %}

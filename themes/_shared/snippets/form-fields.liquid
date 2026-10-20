@@ -1,0 +1,12 @@
+{%- if form.posted_successfully -%}
+  <p class="form-status form-status--ok" role="status">{{ 'contact.success' | t }}</p>
+{%- else -%}
+  {%- if form.errors.size > 0 -%}<p class="form-status form-status--error" role="alert">{{ form.errors | join: ' ' }}</p>{%- endif -%}
+  <div class="form-grid">
+    <label class="field"><span>{{ 'contact.name' | t }}</span><input type="text" name="contact[name]" autocomplete="name" required></label>
+    <label class="field"><span>{{ 'contact.email' | t }}</span><input type="email" name="contact[email]" autocomplete="email" required></label>
+    <label class="field"><span>{{ 'contact.phone' | t }}</span><input type="tel" name="contact[phone]" autocomplete="tel"></label>
+    <label class="field field--full"><span>{{ 'contact.message' | t }}</span><textarea name="contact[body]" rows="5" required>{% if body_default %}{{ 'contact.about' | t }} {{ body_default }}: {% endif %}</textarea></label>
+  </div>
+  <button type="submit" class="button button--primary">{{ 'contact.send' | t }}</button>
+{%- endif -%}

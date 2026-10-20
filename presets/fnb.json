@@ -1,0 +1,251 @@
+{
+  "key": "fnb",
+  "name": "F&B",
+  "themes": [
+    "aura",
+    "rimba",
+    "deco"
+  ],
+  "id": {
+    "tagline": "Rasa yang membuat Anda kembali lagi",
+    "hero": {
+      "kicker": "Buka setiap hari",
+      "heading": "Hidangan hangat dari bahan pilihan",
+      "text": "Menu khas yang dimasak setiap hari, di tempat yang nyaman untuk berkumpul.",
+      "cta": "Lihat menu"
+    },
+    "about": {
+      "heading": "Dari dapur kami untuk Anda",
+      "text": "Kami memilih bahan segar dari pemasok lokal dan memasaknya dengan resep sendiri."
+    },
+    "services": {
+      "heading": "Kenapa memilih kami",
+      "items": [
+        [
+          "Bahan segar",
+          "Dipasok setiap pagi dari petani dan pasar lokal."
+        ],
+        [
+          "Tempat nyaman",
+          "Cocok untuk keluarga, teman, dan rapat kecil."
+        ],
+        [
+          "Pesan antar",
+          "Tersedia lewat WhatsApp dan aplikasi ojek online."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "50+",
+        "Menu pilihan"
+      ],
+      [
+        "4,8/5",
+        "Rating pelanggan"
+      ],
+      [
+        "2",
+        "Cabang"
+      ]
+    ],
+    "faq": [
+      [
+        "Apakah bisa reservasi?",
+        "Bisa, lewat WhatsApp atau form kontak."
+      ],
+      [
+        "Apakah menerima pesanan katering?",
+        "Ya, untuk acara kantor dan keluarga."
+      ],
+      [
+        "Apakah ada menu vegetarian?",
+        "Ada beberapa pilihan menu vegetarian."
+      ]
+    ],
+    "cta": {
+      "heading": "Reservasi untuk acara Anda",
+      "text": "Hubungi kami untuk reservasi meja atau pesanan katering.",
+      "button": "Hubungi kami"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "Tentang Kami",
+        "body": "<p>Berawal dari dapur keluarga, kami menyajikan menu rumahan dengan sentuhan baru.</p>"
+      },
+      "kontak": {
+        "title": "Kontak",
+        "body": "<p>Reservasi, katering, atau pertanyaan lain? Hubungi kami.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Kebijakan Privasi",
+        "body": "<p>Kami hanya mengumpulkan data yang Anda kirim lewat formulir (nama, email, telepon, dan pesan) untuk menjawab pertanyaan Anda. Data tidak dijual atau dibagikan ke pihak lain.</p><h2>Analytics</h2><p>Kami mengukur kunjungan tanpa cookie dan tanpa menyimpan alamat IP.</p><h2>Hak Anda</h2><p>Anda dapat meminta data Anda dihapus dengan menghubungi kami.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Menu Andalan",
+        "summary": "Hidangan paling favorit pelanggan kami.",
+        "price": "Rp 35.000",
+        "specs": [
+          [
+            "Porsi",
+            "1 orang"
+          ]
+        ]
+      },
+      {
+        "title": "Paket Keluarga",
+        "summary": "Cukup untuk 4 orang.",
+        "price": "Rp 150.000",
+        "specs": []
+      },
+      {
+        "title": "Minuman Spesial",
+        "summary": "Racikan minuman khas kami.",
+        "price": "Rp 25.000",
+        "specs": []
+      },
+      {
+        "title": "Katering Acara",
+        "summary": "Paket prasmanan untuk acara.",
+        "price": "Mulai Rp 45.000 / orang",
+        "specs": []
+      }
+    ],
+    "collection": "Menu",
+    "articles": [
+      {
+        "title": "Menu baru bulan ini",
+        "excerpt": "Kreasi musiman yang hanya tersedia sebentar.",
+        "body": "<p>Coba menu musiman kami selama persediaan masih ada.</p>"
+      },
+      {
+        "title": "Cerita di balik resep andalan kami",
+        "excerpt": "Resep keluarga yang terus kami jaga.",
+        "body": "<p>Resep ini diwariskan dan disempurnakan dari generasi ke generasi.</p>"
+      }
+    ]
+  },
+  "en": {
+    "tagline": "Flavours that bring you back",
+    "hero": {
+      "kicker": "Open every day",
+      "heading": "Warm dishes made from carefully chosen ingredients",
+      "text": "Signature dishes cooked daily, in a cosy place to gather.",
+      "cta": "See the menu"
+    },
+    "about": {
+      "heading": "From our kitchen to you",
+      "text": "We source fresh ingredients from local suppliers and cook them with our own recipes."
+    },
+    "services": {
+      "heading": "Why choose us",
+      "items": [
+        [
+          "Fresh ingredients",
+          "Delivered every morning from local farmers and markets."
+        ],
+        [
+          "A cosy place",
+          "Great for families, friends, and small meetings."
+        ],
+        [
+          "Delivery",
+          "Order via WhatsApp or ride-hailing apps."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "50+",
+        "Menu items"
+      ],
+      [
+        "4.8/5",
+        "Customer rating"
+      ],
+      [
+        "2",
+        "Branches"
+      ]
+    ],
+    "faq": [
+      [
+        "Can I make a reservation?",
+        "Yes, via WhatsApp or the contact form."
+      ],
+      [
+        "Do you cater events?",
+        "Yes, for office and family events."
+      ],
+      [
+        "Are there vegetarian options?",
+        "Yes, several vegetarian dishes are available."
+      ]
+    ],
+    "cta": {
+      "heading": "Book for your event",
+      "text": "Contact us for table reservations or catering.",
+      "button": "Contact us"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "About Us",
+        "body": "<p>Starting from a family kitchen, we serve home-style dishes with a fresh twist.</p>"
+      },
+      "kontak": {
+        "title": "Contact",
+        "body": "<p>Reservations, catering, or other questions? Get in touch.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Privacy Policy",
+        "body": "<p>We only collect the data you send through our forms (name, email, phone, and message) to answer your enquiry. Your data is never sold or shared.</p><h2>Analytics</h2><p>We measure visits without cookies and without storing IP addresses.</p><h2>Your rights</h2><p>You can ask us to delete your data at any time.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Signature Dish",
+        "summary": "Our customers’ all-time favourite.",
+        "price": "IDR 35,000",
+        "specs": [
+          [
+            "Portion",
+            "1 person"
+          ]
+        ]
+      },
+      {
+        "title": "Family Pack",
+        "summary": "Serves 4.",
+        "price": "IDR 150,000",
+        "specs": []
+      },
+      {
+        "title": "Special Drinks",
+        "summary": "Our house-made beverages.",
+        "price": "IDR 25,000",
+        "specs": []
+      },
+      {
+        "title": "Event Catering",
+        "summary": "Buffet packages for events.",
+        "price": "From IDR 45,000 / person",
+        "specs": []
+      }
+    ],
+    "collection": "Menu",
+    "articles": [
+      {
+        "title": "New on the menu this month",
+        "excerpt": "Seasonal dishes available for a short time only.",
+        "body": "<p>Try our seasonal menu while it lasts.</p>"
+      },
+      {
+        "title": "The story behind our signature recipe",
+        "excerpt": "A family recipe we keep alive.",
+        "body": "<p>Passed down and refined from generation to generation.</p>"
+      }
+    ]
+  }
+}

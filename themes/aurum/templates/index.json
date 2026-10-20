@@ -1,0 +1,113 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Koleksi Residensi",
+        "heading": "Hunian yang dirancang untuk dinikmati lintas generasi",
+        "text": "Residensi terbatas dengan arsitektur tropis modern, di jantung kota yang tenang."
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Jadwalkan kunjungan",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Lihat unit",
+            "link": "/collections/all",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "about": {
+      "type": "image-with-text",
+      "settings": {
+        "heading": "Setiap detail dipilih dengan sengaja",
+        "text": "<p>Batu alam, kayu jati bersertifikat, dan cahaya alami yang mengalir di setiap ruang.</p>",
+        "button_label": "Tentang kami",
+        "button_link": "/pages/tentang-kami",
+        "layout": "image_right"
+      }
+    },
+    "products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Tipe unit",
+        "limit": 3
+      }
+    },
+    "gallery": {
+      "type": "gallery",
+      "settings": {
+        "heading": "Galeri",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "image",
+          "settings": {}
+        },
+        "b2": {
+          "type": "image",
+          "settings": {}
+        },
+        "b3": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "Kata klien kami"
+      },
+      "blocks": {
+        "b1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Kualitas pengerjaan yang jarang kami temui di proyek lain.",
+            "name": "Keluarga Hartono",
+            "role": "Pemilik unit Penthouse"
+          }
+        }
+      },
+      "block_order": [
+        "b1"
+      ]
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Kunjungan pribadi",
+        "text": "Konsultan kami mendampingi Anda melihat unit contoh, dengan janji temu.",
+        "button_label": "Buat janji",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "about",
+    "products",
+    "gallery",
+    "testimonials",
+    "cta"
+  ]
+}

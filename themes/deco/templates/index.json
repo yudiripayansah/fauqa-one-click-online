@@ -1,0 +1,147 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Sejak 1938",
+        "heading": "Malam yang dikenang, di ballroom bersejarah kota",
+        "text": "Venue pernikahan dan gala dengan arsitektur 1930-an, jamuan kelas hotel, dan tim acara berpengalaman."
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Cek ketersediaan",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Paket acara",
+            "link": "/collections/all",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Ruang & layanan",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Grand Ballroom",
+            "text": "Hingga 800 tamu, langit-langit 9 meter."
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Teras Taman",
+            "text": "Resepsi intimate untuk 150 tamu."
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Jamuan & dekorasi",
+            "text": "Menu Nusantara & Eropa, dekor tematik."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "gallery": {
+      "type": "gallery",
+      "settings": {
+        "heading": "Momen di Deco Hall",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "image",
+          "settings": {}
+        },
+        "b2": {
+          "type": "image",
+          "settings": {}
+        },
+        "b3": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "Kata klien kami"
+      },
+      "blocks": {
+        "b1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Semua tamu memuji suasananya. Tim acaranya sangat rapi.",
+            "name": "Rina & Adit",
+            "role": "Pernikahan, Mei 2026"
+          }
+        },
+        "b2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Gala dinner perusahaan kami berjalan sempurna.",
+            "name": "Corporate Secretary",
+            "role": "Bank swasta"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "map": {
+      "type": "map",
+      "settings": {
+        "heading": "Kunjungi kami",
+        "hours": "Tur venue setiap hari 10.00–18.00"
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Rencanakan acara Anda",
+        "text": "Konsultan acara kami membalas dalam 1 hari kerja.",
+        "button_label": "Hubungi konsultan",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "gallery",
+    "testimonials",
+    "map",
+    "cta"
+  ]
+}

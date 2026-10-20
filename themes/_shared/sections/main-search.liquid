@@ -1,0 +1,23 @@
+<section class="section" {{ section.fauqa_attributes }}>
+  <div class="container container--narrow">
+    <h1>{{ 'search.title' | t }}</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+      <label class="visually-hidden" for="q">{{ 'search.title' | t }}</label>
+      <input id="q" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.placeholder' | t }}">
+      <button class="button button--primary">{{ 'search.submit' | t }}</button>
+    </form>
+    {%- if search.performed -%}
+      <p class="muted">{{ 'search.results_count' | t: count: search.results_count, terms: search.terms }}</p>
+      <ul class="search-results">
+        {%- for item in search.results -%}
+          <li><a href="{{ item.url }}"><span class="search-results__type">{{ item.object_type | prepend: 'search.types.' | t }}</span><strong>{{ item.title }}</strong></a>
+            {%- if item.excerpt != blank %}<p class="muted">{{ item.excerpt | truncate: 160 }}</p>{% endif -%}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Pencarian", "settings": [], "enabled_on": { "templates": ["search"] } }
+{% endschema %}

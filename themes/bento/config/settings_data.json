@@ -1,0 +1,38 @@
+{
+  "current": "Biru",
+  "presets": {
+    "Biru": {
+      "color_accent": "#1D4ED8",
+      "color_ink": "#0A0A0B",
+      "color_background": "#F3F3F1",
+      "font_heading": "Geist",
+      "font_body": "Geist",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#1D4ED8",
+      "radius": 22,
+      "page_width": 1240
+    },
+    "Lime": {
+      "color_accent": "#3F6212",
+      "color_ink": "#0C0F08",
+      "color_background": "#F1F3EC",
+      "font_heading": "Geist",
+      "font_body": "Geist",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#3F6212",
+      "radius": 22,
+      "page_width": 1240
+    },
+    "Senja": {
+      "color_accent": "#C2410C",
+      "color_ink": "#120C08",
+      "color_background": "#F5F2EF",
+      "font_heading": "DM Sans",
+      "font_body": "DM Sans",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#C2410C",
+      "radius": 22,
+      "page_width": 1240
+    }
+  }
+}

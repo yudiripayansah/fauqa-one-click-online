@@ -1,0 +1,251 @@
+{
+  "key": "kesehatan",
+  "name": "Kesehatan",
+  "themes": [
+    "sejuk",
+    "lumen",
+    "rimba"
+  ],
+  "id": {
+    "tagline": "Layanan kesehatan yang ramah dan terpercaya",
+    "hero": {
+      "kicker": "Klinik",
+      "heading": "Perawatan yang tenang untuk seluruh keluarga",
+      "text": "Tenaga medis berpengalaman, fasilitas modern, dan jadwal yang fleksibel.",
+      "cta": "Buat janji"
+    },
+    "about": {
+      "heading": "Pasien adalah prioritas kami",
+      "text": "Kami menjelaskan setiap tindakan dengan jelas sebelum perawatan dimulai."
+    },
+    "services": {
+      "heading": "Layanan kami",
+      "items": [
+        [
+          "Pemeriksaan umum",
+          "Konsultasi dan pemeriksaan kesehatan rutin."
+        ],
+        [
+          "Layanan spesialis",
+          "Dokter spesialis sesuai jadwal praktik."
+        ],
+        [
+          "Laboratorium",
+          "Pemeriksaan laboratorium dengan hasil cepat."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "10.000+",
+        "Pasien terlayani"
+      ],
+      [
+        "12",
+        "Dokter & tenaga medis"
+      ],
+      [
+        "4,9/5",
+        "Rating pasien"
+      ]
+    ],
+    "faq": [
+      [
+        "Apakah menerima BPJS?",
+        "Ya, untuk layanan tertentu sesuai ketentuan."
+      ],
+      [
+        "Bagaimana cara membuat janji?",
+        "Lewat WhatsApp, telepon, atau form kontak."
+      ],
+      [
+        "Apakah buka di akhir pekan?",
+        "Buka Sabtu; Minggu untuk layanan tertentu."
+      ]
+    ],
+    "cta": {
+      "heading": "Jadwalkan pemeriksaan",
+      "text": "Konfirmasi jadwal dalam 1 jam kerja.",
+      "button": "Buat janji"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "Tentang Kami",
+        "body": "<p>Kami klinik yang berkomitmen memberikan layanan kesehatan yang aman, nyaman, dan terjangkau.</p>"
+      },
+      "kontak": {
+        "title": "Kontak",
+        "body": "<p>Buat janji atau tanyakan jadwal praktik dokter.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Kebijakan Privasi",
+        "body": "<p>Kami hanya mengumpulkan data yang Anda kirim lewat formulir (nama, email, telepon, dan pesan) untuk menjawab pertanyaan Anda. Data tidak dijual atau dibagikan ke pihak lain.</p><h2>Analytics</h2><p>Kami mengukur kunjungan tanpa cookie dan tanpa menyimpan alamat IP.</p><h2>Hak Anda</h2><p>Anda dapat meminta data Anda dihapus dengan menghubungi kami.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Pemeriksaan Umum",
+        "summary": "Konsultasi dokter umum.",
+        "price": "Mulai Rp 100 rb",
+        "specs": []
+      },
+      {
+        "title": "Medical Check-up",
+        "summary": "Paket pemeriksaan kesehatan lengkap.",
+        "price": "Mulai Rp 750 rb",
+        "specs": [
+          [
+            "Hasil",
+            "1–2 hari"
+          ]
+        ]
+      },
+      {
+        "title": "Konsultasi Spesialis",
+        "summary": "Sesuai jadwal dokter spesialis.",
+        "price": "Hubungi kami",
+        "specs": []
+      },
+      {
+        "title": "Vaksinasi",
+        "summary": "Vaksin anak dan dewasa.",
+        "price": "Hubungi kami",
+        "specs": []
+      }
+    ],
+    "collection": "Layanan",
+    "articles": [
+      {
+        "title": "Pentingnya pemeriksaan kesehatan rutin",
+        "excerpt": "Deteksi dini membantu pencegahan.",
+        "body": "<p>Pemeriksaan setahun sekali dapat mendeteksi masalah sejak awal.</p>"
+      },
+      {
+        "title": "Tips menjaga kesehatan keluarga",
+        "excerpt": "Kebiasaan sederhana yang berdampak besar.",
+        "body": "<p>Cukup tidur, makan seimbang, dan aktif bergerak setiap hari.</p>"
+      }
+    ]
+  },
+  "en": {
+    "tagline": "Friendly, trusted healthcare",
+    "hero": {
+      "kicker": "Clinic",
+      "heading": "Calm, caring treatment for the whole family",
+      "text": "Experienced medical staff, modern facilities, and flexible hours.",
+      "cta": "Book an appointment"
+    },
+    "about": {
+      "heading": "Patients come first",
+      "text": "We explain every procedure clearly before treatment begins."
+    },
+    "services": {
+      "heading": "Our services",
+      "items": [
+        [
+          "General check-ups",
+          "Routine consultations and examinations."
+        ],
+        [
+          "Specialist services",
+          "Specialists according to their practice schedule."
+        ],
+        [
+          "Laboratory",
+          "Lab tests with fast results."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "10,000+",
+        "Patients served"
+      ],
+      [
+        "12",
+        "Doctors & medical staff"
+      ],
+      [
+        "4.9/5",
+        "Patient rating"
+      ]
+    ],
+    "faq": [
+      [
+        "Do you accept BPJS?",
+        "Yes, for selected services per regulations."
+      ],
+      [
+        "How do I book?",
+        "Via WhatsApp, phone, or the contact form."
+      ],
+      [
+        "Are you open on weekends?",
+        "Open Saturdays; Sundays for selected services."
+      ]
+    ],
+    "cta": {
+      "heading": "Schedule a check-up",
+      "text": "We confirm within 1 business hour.",
+      "button": "Book an appointment"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "About Us",
+        "body": "<p>We are a clinic committed to safe, comfortable, and affordable healthcare.</p>"
+      },
+      "kontak": {
+        "title": "Contact",
+        "body": "<p>Book an appointment or ask about doctors’ schedules.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Privacy Policy",
+        "body": "<p>We only collect the data you send through our forms (name, email, phone, and message) to answer your enquiry. Your data is never sold or shared.</p><h2>Analytics</h2><p>We measure visits without cookies and without storing IP addresses.</p><h2>Your rights</h2><p>You can ask us to delete your data at any time.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "General Consultation",
+        "summary": "Consultation with a general practitioner.",
+        "price": "From IDR 100k",
+        "specs": []
+      },
+      {
+        "title": "Medical Check-up",
+        "summary": "Complete health screening package.",
+        "price": "From IDR 750k",
+        "specs": [
+          [
+            "Results",
+            "1–2 days"
+          ]
+        ]
+      },
+      {
+        "title": "Specialist Consultation",
+        "summary": "According to specialist schedules.",
+        "price": "Contact us",
+        "specs": []
+      },
+      {
+        "title": "Vaccination",
+        "summary": "Child and adult vaccines.",
+        "price": "Contact us",
+        "specs": []
+      }
+    ],
+    "collection": "Services",
+    "articles": [
+      {
+        "title": "Why routine check-ups matter",
+        "excerpt": "Early detection helps prevention.",
+        "body": "<p>A yearly check-up can catch problems early.</p>"
+      },
+      {
+        "title": "Tips to keep your family healthy",
+        "excerpt": "Simple habits with big impact.",
+        "body": "<p>Sleep well, eat balanced meals, and stay active every day.</p>"
+      }
+    ]
+  }
+}

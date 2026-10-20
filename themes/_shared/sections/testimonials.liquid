@@ -1,0 +1,30 @@
+<section class="section testimonials" {{ section.fauqa_attributes }}>
+  <div class="container">
+    {%- if section.settings.heading != blank %}<h2 class="section__heading">{{ section.settings.heading }}</h2>{% endif -%}
+    <ul class="testimonials__list">
+      {%- for block in section.blocks -%}
+        <li {{ block.fauqa_attributes }}>
+          <figure class="testimonial">
+            <blockquote>{{ block.settings.quote }}</blockquote>
+            <figcaption>
+              {%- if block.settings.photo != blank %}{{ block.settings.photo | image_url: width: 120 | image_tag: alt: '', class: 'testimonial__photo', sizes: '48px' }}{% endif -%}
+              <span><strong>{{ block.settings.name }}</strong>{%- if block.settings.role != blank %}<br><span class="muted">{{ block.settings.role }}</span>{% endif -%}</span>
+            </figcaption>
+          </figure>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Testimoni", "settings": [{ "type": "text", "id": "heading", "label": "Judul", "default": "Kata klien kami" }],
+  "blocks": [{ "type": "testimonial", "name": "Testimoni", "settings": [
+    { "type": "textarea", "id": "quote", "label": "Kutipan", "default": "Pekerjaan rapi, tepat waktu, dan komunikasinya jelas dari awal sampai serah terima." },
+    { "type": "text", "id": "name", "label": "Nama", "default": "Nama klien" },
+    { "type": "text", "id": "role", "label": "Jabatan / perusahaan" },
+    { "type": "image_picker", "id": "photo", "label": "Foto" }
+  ] }],
+  "max_blocks": 9,
+  "presets": [{ "name": "Testimoni", "blocks": [{ "type": "testimonial" }, { "type": "testimonial" }, { "type": "testimonial" }] }] }
+{% endschema %}

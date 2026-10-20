@@ -1,0 +1,38 @@
+{
+  "current": "Gading",
+  "presets": {
+    "Gading": {
+      "color_accent": "#7A5C2E",
+      "color_ink": "#1E1B16",
+      "color_background": "#F6F1E9",
+      "font_heading": "Cormorant Garamond",
+      "font_body": "Jost",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#7A5C2E",
+      "radius": 0,
+      "page_width": 1240
+    },
+    "Arang": {
+      "color_accent": "#C8A96A",
+      "color_ink": "#F1ECE2",
+      "color_background": "#121211",
+      "font_heading": "Cormorant Garamond",
+      "font_body": "Jost",
+      "color_on_accent": "#121211",
+      "color_accent_text": "#C8A96A",
+      "radius": 0,
+      "page_width": 1240
+    },
+    "Zaitun": {
+      "color_accent": "#5E6B3C",
+      "color_ink": "#1D1F17",
+      "color_background": "#F3F2EC",
+      "font_heading": "Cormorant Garamond",
+      "font_body": "Jost",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#5E6B3C",
+      "radius": 0,
+      "page_width": 1240
+    }
+  }
+}

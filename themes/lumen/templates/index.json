@@ -1,0 +1,107 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "Mitra tepercaya untuk bisnis Anda",
+        "text": "Kami membantu perusahaan tumbuh dengan layanan yang terukur, tim berpengalaman, dan hasil yang bisa dipertanggungjawabkan."
+      },
+      "blocks": {
+        "btn-1": {
+          "type": "button",
+          "settings": {
+            "label": "Hubungi kami",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "btn-2": {
+          "type": "button",
+          "settings": {
+            "label": "Tentang kami",
+            "link": "/pages/tentang-kami",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "btn-1",
+        "btn-2"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Layanan kami"
+      },
+      "blocks": {
+        "c1": {
+          "type": "column",
+          "settings": {
+            "title": "Konsultasi",
+            "text": "Analisis kebutuhan dan rencana kerja yang jelas sebelum proyek dimulai."
+          }
+        },
+        "c2": {
+          "type": "column",
+          "settings": {
+            "title": "Implementasi",
+            "text": "Tim kami mengerjakan proyek sesuai jadwal dan anggaran yang disepakati."
+          }
+        },
+        "c3": {
+          "type": "column",
+          "settings": {
+            "title": "Pendampingan",
+            "text": "Dukungan purna-proyek agar hasil kerja terus memberi manfaat."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    "about": {
+      "type": "image-with-text",
+      "settings": {
+        "heading": "Lebih dari 10 tahun melayani",
+        "text": "<p>Kami percaya hubungan jangka panjang dibangun dari kerja yang rapi dan komunikasi yang jujur.</p>",
+        "button_label": "Kenali kami",
+        "button_link": "/pages/tentang-kami"
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Siap memulai proyek berikutnya?",
+        "text": "Ceritakan kebutuhan Anda, tim kami membalas dalam 1 hari kerja.",
+        "button_label": "Hubungi kami",
+        "button_link": "/pages/kontak"
+      }
+    },
+    "products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Produk & layanan",
+        "limit": 3
+      }
+    },
+    "news": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Berita terbaru",
+        "limit": 3
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "products",
+    "about",
+    "news",
+    "cta"
+  ]
+}

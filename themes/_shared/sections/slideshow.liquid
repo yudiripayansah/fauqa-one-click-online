@@ -1,0 +1,37 @@
+<section class="slideshow slideshow--{{ section.settings.height }}" {{ section.fauqa_attributes }} aria-roledescription="carousel" aria-label="{{ section.settings.label | default: 'Slideshow' }}">
+  <div class="slideshow__track" tabindex="0">
+    {%- for block in section.blocks -%}
+      <div class="slideshow__slide" {{ block.fauqa_attributes }} aria-roledescription="slide" aria-label="{{ forloop.index }} / {{ forloop.length }}">
+        <div class="slideshow__media">
+          {%- assign load = 'lazy' -%}{%- if forloop.first %}{% assign load = 'eager' %}{% endif -%}
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 1920 | image_tag: alt: block.settings.heading, sizes: '100vw', loading: load }}
+          {%- else -%}{{ 'slide' | placeholder_svg_tag }}{%- endif -%}
+        </div>
+        <div class="container slideshow__copy">
+          {%- if block.settings.heading != blank %}<h2 class="slideshow__heading">{{ block.settings.heading }}</h2>{% endif -%}
+          {%- if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif -%}
+          {%- if block.settings.button_label != blank %}<a class="button button--primary" href="{{ block.settings.button_link }}">{{ block.settings.button_label }}</a>{% endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Slideshow", "class": "section-slideshow",
+  "settings": [
+    { "type": "select", "id": "height", "label": "Tinggi", "default": "large", "options": [{ "value": "small", "label": "Kecil" }, { "value": "large", "label": "Besar" }] },
+    { "type": "paragraph", "content": "Geser ke samping untuk slide berikutnya (tanpa JavaScript, ringan di HP)." }
+  ],
+  "blocks": [{ "type": "slide", "name": "Slide", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Gambar" },
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Judul slide" },
+    { "type": "textarea", "id": "text", "label": "Teks" },
+    { "type": "text", "id": "button_label", "label": "Teks tombol" },
+    { "type": "url", "id": "button_link", "label": "Link tombol" }
+  ] }],
+  "max_blocks": 6,
+  "presets": [{ "name": "Slideshow", "blocks": [{ "type": "slide" }, { "type": "slide" }] }],
+  "enabled_on": { "templates": ["index", "page"] } }
+{% endschema %}

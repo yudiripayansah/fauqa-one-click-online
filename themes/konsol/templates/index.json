@@ -1,0 +1,154 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "deploy --production",
+        "heading": "Software yang dirilis tepat waktu, dan tetap jalan setelahnya",
+        "text": "Software house untuk aplikasi web, mobile, dan integrasi sistem perusahaan. Tim lokal, standar global."
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Diskusikan proyek",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Studi kasus",
+            "link": "/collections/all",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Stack & layanan",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Aplikasi web",
+            "text": "Next.js, Laravel, dan arsitektur yang mudah dirawat."
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Aplikasi mobile",
+            "text": "Flutter & native untuk Android dan iOS."
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Integrasi ERP",
+            "text": "SAP, Odoo, dan API pihak ketiga."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "stats": {
+      "type": "stats",
+      "settings": {
+        "band": false
+      },
+      "blocks": {
+        "b1": {
+          "type": "stat",
+          "settings": {
+            "value": "210+",
+            "label": "Rilis produksi"
+          }
+        },
+        "b2": {
+          "type": "stat",
+          "settings": {
+            "value": "45",
+            "label": "Engineer"
+          }
+        },
+        "b3": {
+          "type": "stat",
+          "settings": {
+            "value": "< 2 jam",
+            "label": "Respons insiden"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Studi kasus",
+        "limit": 3
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "heading": "Pertanyaan yang sering diajukan",
+        "open_first": true
+      },
+      "blocks": {
+        "b1": {
+          "type": "question",
+          "settings": {
+            "question": "Apakah kode menjadi milik kami?",
+            "answer": "<p>Ya, seluruh kode dan dokumentasi diserahkan penuh.</p>"
+          }
+        },
+        "b2": {
+          "type": "question",
+          "settings": {
+            "question": "Bagaimana proses kerjanya?",
+            "answer": "<p>Sprint 2 mingguan dengan demo di setiap akhir sprint.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Punya sistem yang mau dibangun?",
+        "text": "Kirim gambaran kebutuhan, kami siapkan estimasi dalam 3 hari kerja.",
+        "button_label": "Minta estimasi",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "stats",
+    "products",
+    "faq",
+    "cta"
+  ]
+}

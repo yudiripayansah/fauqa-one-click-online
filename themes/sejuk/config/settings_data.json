@@ -1,0 +1,38 @@
+{
+  "current": "Langit",
+  "presets": {
+    "Langit": {
+      "color_accent": "#2F6FED",
+      "color_ink": "#14213D",
+      "color_background": "#F5F8FF",
+      "font_heading": "Nunito",
+      "font_body": "Nunito Sans",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#2E6BE4",
+      "radius": 20,
+      "page_width": 1240
+    },
+    "Mint": {
+      "color_accent": "#0F7B68",
+      "color_ink": "#123430",
+      "color_background": "#F2FBF8",
+      "font_heading": "Nunito",
+      "font_body": "Nunito Sans",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#0F7B68",
+      "radius": 20,
+      "page_width": 1240
+    },
+    "Lavender": {
+      "color_accent": "#6B4FD8",
+      "color_ink": "#231C45",
+      "color_background": "#F7F5FF",
+      "font_heading": "Nunito",
+      "font_body": "Nunito Sans",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#6B4FD8",
+      "radius": 20,
+      "page_width": 1240
+    }
+  }
+}

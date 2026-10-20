@@ -1,0 +1,47 @@
+# Dependensi & hasil build
+node_modules
+.next
+out
+build
+coverage
+*.tsbuildinfo
+next-env.d.ts
+
+# Rahasia: semua file env kecuali contoh
+.env
+.env.*
+!.env.example
+
+# Kunci, sertifikat, kredensial
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*credentials*.json
+*service-account*.json
+*-sa.json
+
+# Vercel & Supabase CLI (berisi ID project / token lokal)
+.vercel
+supabase/.branches
+supabase/.temp
+supabase/.env
+
+# Log & dump database
+*.log
+npm-debug.log*
+*.dump
+*.sql.gz
+*.backup
+
+# Editor & OS
+.DS_Store
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Data lokal Claude Code
+.claude/settings.local.json

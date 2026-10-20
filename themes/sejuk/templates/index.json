@@ -1,0 +1,189 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Klinik Gigi Keluarga",
+        "heading": "Perawatan gigi yang tenang, untuk seluruh keluarga",
+        "text": "Klinik gigi dengan dokter spesialis anak dan ortodonti, ruang tunggu nyaman, dan jadwal yang fleksibel."
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Buat janji",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Layanan",
+            "link": "/collections/all",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Layanan kami",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Pemeriksaan rutin",
+            "text": "Pembersihan karang gigi dan pemeriksaan menyeluruh."
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Gigi anak",
+            "text": "Dokter spesialis anak dengan pendekatan tanpa takut."
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Ortodonti",
+            "text": "Kawat gigi dan aligner bening."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "stats": {
+      "type": "stats",
+      "settings": {
+        "band": false
+      },
+      "blocks": {
+        "b1": {
+          "type": "stat",
+          "settings": {
+            "value": "9.000+",
+            "label": "Pasien terlayani"
+          }
+        },
+        "b2": {
+          "type": "stat",
+          "settings": {
+            "value": "8",
+            "label": "Dokter gigi"
+          }
+        },
+        "b3": {
+          "type": "stat",
+          "settings": {
+            "value": "4,9/5",
+            "label": "Rating Google"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "team": {
+      "type": "team",
+      "settings": {
+        "heading": "Tim dokter"
+      },
+      "blocks": {
+        "b1": {
+          "type": "member",
+          "settings": {
+            "name": "drg. Ayu Lestari, Sp.KGA",
+            "role": "Spesialis gigi anak"
+          }
+        },
+        "b2": {
+          "type": "member",
+          "settings": {
+            "name": "drg. Budi Santoso, Sp.Ort",
+            "role": "Spesialis ortodonti"
+          }
+        },
+        "b3": {
+          "type": "member",
+          "settings": {
+            "name": "drg. Citra Dewi",
+            "role": "Dokter gigi umum"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "heading": "Pertanyaan yang sering diajukan",
+        "open_first": true
+      },
+      "blocks": {
+        "b1": {
+          "type": "question",
+          "settings": {
+            "question": "Apakah menerima BPJS?",
+            "answer": "<p>Ya, untuk layanan dasar di jam praktik tertentu.</p>"
+          }
+        },
+        "b2": {
+          "type": "question",
+          "settings": {
+            "question": "Bisa daftar online?",
+            "answer": "<p>Bisa, lewat form kontak atau WhatsApp.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "map": {
+      "type": "map",
+      "settings": {
+        "heading": "Lokasi & jam praktik",
+        "hours": "Senin–Sabtu 08.00–20.00"
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Jadwalkan pemeriksaan",
+        "text": "Konfirmasi jadwal dalam 1 jam kerja.",
+        "button_label": "Buat janji",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "stats",
+    "team",
+    "faq",
+    "map",
+    "cta"
+  ]
+}

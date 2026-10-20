@@ -1,0 +1,19 @@
+<section class="section" {{ section.fauqa_attributes }}>
+  <div class="container">
+    <h1>{{ blog.title }}</h1>
+    {%- paginate blog.articles by 9 -%}
+      {%- if blog.articles.size > 0 -%}
+        <ul class="grid">
+          {%- for article in blog.articles -%}<li>{% render 'card-article', article: article %}</li>{%- endfor -%}
+        </ul>
+      {%- else -%}
+        <p class="muted">{{ 'blogs.empty' | t }}</p>
+      {%- endif -%}
+      {{ paginate | default_pagination }}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Blog", "settings": [], "enabled_on": { "templates": ["blog"] } }
+{% endschema %}

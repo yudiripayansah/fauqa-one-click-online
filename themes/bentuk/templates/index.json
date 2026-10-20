@@ -1,0 +1,164 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Penerimaan 2027 dibuka",
+        "heading": "Sekolah desain untuk generasi pembuat",
+        "text": "Program diploma dan kursus singkat desain grafis, produk, dan interior dengan studio praktik setiap hari."
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Daftar sekarang",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Program studi",
+            "link": "/collections/all",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Program",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Desain grafis",
+            "text": "Tipografi, identitas visual, dan desain digital."
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Desain produk",
+            "text": "Dari sketsa ke prototipe di bengkel kayu & 3D print."
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Desain interior",
+            "text": "Ruang, material, dan pencahayaan."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "stats": {
+      "type": "stats",
+      "settings": {
+        "band": true
+      },
+      "blocks": {
+        "b1": {
+          "type": "stat",
+          "settings": {
+            "value": "1.200",
+            "label": "Alumni"
+          }
+        },
+        "b2": {
+          "type": "stat",
+          "settings": {
+            "value": "92%",
+            "label": "Terserap industri"
+          }
+        },
+        "b3": {
+          "type": "stat",
+          "settings": {
+            "value": "15",
+            "label": "Mitra studio"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "timeline": {
+      "type": "timeline",
+      "settings": {
+        "heading": "Perjalanan kami"
+      },
+      "blocks": {
+        "b1": {
+          "type": "event",
+          "settings": {
+            "year": "2009",
+            "title": "Studio pertama dibuka",
+            "text": "Dimulai dari 12 siswa di sebuah ruko."
+          }
+        },
+        "b2": {
+          "type": "event",
+          "settings": {
+            "year": "2016",
+            "title": "Akreditasi program diploma",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "event",
+          "settings": {
+            "year": "2025",
+            "title": "Kampus baru dengan bengkel material",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "news": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Pameran & kegiatan",
+        "limit": 3
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Ikut kelas percobaan gratis",
+        "text": "Rasakan langsung suasana studio setiap Sabtu pagi.",
+        "button_label": "Daftar kelas percobaan",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "stats",
+    "timeline",
+    "news",
+    "cta"
+  ]
+}

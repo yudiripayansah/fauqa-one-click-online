@@ -1,0 +1,28 @@
+<section class="section gallery" {{ section.fauqa_attributes }}>
+  <div class="container">
+    {%- if section.settings.heading != blank %}<h2 class="section__heading">{{ section.settings.heading }}</h2>{% endif -%}
+    <ul class="gallery__grid" style="--cols: {{ section.settings.columns }}">
+      {%- for block in section.blocks -%}
+        <li {{ block.fauqa_attributes }}>
+          <figure>
+            {%- if block.settings.image != blank -%}{{ block.settings.image | image_url: width: 800 | image_tag: alt: block.settings.caption, sizes: '(min-width: 760px) 33vw, 50vw' }}{%- else -%}{{ 'image' | placeholder_svg_tag }}{%- endif -%}
+            {%- if block.settings.caption != blank %}<figcaption>{{ block.settings.caption }}</figcaption>{% endif -%}
+          </figure>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Galeri", "settings": [
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Galeri" },
+    { "type": "range", "id": "columns", "label": "Kolom (desktop)", "min": 2, "max": 5, "step": 1, "default": 3 }
+  ],
+  "blocks": [{ "type": "image", "name": "Gambar", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Gambar" },
+    { "type": "text", "id": "caption", "label": "Keterangan" }
+  ] }],
+  "max_blocks": 30,
+  "presets": [{ "name": "Galeri", "blocks": [{ "type": "image" }, { "type": "image" }, { "type": "image" }] }] }
+{% endschema %}

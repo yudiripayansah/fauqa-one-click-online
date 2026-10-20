@@ -1,0 +1,12 @@
+<section class="section main-404" {{ section.fauqa_attributes }}>
+  <div class="container container--narrow">
+    <p class="main-404__code">404</p>
+    <h1>{{ 'templates.404.title' | t }}</h1>
+    <p class="muted">{{ 'templates.404.text' | t }}</p>
+    <a class="button button--primary" href="{{ routes.root_url }}">{{ 'templates.404.back' | t }}</a>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "404", "settings": [], "enabled_on": { "templates": ["404"] } }
+{% endschema %}

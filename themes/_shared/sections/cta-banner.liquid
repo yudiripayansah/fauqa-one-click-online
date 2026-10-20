@@ -1,0 +1,24 @@
+<section class="section cta-banner" {{ section.fauqa_attributes }}>
+  <div class="container cta-banner__inner">
+    <div>
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank %}<p>{{ section.settings.text }}</p>{% endif -%}
+    </div>
+    {%- if section.settings.button_label != blank -%}
+      <a class="button button--inverse" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Banner ajakan",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Siap bekerja sama?" },
+    { "type": "textarea", "id": "text", "label": "Teks" },
+    { "type": "text", "id": "button_label", "label": "Teks tombol", "default": "Hubungi kami" },
+    { "type": "url", "id": "button_link", "label": "Link tombol" }
+  ],
+  "presets": [{ "name": "Banner ajakan" }]
+}
+{% endschema %}

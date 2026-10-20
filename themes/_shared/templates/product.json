@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "main": { "type": "main-product", "settings": {} },
+    "related": { "type": "related-products", "settings": { "heading": "Produk terkait" } }
+  },
+  "order": ["main", "related"]
+}

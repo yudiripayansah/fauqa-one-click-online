@@ -1,0 +1,8 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": { "color_accent": "#0B5D6B", "color_ink": "#17212B", "color_background": "#FFFFFF", "font_heading": "Instrument Sans", "font_body": "Instrument Sans" },
+    "Navy": { "color_accent": "#1D3A8A", "color_ink": "#141A2E", "color_background": "#FFFFFF", "font_heading": "Manrope", "font_body": "Manrope" },
+    "Klasik": { "color_accent": "#7A3B2E", "color_ink": "#1E1B18", "color_background": "#FFFFFF", "font_heading": "Fraunces", "font_body": "Instrument Sans" }
+  }
+}

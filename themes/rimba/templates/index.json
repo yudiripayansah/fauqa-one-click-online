@@ -1,0 +1,145 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Koperasi Tani Lestari",
+        "heading": "Dari kebun di lereng gunung, langsung ke cangkir Anda",
+        "text": "Koperasi petani teh dan kopi organik, bersertifikat dan diolah tanpa bahan kimia."
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Lihat produk",
+            "link": "/collections/all",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Cerita kami",
+            "link": "/pages/tentang-kami",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Prinsip kami",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Organik bersertifikat",
+            "text": "Tanpa pestisida sintetis sejak 2012."
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Adil untuk petani",
+            "text": "Harga beli di atas pasar, dibayar tunai."
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Jejak karbon rendah",
+            "text": "Pengeringan tenaga surya dan kemasan kompos."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "stats": {
+      "type": "stats",
+      "settings": {
+        "band": true
+      },
+      "blocks": {
+        "b1": {
+          "type": "stat",
+          "settings": {
+            "value": "214",
+            "label": "Keluarga petani"
+          }
+        },
+        "b2": {
+          "type": "stat",
+          "settings": {
+            "value": "86 ha",
+            "label": "Kebun organik"
+          }
+        },
+        "b3": {
+          "type": "stat",
+          "settings": {
+            "value": "12",
+            "label": "Negara tujuan ekspor"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Produk musim ini",
+        "limit": 3
+      }
+    },
+    "about": {
+      "type": "image-with-text",
+      "settings": {
+        "heading": "Tumbuh bersama alam",
+        "text": "<p>Kami menanam di bawah naungan pohon hutan untuk menjaga air dan keanekaragaman hayati.</p>",
+        "button_label": "Tentang kami",
+        "button_link": "/pages/tentang-kami",
+        "layout": "image_left"
+      }
+    },
+    "news": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Cerita dari kebun",
+        "limit": 3
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Kemitraan grosir & ekspor",
+        "text": "Kami melayani kafe, hotel, dan importir dengan volume minimum yang fleksibel.",
+        "button_label": "Hubungi tim penjualan",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "stats",
+    "products",
+    "about",
+    "news",
+    "cta"
+  ]
+}

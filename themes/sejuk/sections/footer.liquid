@@ -1,0 +1,36 @@
+<footer class="site-footer" {{ section.fauqa_attributes }}>
+  <div class="container site-footer__grid">
+    <div>
+      <p class="site-footer__name">{{ site.name }}</p>
+      {%- if site.tagline != blank %}<p class="muted">{{ site.tagline }}</p>{% endif -%}
+    </div>
+    {%- assign menu = linklists[section.settings.menu] -%}
+    {%- if menu.links.size > 0 -%}
+      <nav aria-label="{{ menu.title }}">
+        <ul class="site-footer__links">
+          {%- for link in menu.links %}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{% endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+    <address class="site-footer__contact">
+      {%- if site.contact.address != blank %}<p>{{ site.contact.address }}</p>{% endif -%}
+      {%- if site.contact.phone != blank %}<p><a href="tel:{{ site.contact.phone | replace: ' ', '' }}">{{ site.contact.phone }}</a></p>{% endif -%}
+      {%- if site.contact.email != blank %}<p><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>{% endif -%}
+    </address>
+  </div>
+  <div class="container site-footer__bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ site.name }}. {{ 'general.all_rights' | t }}</p>
+    {{ powered_by_link }}
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "div",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
+  ],
+  "enabled_on": { "groups": ["footer"] }
+}
+{% endschema %}

@@ -1,0 +1,8 @@
+{
+  "current": "Mangga",
+  "presets": {
+    "Mangga": { "color_accent": "#C2570F", "color_on_accent": "#FFFFFF", "color_ink": "#2A1F1A", "color_background": "#FFFCF7", "font_heading": "Bricolage Grotesque", "font_body": "Figtree", "radius": 22 },
+    "Laut": { "color_accent": "#1C7C8C", "color_on_accent": "#FFFFFF", "color_ink": "#10292E", "color_background": "#F6FBFB", "font_heading": "Bricolage Grotesque", "font_body": "Figtree", "radius": 18 },
+    "Anggur": { "color_accent": "#8E3B78", "color_on_accent": "#FFFFFF", "color_ink": "#2B1A27", "color_background": "#FFF8FC", "font_heading": "Fraunces", "font_body": "Figtree", "radius": 26 }
+  }
+}

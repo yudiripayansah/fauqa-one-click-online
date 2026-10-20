@@ -1,0 +1,145 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Konsultan teknik sejak 2008",
+        "heading": "Rekayasa yang terukur, hasil yang tahan lama",
+        "text": "Konsultan struktur dan arsitektur untuk gedung komersial, industri, dan fasilitas publik."
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Hubungi kami",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Tentang kami",
+            "link": "/pages/tentang-kami",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Lingkup layanan",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Perencanaan struktur",
+            "text": "Analisis beban, gempa, dan detail sambungan sesuai SNI."
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Desain arsitektur",
+            "text": "Konsep, gambar kerja, dan koordinasi MEP."
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Manajemen konstruksi",
+            "text": "Pengawasan mutu, biaya, dan jadwal di lapangan."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "stats": {
+      "type": "stats",
+      "settings": {
+        "band": false
+      },
+      "blocks": {
+        "b1": {
+          "type": "stat",
+          "settings": {
+            "value": "140",
+            "label": "Proyek selesai"
+          }
+        },
+        "b2": {
+          "type": "stat",
+          "settings": {
+            "value": "18",
+            "label": "Tahun praktik"
+          }
+        },
+        "b3": {
+          "type": "stat",
+          "settings": {
+            "value": "32",
+            "label": "Insinyur bersertifikat"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "about": {
+      "type": "image-with-text",
+      "settings": {
+        "heading": "Metode kerja yang bisa diaudit",
+        "text": "<p>Setiap keputusan desain terdokumentasi dan dapat ditelusuri kembali oleh pemilik proyek.</p>",
+        "button_label": "Tentang kami",
+        "button_link": "/pages/tentang-kami",
+        "layout": "image_left"
+      }
+    },
+    "products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Portofolio pilihan",
+        "limit": 3
+      }
+    },
+    "news": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Catatan teknis",
+        "limit": 3
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Diskusikan proyek Anda",
+        "text": "Kirim brief singkat, kami jadwalkan pertemuan dalam 2 hari kerja.",
+        "button_label": "Hubungi kami",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "stats",
+    "about",
+    "products",
+    "news",
+    "cta"
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "key": "konstruksi",
+  "name": "Konstruksi & Properti",
+  "themes": [
+    "forge",
+    "aurum",
+    "raster"
+  ],
+  "id": {
+    "tagline": "Membangun dengan presisi dan tepat waktu",
+    "hero": {
+      "kicker": "Kontraktor & developer",
+      "heading": "Bangunan yang kokoh, dikerjakan tepat waktu",
+      "text": "Perencanaan, konstruksi, dan serah terima dengan standar mutu tinggi.",
+      "cta": "Konsultasi proyek"
+    },
+    "about": {
+      "heading": "Proyek terkelola dengan transparan",
+      "text": "Laporan progres berkala, anggaran terkendali, dan pengawasan mutu di lapangan."
+    },
+    "services": {
+      "heading": "Layanan kami",
+      "items": [
+        [
+          "Desain & perencanaan",
+          "Gambar kerja, RAB, dan perizinan."
+        ],
+        [
+          "Konstruksi",
+          "Bangunan komersial, residensial, dan industri."
+        ],
+        [
+          "Renovasi",
+          "Perbaikan dan pengembangan bangunan yang ada."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "120+",
+        "Proyek selesai"
+      ],
+      [
+        "20",
+        "Tahun pengalaman"
+      ],
+      [
+        "100%",
+        "Tepat waktu 2025"
+      ]
+    ],
+    "faq": [
+      [
+        "Apakah melayani proyek rumah tinggal?",
+        "Ya, mulai dari rumah tinggal hingga gedung komersial."
+      ],
+      [
+        "Berapa lama membangun rumah 2 lantai?",
+        "Rata-rata 6–9 bulan tergantung desain dan luas."
+      ],
+      [
+        "Apakah ada garansi bangunan?",
+        "Garansi struktur sesuai kontrak dan masa pemeliharaan."
+      ]
+    ],
+    "cta": {
+      "heading": "Punya rencana membangun?",
+      "text": "Konsultasikan desain dan anggaran Anda dengan tim kami.",
+      "button": "Konsultasi proyek"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "Tentang Kami",
+        "body": "<p>Kami kontraktor dan developer dengan pengalaman menyelesaikan proyek di berbagai kota.</p><h2>Komitmen</h2><p>Mutu, keselamatan kerja, dan ketepatan waktu.</p>"
+      },
+      "kontak": {
+        "title": "Kontak",
+        "body": "<p>Jadwalkan survei lokasi atau konsultasi proyek dengan tim kami.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Kebijakan Privasi",
+        "body": "<p>Kami hanya mengumpulkan data yang Anda kirim lewat formulir (nama, email, telepon, dan pesan) untuk menjawab pertanyaan Anda. Data tidak dijual atau dibagikan ke pihak lain.</p><h2>Analytics</h2><p>Kami mengukur kunjungan tanpa cookie dan tanpa menyimpan alamat IP.</p><h2>Hak Anda</h2><p>Anda dapat meminta data Anda dihapus dengan menghubungi kami.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Rumah Tinggal",
+        "summary": "Desain dan pembangunan rumah tinggal.",
+        "price": "Mulai Rp 4 jt / m²",
+        "specs": [
+          [
+            "Garansi struktur",
+            "10 tahun"
+          ]
+        ]
+      },
+      {
+        "title": "Bangunan Komersial",
+        "summary": "Ruko, kantor, dan gudang.",
+        "price": "Hubungi kami",
+        "specs": []
+      },
+      {
+        "title": "Renovasi",
+        "summary": "Renovasi total maupun sebagian.",
+        "price": "Mulai Rp 2,5 jt / m²",
+        "specs": []
+      },
+      {
+        "title": "Desain & RAB",
+        "summary": "Gambar kerja lengkap dan rencana anggaran biaya.",
+        "price": "Mulai Rp 50 rb / m²",
+        "specs": []
+      }
+    ],
+    "collection": "Layanan",
+    "articles": [
+      {
+        "title": "Serah terima proyek perumahan terbaru",
+        "excerpt": "Tahap pertama selesai lebih cepat dari jadwal.",
+        "body": "<p>Unit tahap pertama telah diserahterimakan kepada pemilik.</p>"
+      },
+      {
+        "title": "Persiapan sebelum membangun rumah",
+        "excerpt": "Hal yang perlu disiapkan sebelum memulai konstruksi.",
+        "body": "<p>Mulai dari anggaran, perizinan, hingga pemilihan kontraktor.</p>"
+      }
+    ]
+  },
+  "en": {
+    "tagline": "Building with precision, delivered on time",
+    "hero": {
+      "kicker": "Contractor & developer",
+      "heading": "Solid buildings, delivered on time",
+      "text": "Planning, construction, and handover to high quality standards.",
+      "cta": "Discuss your project"
+    },
+    "about": {
+      "heading": "Transparent project management",
+      "text": "Regular progress reports, controlled budgets, and on-site quality supervision."
+    },
+    "services": {
+      "heading": "Our services",
+      "items": [
+        [
+          "Design & planning",
+          "Working drawings, cost estimates, and permits."
+        ],
+        [
+          "Construction",
+          "Commercial, residential, and industrial buildings."
+        ],
+        [
+          "Renovation",
+          "Repairs and extensions of existing buildings."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "120+",
+        "Projects completed"
+      ],
+      [
+        "20",
+        "Years of experience"
+      ],
+      [
+        "100%",
+        "On time in 2025"
+      ]
+    ],
+    "faq": [
+      [
+        "Do you build private homes?",
+        "Yes, from homes to commercial buildings."
+      ],
+      [
+        "How long does a 2-storey house take?",
+        "Typically 6–9 months depending on design and size."
+      ],
+      [
+        "Is there a building warranty?",
+        "Structural warranty per contract and maintenance period."
+      ]
+    ],
+    "cta": {
+      "heading": "Planning to build?",
+      "text": "Discuss your design and budget with our team.",
+      "button": "Discuss your project"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "About Us",
+        "body": "<p>We are a contractor and developer with projects completed in many cities.</p><h2>Commitment</h2><p>Quality, safety, and punctuality.</p>"
+      },
+      "kontak": {
+        "title": "Contact",
+        "body": "<p>Schedule a site survey or project consultation with our team.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Privacy Policy",
+        "body": "<p>We only collect the data you send through our forms (name, email, phone, and message) to answer your enquiry. Your data is never sold or shared.</p><h2>Analytics</h2><p>We measure visits without cookies and without storing IP addresses.</p><h2>Your rights</h2><p>You can ask us to delete your data at any time.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Residential",
+        "summary": "Home design and construction.",
+        "price": "From IDR 4M / m²",
+        "specs": [
+          [
+            "Structural warranty",
+            "10 years"
+          ]
+        ]
+      },
+      {
+        "title": "Commercial Buildings",
+        "summary": "Shophouses, offices, and warehouses.",
+        "price": "Contact us",
+        "specs": []
+      },
+      {
+        "title": "Renovation",
+        "summary": "Full or partial renovation.",
+        "price": "From IDR 2.5M / m²",
+        "specs": []
+      },
+      {
+        "title": "Design & Cost Plan",
+        "summary": "Complete drawings and bill of quantities.",
+        "price": "From IDR 50k / m²",
+        "specs": []
+      }
+    ],
+    "collection": "Services",
+    "articles": [
+      {
+        "title": "Latest housing project handed over",
+        "excerpt": "Phase one finished ahead of schedule.",
+        "body": "<p>Phase one units have been handed over to their owners.</p>"
+      },
+      {
+        "title": "What to prepare before building a house",
+        "excerpt": "Things to sort out before construction starts.",
+        "body": "<p>From budget and permits to choosing a contractor.</p>"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+<section class="section image-text{% if section.settings.layout == 'image_right' %} image-text--reverse{% endif %}" {{ section.fauqa_attributes }}>
+  <div class="container image-text__grid">
+    <div class="image-text__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 900 | image_tag: alt: section.settings.image_alt, sizes: '(min-width: 760px) 50vw, 100vw' }}
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+    <div class="image-text__copy">
+      <h2>{{ section.settings.heading }}</h2>
+      <div class="rte">{{ section.settings.text }}</div>
+      {%- if section.settings.button_label != blank -%}
+        <a class="button button--secondary" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gambar dengan teks",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Gambar" },
+    { "type": "text", "id": "image_alt", "label": "Teks alternatif gambar" },
+    { "type": "radio", "id": "layout", "label": "Posisi gambar", "default": "image_left",
+      "options": [{ "value": "image_left", "label": "Kiri" }, { "value": "image_right", "label": "Kanan" }] },
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Gambar dengan teks" },
+    { "type": "richtext", "id": "text", "label": "Teks", "default": "<p>Ceritakan sesuatu tentang perusahaan Anda.</p>" },
+    { "type": "text", "id": "button_label", "label": "Teks tombol" },
+    { "type": "url", "id": "button_link", "label": "Link tombol" }
+  ],
+  "presets": [{ "name": "Gambar dengan teks" }]
+}
+{% endschema %}

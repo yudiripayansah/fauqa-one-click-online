@@ -1,0 +1,261 @@
+{
+  "key": "pendidikan",
+  "name": "Pendidikan",
+  "themes": [
+    "bentuk",
+    "sejuk",
+    "aura"
+  ],
+  "id": {
+    "tagline": "Tempat belajar yang menumbuhkan potensi",
+    "hero": {
+      "kicker": "Pendaftaran dibuka",
+      "heading": "Belajar dengan cara yang menyenangkan dan bermakna",
+      "text": "Kurikulum terarah, pengajar berpengalaman, dan lingkungan belajar yang mendukung.",
+      "cta": "Daftar sekarang"
+    },
+    "about": {
+      "heading": "Pendidikan yang berpusat pada siswa",
+      "text": "Setiap siswa dibimbing sesuai minat dan kemampuannya."
+    },
+    "services": {
+      "heading": "Program kami",
+      "items": [
+        [
+          "Program reguler",
+          "Kurikulum lengkap dengan kelas kecil."
+        ],
+        [
+          "Kursus singkat",
+          "Keterampilan praktis dalam waktu singkat."
+        ],
+        [
+          "Bimbingan karier",
+          "Persiapan memasuki dunia kerja."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "1.000+",
+        "Alumni"
+      ],
+      [
+        "30",
+        "Pengajar"
+      ],
+      [
+        "92%",
+        "Lulusan terserap kerja"
+      ]
+    ],
+    "faq": [
+      [
+        "Kapan pendaftaran dibuka?",
+        "Pendaftaran gelombang berikutnya sudah dibuka; lihat jadwal di halaman kontak."
+      ],
+      [
+        "Apakah ada beasiswa?",
+        "Tersedia beasiswa prestasi dan bantuan biaya."
+      ],
+      [
+        "Bisakah berkunjung sebelum mendaftar?",
+        "Bisa, kami mengadakan open house rutin."
+      ]
+    ],
+    "cta": {
+      "heading": "Siap bergabung?",
+      "text": "Daftar sekarang atau ikuti kelas percobaan gratis.",
+      "button": "Daftar sekarang"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "Tentang Kami",
+        "body": "<p>Kami lembaga pendidikan yang berfokus pada pembelajaran praktis dan karakter.</p><h2>Visi</h2><p>Mencetak lulusan yang kompeten dan berintegritas.</p>"
+      },
+      "kontak": {
+        "title": "Kontak",
+        "body": "<p>Informasi pendaftaran, jadwal open house, dan pertanyaan lain.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Kebijakan Privasi",
+        "body": "<p>Kami hanya mengumpulkan data yang Anda kirim lewat formulir (nama, email, telepon, dan pesan) untuk menjawab pertanyaan Anda. Data tidak dijual atau dibagikan ke pihak lain.</p><h2>Analytics</h2><p>Kami mengukur kunjungan tanpa cookie dan tanpa menyimpan alamat IP.</p><h2>Hak Anda</h2><p>Anda dapat meminta data Anda dihapus dengan menghubungi kami.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Program Reguler",
+        "summary": "Program utama dengan kurikulum lengkap.",
+        "price": "Hubungi kami",
+        "specs": [
+          [
+            "Durasi",
+            "2 tahun"
+          ]
+        ]
+      },
+      {
+        "title": "Kursus Singkat",
+        "summary": "Kelas intensif keterampilan praktis.",
+        "price": "Mulai Rp 1,5 jt",
+        "specs": [
+          [
+            "Durasi",
+            "8 minggu"
+          ]
+        ]
+      },
+      {
+        "title": "Kelas Akhir Pekan",
+        "summary": "Belajar fleksibel di hari Sabtu.",
+        "price": "Mulai Rp 900 rb",
+        "specs": []
+      },
+      {
+        "title": "Bimbingan Karier",
+        "summary": "Persiapan magang dan kerja.",
+        "price": "Gratis untuk siswa",
+        "specs": []
+      }
+    ],
+    "collection": "Program",
+    "articles": [
+      {
+        "title": "Open house semester ini",
+        "excerpt": "Kenali fasilitas dan pengajar kami secara langsung.",
+        "body": "<p>Kunjungi kampus kami dan ikuti kelas percobaan.</p>"
+      },
+      {
+        "title": "Tips memilih program belajar",
+        "excerpt": "Sesuaikan dengan minat dan tujuan karier.",
+        "body": "<p>Kenali minat, lihat kurikulum, dan tanyakan prospek lulusan.</p>"
+      }
+    ]
+  },
+  "en": {
+    "tagline": "A place to learn and grow",
+    "hero": {
+      "kicker": "Admissions open",
+      "heading": "Learning that is engaging and meaningful",
+      "text": "A focused curriculum, experienced teachers, and a supportive environment.",
+      "cta": "Apply now"
+    },
+    "about": {
+      "heading": "Student-centred education",
+      "text": "Each student is guided according to their interests and abilities."
+    },
+    "services": {
+      "heading": "Our programmes",
+      "items": [
+        [
+          "Regular programme",
+          "A complete curriculum with small classes."
+        ],
+        [
+          "Short courses",
+          "Practical skills in a short time."
+        ],
+        [
+          "Career guidance",
+          "Preparing for the world of work."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "1,000+",
+        "Alumni"
+      ],
+      [
+        "30",
+        "Teachers"
+      ],
+      [
+        "92%",
+        "Graduates employed"
+      ]
+    ],
+    "faq": [
+      [
+        "When do admissions open?",
+        "The next intake is open; see the contact page for dates."
+      ],
+      [
+        "Are scholarships available?",
+        "Merit scholarships and financial aid are available."
+      ],
+      [
+        "Can I visit before applying?",
+        "Yes, we hold regular open houses."
+      ]
+    ],
+    "cta": {
+      "heading": "Ready to join?",
+      "text": "Apply now or join a free trial class.",
+      "button": "Apply now"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "About Us",
+        "body": "<p>We are an education provider focused on practical learning and character.</p><h2>Vision</h2><p>Graduates who are competent and principled.</p>"
+      },
+      "kontak": {
+        "title": "Contact",
+        "body": "<p>Admissions information, open house dates, and other questions.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Privacy Policy",
+        "body": "<p>We only collect the data you send through our forms (name, email, phone, and message) to answer your enquiry. Your data is never sold or shared.</p><h2>Analytics</h2><p>We measure visits without cookies and without storing IP addresses.</p><h2>Your rights</h2><p>You can ask us to delete your data at any time.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Regular Programme",
+        "summary": "Our core programme with a full curriculum.",
+        "price": "Contact us",
+        "specs": [
+          [
+            "Duration",
+            "2 years"
+          ]
+        ]
+      },
+      {
+        "title": "Short Course",
+        "summary": "Intensive practical skills classes.",
+        "price": "From IDR 1.5M",
+        "specs": [
+          [
+            "Duration",
+            "8 weeks"
+          ]
+        ]
+      },
+      {
+        "title": "Weekend Class",
+        "summary": "Flexible Saturday learning.",
+        "price": "From IDR 900k",
+        "specs": []
+      },
+      {
+        "title": "Career Guidance",
+        "summary": "Internship and job preparation.",
+        "price": "Free for students",
+        "specs": []
+      }
+    ],
+    "collection": "Programmes",
+    "articles": [
+      {
+        "title": "Open house this semester",
+        "excerpt": "Meet our facilities and teachers in person.",
+        "body": "<p>Visit our campus and join a trial class.</p>"
+      },
+      {
+        "title": "Tips for choosing a programme",
+        "excerpt": "Match it to your interests and career goals.",
+        "body": "<p>Know your interests, review the curriculum, and ask about graduate outcomes.</p>"
+      }
+    ]
+  }
+}

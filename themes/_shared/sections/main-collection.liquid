@@ -1,0 +1,21 @@
+<section class="section" {{ section.fauqa_attributes }}>
+  <div class="container">
+    <h1>{{ collection.title }}</h1>
+    {%- if collection.description != blank %}<div class="rte collection__desc">{{ collection.description }}</div>{% endif -%}
+    {%- paginate collection.products by section.settings.per_page -%}
+      {%- if collection.products.size > 0 -%}
+        <ul class="grid">
+          {%- for product in collection.products -%}<li>{% render 'card-product', product: product %}</li>{%- endfor -%}
+        </ul>
+      {%- else -%}
+        <p class="muted">{{ 'collections.empty' | t }}</p>
+      {%- endif -%}
+      {{ paginate | default_pagination }}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Koleksi", "settings": [{ "type": "range", "id": "per_page", "label": "Produk per halaman", "min": 6, "max": 48, "step": 6, "default": 12 }],
+  "enabled_on": { "templates": ["collection"] } }
+{% endschema %}

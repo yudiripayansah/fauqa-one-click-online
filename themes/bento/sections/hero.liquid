@@ -1,0 +1,56 @@
+<section class="hero hero--bento" {{ section.fauqa_attributes }}>
+  <div class="container hero__bento">
+    <div class="hero__tile hero__tile--main">
+      {%- if section.settings.kicker != blank %}<p class="hero__kicker">{{ section.settings.kicker }}</p>{% endif -%}
+      <h1 class="hero__heading">{{ section.settings.heading }}</h1>
+      {%- if section.settings.text != blank %}<p class="hero__text">{{ section.settings.text }}</p>{% endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <div class="button-row">
+          {%- for block in section.blocks -%}
+            <a href="{{ block.settings.link }}" class="button button--{{ block.settings.style }}" {{ block.fauqa_attributes }}>{{ block.settings.label }}</a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="hero__tile hero__tile--media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: alt: section.settings.image_alt, loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 900px) 40vw, 100vw' }}
+      {%- else -%}
+        {{ 'hero' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+    {%- if section.settings.tile1_value != blank -%}
+      <div class="hero__tile hero__tile--a"><strong>{{ section.settings.tile1_value }}</strong><span>{{ section.settings.tile1_label }}</span></div>
+    {%- endif -%}
+    {%- if section.settings.tile2_value != blank -%}
+      <div class="hero__tile hero__tile--b"><strong>{{ section.settings.tile2_value }}</strong><span>{{ section.settings.tile2_label }}</span></div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Hero", "class": "section-hero",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Teks kecil di atas judul" },
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Judul utama" },
+    { "type": "textarea", "id": "text", "label": "Teks" },
+    { "type": "image_picker", "id": "image", "label": "Gambar" },
+    { "type": "text", "id": "image_alt", "label": "Teks alternatif gambar" },
+    { "type": "header", "content": "Kotak angka" },
+    { "type": "text", "id": "tile1_value", "label": "Angka 1", "default": "120+" },
+    { "type": "text", "id": "tile1_label", "label": "Keterangan 1", "default": "Klien aktif" },
+    { "type": "text", "id": "tile2_value", "label": "Angka 2", "default": "99,9%" },
+    { "type": "text", "id": "tile2_label", "label": "Keterangan 2", "default": "Uptime layanan" }
+  ],
+  "blocks": [
+    { "type": "button", "name": "Tombol", "limit": 2, "settings": [
+      { "type": "text", "id": "label", "label": "Teks", "default": "Tombol" },
+      { "type": "url", "id": "link", "label": "Link" },
+      { "type": "select", "id": "style", "label": "Gaya", "default": "primary",
+        "options": [{ "value": "primary", "label": "Utama" }, { "value": "secondary", "label": "Garis" }] }
+    ] }
+  ],
+  "max_blocks": 2,
+  "presets": [{ "name": "Hero", "blocks": [{ "type": "button" }] }],
+  "enabled_on": { "templates": ["index", "page"] } }
+{% endschema %}

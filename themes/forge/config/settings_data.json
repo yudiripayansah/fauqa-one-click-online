@@ -1,0 +1,8 @@
+{
+  "current": "Signal",
+  "presets": {
+    "Signal": { "color_accent": "#F5B700", "color_on_accent": "#15181C", "color_ink": "#15181C", "color_background": "#FFFFFF", "font_heading": "Barlow Condensed", "font_body": "Barlow", "uppercase_headings": true },
+    "Baja": { "color_accent": "#1F5FA8", "color_on_accent": "#FFFFFF", "color_ink": "#111827", "color_background": "#F7F8FA", "font_heading": "Barlow Condensed", "font_body": "Barlow", "uppercase_headings": true },
+    "Hutan": { "color_accent": "#2F7A4B", "color_on_accent": "#FFFFFF", "color_ink": "#14211A", "color_background": "#FFFFFF", "font_heading": "Archivo", "font_body": "Archivo", "uppercase_headings": false }
+  }
+}

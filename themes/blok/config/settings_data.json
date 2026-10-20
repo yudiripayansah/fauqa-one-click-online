@@ -1,0 +1,38 @@
+{
+  "current": "Kuning",
+  "presets": {
+    "Kuning": {
+      "color_accent": "#FF5C39",
+      "color_ink": "#111111",
+      "color_background": "#FFF4C2",
+      "font_heading": "Space Grotesk",
+      "font_body": "DM Sans",
+      "color_on_accent": "#111111",
+      "color_accent_text": "#B8452D",
+      "radius": 10,
+      "page_width": 1240
+    },
+    "Pink": {
+      "color_accent": "#7C3AED",
+      "color_ink": "#111111",
+      "color_background": "#FFD6EC",
+      "font_heading": "Space Grotesk",
+      "font_body": "DM Sans",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#7738E2",
+      "radius": 10,
+      "page_width": 1240
+    },
+    "Mint": {
+      "color_accent": "#1D4ED8",
+      "color_ink": "#111111",
+      "color_background": "#C9F2D9",
+      "font_heading": "Space Grotesk",
+      "font_body": "Space Grotesk",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#1D4ED8",
+      "radius": 10,
+      "page_width": 1240
+    }
+  }
+}

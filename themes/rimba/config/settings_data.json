@@ -1,0 +1,38 @@
+{
+  "current": "Daun",
+  "presets": {
+    "Daun": {
+      "color_accent": "#3F6B3A",
+      "color_ink": "#1E2A1C",
+      "color_background": "#EEF1E6",
+      "font_heading": "Fraunces",
+      "font_body": "Karla",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#3F6B3A",
+      "radius": 28,
+      "page_width": 1240
+    },
+    "Tanah": {
+      "color_accent": "#8A5A3B",
+      "color_ink": "#2A1E16",
+      "color_background": "#F3EEE6",
+      "font_heading": "Fraunces",
+      "font_body": "Karla",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#8A5A3B",
+      "radius": 28,
+      "page_width": 1240
+    },
+    "Lumut": {
+      "color_accent": "#5B6B2E",
+      "color_ink": "#1F2316",
+      "color_background": "#F0F1E8",
+      "font_heading": "Fraunces",
+      "font_body": "Nunito Sans",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#5B6B2E",
+      "radius": 28,
+      "page_width": 1240
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<section class="section team" {{ section.fauqa_attributes }}>
+  <div class="container">
+    {%- if section.settings.heading != blank %}<h2 class="section__heading">{{ section.settings.heading }}</h2>{% endif -%}
+    <ul class="grid team__list">
+      {%- for block in section.blocks -%}
+        <li class="team__member" {{ block.fauqa_attributes }}>
+          <div class="team__photo">
+            {%- if block.settings.photo != blank -%}{{ block.settings.photo | image_url: width: 600 | image_tag: alt: block.settings.name, sizes: '(min-width: 760px) 25vw, 50vw' }}{%- else -%}{{ 'person' | placeholder_svg_tag }}{%- endif -%}
+          </div>
+          <h3>{{ block.settings.name }}</h3>
+          <p class="muted">{{ block.settings.role }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Tim", "settings": [{ "type": "text", "id": "heading", "label": "Judul", "default": "Tim kami" }],
+  "blocks": [{ "type": "member", "name": "Anggota tim", "settings": [
+    { "type": "image_picker", "id": "photo", "label": "Foto" },
+    { "type": "text", "id": "name", "label": "Nama", "default": "Nama lengkap" },
+    { "type": "text", "id": "role", "label": "Jabatan", "default": "Jabatan" }
+  ] }],
+  "max_blocks": 24,
+  "presets": [{ "name": "Tim", "blocks": [{ "type": "member" }, { "type": "member" }, { "type": "member" }] }] }
+{% endschema %}

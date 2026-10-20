@@ -1,0 +1,45 @@
+<header class="site-header" {{ section.fauqa_attributes }}>
+  <div class="container site-header__inner">
+    <a href="{{ routes.root_url }}" class="site-header__logo">
+      {%- if site.logo != blank -%}
+        {{ site.logo | image_url | image_tag: alt: site.name, height: section.settings.logo_height, loading: 'eager' }}
+      {%- else -%}
+        {{ site.name }}
+      {%- endif -%}
+    </a>
+    {%- assign menu = linklists[section.settings.menu] -%}
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">{{ 'general.menu' | t }}</button>
+    <nav id="site-nav" class="site-nav" aria-label="{{ 'general.menu' | t }}">
+      <ul>
+        {%- for link in menu.links -%}
+          <li><a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+        {%- endfor -%}
+        <li><a href="{{ routes.search_url }}">{{ 'search.title' | t }}</a></li>
+      </ul>
+      {%- if localization.available_languages.size > 1 -%}
+        <ul class="site-nav__lang">
+          {%- for lang in localization.available_languages -%}
+            <li><a href="{{ lang.url }}" hreflang="{{ lang.iso_code }}" lang="{{ lang.iso_code }}"{% if lang.iso_code == request.locale.iso_code %} aria-current="true"{% endif %}>{{ lang.iso_code | upcase }}</a></li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a class="button button--primary site-nav__cta" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
+      {%- endif -%}
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "div",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "range", "id": "logo_height", "label": "Tinggi logo", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 36 },
+    { "type": "text", "id": "cta_label", "label": "Teks tombol" },
+    { "type": "url", "id": "cta_link", "label": "Link tombol" }
+  ],
+  "enabled_on": { "groups": ["header"] }
+}
+{% endschema %}

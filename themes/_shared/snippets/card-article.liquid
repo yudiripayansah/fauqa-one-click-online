@@ -1,0 +1,12 @@
+<a class="card" href="{{ article.url }}">
+  <div class="card__media">
+    {%- if article.image -%}
+      {{ article.image | image_url: width: 600 | image_tag: alt: article.title, sizes: '(min-width: 760px) 30vw, 100vw' }}
+    {%- else -%}
+      {{ 'article' | placeholder_svg_tag }}
+    {%- endif -%}
+  </div>
+  {%- if article.published_at %}<p class="card__meta"><time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%d %B %Y' }}</time></p>{% endif -%}
+  <h3 class="card__title">{{ article.title }}</h3>
+  {%- if article.excerpt != blank %}<p class="card__text">{{ article.excerpt | truncate: 140 }}</p>{% endif -%}
+</a>

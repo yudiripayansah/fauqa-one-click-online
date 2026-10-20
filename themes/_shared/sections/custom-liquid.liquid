@@ -1,0 +1,10 @@
+<div class="section custom-liquid" {{ section.fauqa_attributes }}>
+  <div class="container">{{ section.settings.custom_liquid }}</div>
+</div>
+
+{% schema %}
+{ "name": "Custom Liquid", "settings": [
+    { "type": "liquid", "id": "custom_liquid", "label": "Kode Liquid / HTML", "info": "Untuk embed widget atau kode khusus. Hanya owner/admin yang bisa mengubah." }
+  ],
+  "presets": [{ "name": "Custom Liquid" }] }
+{% endschema %}

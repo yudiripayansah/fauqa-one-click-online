@@ -1,0 +1,17 @@
+[
+  { "name": "theme_info", "theme_name": "Forge", "theme_version": "1.0.0", "theme_author": "Fauqa One Click" },
+  { "name": "Warna", "settings": [
+    { "type": "color", "id": "color_accent", "label": "Warna aksen", "default": "#F5B700" },
+    { "type": "color", "id": "color_on_accent", "label": "Teks di atas aksen", "default": "#15181C" },
+    { "type": "color", "id": "color_ink", "label": "Warna teks & header", "default": "#15181C" },
+    { "type": "color", "id": "color_background", "label": "Latar", "default": "#FFFFFF" }
+  ] },
+  { "name": "Tipografi", "settings": [
+    { "type": "font_picker", "id": "font_heading", "label": "Font judul", "default": "Barlow Condensed" },
+    { "type": "font_picker", "id": "font_body", "label": "Font isi", "default": "Barlow" },
+    { "type": "checkbox", "id": "uppercase_headings", "label": "Judul huruf kapital", "default": true }
+  ] },
+  { "name": "Layout", "settings": [
+    { "type": "range", "id": "page_width", "label": "Lebar halaman", "min": 1000, "max": 1440, "step": 20, "unit": "px", "default": 1280 }
+  ] }
+]

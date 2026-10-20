@@ -1,0 +1,38 @@
+{
+  "current": "Merah",
+  "presets": {
+    "Merah": {
+      "color_accent": "#D52B1E",
+      "color_ink": "#111111",
+      "color_background": "#FFFFFF",
+      "font_heading": "Inter",
+      "font_body": "Inter",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#D52B1E",
+      "radius": 0,
+      "page_width": 1240
+    },
+    "Biru": {
+      "color_accent": "#0047BB",
+      "color_ink": "#0B1220",
+      "color_background": "#F7F7F5",
+      "font_heading": "Inter",
+      "font_body": "Inter",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#0047BB",
+      "radius": 0,
+      "page_width": 1240
+    },
+    "Grafit": {
+      "color_accent": "#111111",
+      "color_ink": "#111111",
+      "color_background": "#F2F2EF",
+      "font_heading": "IBM Plex Sans",
+      "font_body": "IBM Plex Sans",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#111111",
+      "radius": 0,
+      "page_width": 1240
+    }
+  }
+}

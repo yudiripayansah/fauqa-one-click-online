@@ -1,0 +1,58 @@
+{
+  "general": {
+    "skip_to_content": "Langsung ke konten",
+    "menu": "Menu",
+    "close": "Tutup",
+    "contact": "Kontak",
+    "all_rights": "Hak cipta dilindungi.",
+    "view_all": "Lihat semua",
+    "open_maps": "Buka di Google Maps",
+    "map": "Peta lokasi"
+  },
+  "templates": {
+    "404": {
+      "title": "Halaman tidak ditemukan",
+      "text": "Halaman yang Anda cari mungkin sudah dipindah atau dihapus.",
+      "back": "Kembali ke beranda"
+    }
+  },
+  "products": {
+    "specs": "Spesifikasi",
+    "downloads": "Unduhan",
+    "inquiry_heading": "Minta penawaran"
+  },
+  "collections": {
+    "title": "Koleksi produk",
+    "empty": "Belum ada produk.",
+    "all": "Lihat semua produk",
+    "count": "{{ count }} produk"
+  },
+  "blogs": {
+    "empty": "Belum ada artikel."
+  },
+  "search": {
+    "title": "Cari",
+    "placeholder": "Cari produk, artikel, halaman",
+    "submit": "Cari",
+    "results_count": "{{ count }} hasil untuk \"{{ terms }}\"",
+    "types": {
+      "product": "Produk",
+      "article": "Artikel",
+      "page": "Halaman"
+    }
+  },
+  "contact": {
+    "name": "Nama",
+    "email": "Email",
+    "phone": "Telepon",
+    "message": "Pesan",
+    "send": "Kirim pesan",
+    "success": "Terima kasih, pesan Anda sudah terkirim. Kami akan segera membalas.",
+    "about": "Saya tertarik dengan"
+  },
+  "password": {
+    "label": "Password",
+    "enter": "Masuk",
+    "wrong": "Password salah."
+  }
+}

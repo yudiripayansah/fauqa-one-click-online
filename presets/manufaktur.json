@@ -1,0 +1,269 @@
+{
+  "key": "manufaktur",
+  "name": "Manufaktur",
+  "themes": [
+    "forge",
+    "raster",
+    "lumen"
+  ],
+  "id": {
+    "tagline": "Produsen terpercaya untuk kebutuhan industri",
+    "hero": {
+      "kicker": "Pabrik sendiri",
+      "heading": "Produk berkualitas, diproduksi dan diuji di pabrik kami sendiri",
+      "text": "Kapasitas produksi besar, mutu terjaga, dan pengiriman ke seluruh Indonesia.",
+      "cta": "Minta penawaran"
+    },
+    "about": {
+      "heading": "Kontrol mutu di setiap tahap",
+      "text": "Bahan baku terpilih dan pengujian di setiap batch memastikan produk sesuai spesifikasi."
+    },
+    "services": {
+      "heading": "Produk & layanan",
+      "items": [
+        [
+          "Produksi massal",
+          "Kapasitas besar dengan jadwal produksi yang pasti."
+        ],
+        [
+          "Pesanan khusus",
+          "Ukuran, bahan, dan finishing sesuai kebutuhan proyek."
+        ],
+        [
+          "Pengiriman nasional",
+          "Armada dan mitra logistik ke seluruh provinsi."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "15+",
+        "Tahun berproduksi"
+      ],
+      [
+        "500+",
+        "Klien industri"
+      ],
+      [
+        "ISO 9001",
+        "Sistem mutu"
+      ]
+    ],
+    "faq": [
+      [
+        "Berapa minimum pemesanan?",
+        "Minimum pemesanan tergantung produk; hubungi tim sales untuk detailnya."
+      ],
+      [
+        "Apakah bisa kirim ke luar Jawa?",
+        "Bisa, kami melayani pengiriman ke seluruh Indonesia."
+      ],
+      [
+        "Apakah ada sertifikat produk?",
+        "Produk kami dilengkapi sertifikat uji dan dokumen mutu."
+      ]
+    ],
+    "cta": {
+      "heading": "Butuh penawaran harga?",
+      "text": "Kirim kebutuhan Anda, tim sales membalas dalam 1 hari kerja.",
+      "button": "Minta penawaran"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "Tentang Kami",
+        "body": "<p>Kami adalah produsen yang melayani kebutuhan industri dan proyek di seluruh Indonesia.</p><h2>Visi</h2><p>Menjadi mitra produksi yang paling bisa diandalkan.</p><h2>Misi</h2><p>Menghasilkan produk bermutu, tepat waktu, dan dengan harga yang kompetitif.</p>"
+      },
+      "kontak": {
+        "title": "Kontak",
+        "body": "<p>Hubungi tim sales kami untuk penawaran, pemesanan, atau kunjungan pabrik.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Kebijakan Privasi",
+        "body": "<p>Kami hanya mengumpulkan data yang Anda kirim lewat formulir (nama, email, telepon, dan pesan) untuk menjawab pertanyaan Anda. Data tidak dijual atau dibagikan ke pihak lain.</p><h2>Analytics</h2><p>Kami mengukur kunjungan tanpa cookie dan tanpa menyimpan alamat IP.</p><h2>Hak Anda</h2><p>Anda dapat meminta data Anda dihapus dengan menghubungi kami.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Produk Unggulan A",
+        "summary": "Produk andalan untuk kebutuhan industri umum.",
+        "price": "Hubungi kami",
+        "specs": [
+          [
+            "Material",
+            "Sesuai standar"
+          ],
+          [
+            "Kemasan",
+            "Palet"
+          ]
+        ]
+      },
+      {
+        "title": "Produk Unggulan B",
+        "summary": "Varian tahan lama untuk penggunaan berat.",
+        "price": "Hubungi kami",
+        "specs": [
+          [
+            "Garansi",
+            "1 tahun"
+          ]
+        ]
+      },
+      {
+        "title": "Produk Custom",
+        "summary": "Dibuat sesuai gambar kerja dan spesifikasi Anda.",
+        "price": "Sesuai pesanan",
+        "specs": []
+      },
+      {
+        "title": "Jasa Pengiriman",
+        "summary": "Pengiriman terjadwal ke lokasi proyek.",
+        "price": "Mulai Rp 500 rb",
+        "specs": []
+      }
+    ],
+    "collection": "Produk",
+    "articles": [
+      {
+        "title": "Kapasitas produksi kami bertambah",
+        "excerpt": "Investasi mesin baru meningkatkan kapasitas dan mempercepat pengiriman.",
+        "body": "<p>Kami menambah lini produksi baru untuk melayani permintaan yang terus tumbuh.</p>"
+      },
+      {
+        "title": "Tips memilih produk yang tepat untuk proyek",
+        "excerpt": "Panduan singkat agar spesifikasi sesuai kebutuhan dan anggaran.",
+        "body": "<p>Perhatikan beban, lingkungan pemakaian, dan standar yang berlaku sebelum memesan.</p>"
+      }
+    ]
+  },
+  "en": {
+    "tagline": "A trusted manufacturer for industrial needs",
+    "hero": {
+      "kicker": "Own factory",
+      "heading": "Quality products, made and tested in our own factory",
+      "text": "High capacity, consistent quality, and nationwide delivery.",
+      "cta": "Request a quote"
+    },
+    "about": {
+      "heading": "Quality control at every stage",
+      "text": "Selected raw materials and batch testing keep every product on spec."
+    },
+    "services": {
+      "heading": "Products & services",
+      "items": [
+        [
+          "Mass production",
+          "Large capacity with reliable production schedules."
+        ],
+        [
+          "Custom orders",
+          "Sizes, materials, and finishes to your project needs."
+        ],
+        [
+          "Nationwide delivery",
+          "Our fleet and logistics partners reach every province."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "15+",
+        "Years in production"
+      ],
+      [
+        "500+",
+        "Industrial clients"
+      ],
+      [
+        "ISO 9001",
+        "Quality system"
+      ]
+    ],
+    "faq": [
+      [
+        "What is the minimum order?",
+        "It depends on the product; contact our sales team for details."
+      ],
+      [
+        "Do you ship outside Java?",
+        "Yes, we deliver throughout Indonesia."
+      ],
+      [
+        "Do products come with certificates?",
+        "Our products include test certificates and quality documents."
+      ]
+    ],
+    "cta": {
+      "heading": "Need a price quote?",
+      "text": "Send us your requirements and our sales team replies within 1 business day.",
+      "button": "Request a quote"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "About Us",
+        "body": "<p>We are a manufacturer serving industries and projects across Indonesia.</p><h2>Vision</h2><p>To be the most reliable production partner.</p><h2>Mission</h2><p>Deliver quality products, on time, at competitive prices.</p>"
+      },
+      "kontak": {
+        "title": "Contact",
+        "body": "<p>Contact our sales team for quotes, orders, or factory visits.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Privacy Policy",
+        "body": "<p>We only collect the data you send through our forms (name, email, phone, and message) to answer your enquiry. Your data is never sold or shared.</p><h2>Analytics</h2><p>We measure visits without cookies and without storing IP addresses.</p><h2>Your rights</h2><p>You can ask us to delete your data at any time.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Flagship Product A",
+        "summary": "Our core product for general industrial use.",
+        "price": "Contact us",
+        "specs": [
+          [
+            "Material",
+            "Standard grade"
+          ],
+          [
+            "Packing",
+            "Pallet"
+          ]
+        ]
+      },
+      {
+        "title": "Flagship Product B",
+        "summary": "Heavy-duty variant built to last.",
+        "price": "Contact us",
+        "specs": [
+          [
+            "Warranty",
+            "1 year"
+          ]
+        ]
+      },
+      {
+        "title": "Custom Product",
+        "summary": "Made to your drawings and specifications.",
+        "price": "Made to order",
+        "specs": []
+      },
+      {
+        "title": "Delivery Service",
+        "summary": "Scheduled delivery to your project site.",
+        "price": "From IDR 500k",
+        "specs": []
+      }
+    ],
+    "collection": "Products",
+    "articles": [
+      {
+        "title": "Our production capacity is growing",
+        "excerpt": "New machinery increases capacity and speeds up delivery.",
+        "body": "<p>We added a new production line to serve growing demand.</p>"
+      },
+      {
+        "title": "How to choose the right product for your project",
+        "excerpt": "A short guide to matching specifications with needs and budget.",
+        "body": "<p>Consider load, environment, and applicable standards before ordering.</p>"
+      }
+    ]
+  }
+}

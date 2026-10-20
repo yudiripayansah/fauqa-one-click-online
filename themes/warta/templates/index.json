@@ -1,0 +1,131 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Edisi praktik 2026",
+        "heading": "Nasihat hukum yang jernih untuk keputusan bisnis yang berani",
+        "text": "Firma hukum korporasi dengan pengalaman dua dekade di merger, ketenagakerjaan, dan sengketa komersial."
+      },
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Hubungi kami",
+            "link": "/pages/kontak",
+            "style": "primary"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Tentang kami",
+            "link": "/pages/tentang-kami",
+            "style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "about": {
+      "type": "image-with-text",
+      "settings": {
+        "heading": "Lebih dari sekadar dokumen",
+        "text": "<p>Kami menulis kontrak yang bisa dipahami direksi, bukan hanya pengacara.</p>",
+        "button_label": "Tentang kami",
+        "button_link": "/pages/tentang-kami",
+        "layout": "image_left"
+      }
+    },
+    "services": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Bidang praktik",
+        "columns": 3
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Korporasi & M&A",
+            "text": "Struktur transaksi, uji tuntas, dan perjanjian pemegang saham."
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Ketenagakerjaan",
+            "text": "Kebijakan internal, PHK, dan hubungan industrial."
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Sengketa",
+            "text": "Litigasi, arbitrase, dan mediasi komersial."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "Kata klien kami"
+      },
+      "blocks": {
+        "b1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Analisisnya tajam dan selalu disertai rekomendasi yang bisa langsung dijalankan.",
+            "name": "Direktur Keuangan",
+            "role": "Perusahaan energi"
+          }
+        },
+        "b2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Tim yang responsif, bahkan di tengah negosiasi yang alot.",
+            "name": "Kepala Legal",
+            "role": "Grup ritel nasional"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "news": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Analisis & opini",
+        "limit": 3
+      }
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Jadwalkan konsultasi awal",
+        "text": "Pertemuan pertama 45 menit tanpa biaya untuk calon klien korporasi.",
+        "button_label": "Hubungi kami",
+        "button_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "about",
+    "services",
+    "testimonials",
+    "news",
+    "cta"
+  ]
+}

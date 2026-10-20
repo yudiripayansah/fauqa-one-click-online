@@ -1,0 +1,27 @@
+[
+  { "name": "theme_info", "theme_name": "Lumen", "theme_version": "1.0.0", "theme_author": "Fauqa One Click" },
+  {
+    "name": "Warna",
+    "settings": [
+      { "type": "color", "id": "color_accent", "label": "Warna utama", "default": "#0B5D6B" },
+      { "type": "color", "id": "color_ink", "label": "Warna teks", "default": "#17212B" },
+      { "type": "color", "id": "color_background", "label": "Latar", "default": "#FFFFFF" }
+    ]
+  },
+  {
+    "name": "Tipografi",
+    "settings": [
+      { "type": "select", "id": "font_heading", "label": "Font judul", "default": "Instrument Sans",
+        "options": [{ "value": "Instrument Sans", "label": "Instrument Sans" }, { "value": "Manrope", "label": "Manrope" }, { "value": "Fraunces", "label": "Fraunces" }, { "value": "Plus Jakarta Sans", "label": "Plus Jakarta Sans" }] },
+      { "type": "select", "id": "font_body", "label": "Font isi", "default": "Instrument Sans",
+        "options": [{ "value": "Instrument Sans", "label": "Instrument Sans" }, { "value": "Manrope", "label": "Manrope" }, { "value": "Plus Jakarta Sans", "label": "Plus Jakarta Sans" }] }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      { "type": "range", "id": "page_width", "label": "Lebar halaman", "min": 1000, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
+      { "type": "range", "id": "radius", "label": "Sudut membulat", "min": 0, "max": 24, "step": 2, "unit": "px", "default": 6 }
+    ]
+  }
+]

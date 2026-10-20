@@ -1,0 +1,72 @@
+/* Forge — tegas, kontras tinggi, foto besar. Ornamen theme: garis aksen tebal di atas judul (marka keselamatan). */
+:root { --color-accent-text: color-mix(in oklab, var(--color-accent) 40%, var(--color-ink)); } /* aksen terang (kuning) tetap terbaca di latar putih */
+h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: .98; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; }
+.section__heading::before, .hero__heading::before {
+  content: ""; display: block; width: 3.5rem; height: .45rem; background: var(--color-accent); margin-bottom: 1.25rem;
+}
+
+.button {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 3.1rem; padding: .8rem 1.6rem;
+  border: 2px solid var(--color-accent); font: 700 1rem/1 var(--font-heading); text-transform: uppercase; letter-spacing: .04em;
+  text-decoration: none; transition: background-color .15s, color .15s;
+}
+.button--primary { background: var(--color-accent); color: var(--color-on-accent); }
+.button--primary:hover { background: color-mix(in oklab, var(--color-accent) 85%, #000); }
+.button--secondary { color: inherit; border-color: currentColor; }
+.button--secondary:hover { background: color-mix(in oklab, currentColor 10%, transparent); }
+.button--inverse { background: var(--color-on-accent); color: var(--color-accent); border-color: var(--color-on-accent); }
+
+/* Header gelap */
+.site-header { background: var(--color-ink); color: var(--color-bg); }
+.site-header__inner { display: flex; align-items: center; gap: 1.5rem; min-height: 4.75rem; flex-wrap: wrap; }
+.site-header__logo { font: 800 1.4rem/1 var(--font-heading); text-transform: var(--heading-case); text-decoration: none; margin-right: auto; }
+.site-header__logo img { width: auto; }
+.site-header__toggle { display: none; }
+.site-nav { display: flex; align-items: center; gap: 1.75rem; }
+.site-nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+.site-nav a:not(.button) { text-decoration: none; font: 600 .95rem var(--font-heading); text-transform: uppercase; letter-spacing: .05em; opacity: .8; padding-block: .5rem; }
+.site-nav a:not(.button):hover, .site-nav a[aria-current] { opacity: 1; box-shadow: inset 0 -3px var(--color-accent); }
+.site-nav__lang { gap: .75rem !important; }
+@media (max-width: 900px) {
+  .site-header__toggle { display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 1rem; border: 2px solid currentColor; background: none; color: inherit; font: 700 .9rem var(--font-heading); text-transform: uppercase; }
+  .site-nav { display: none; flex-basis: 100%; flex-direction: column; align-items: stretch; gap: 1rem; padding-bottom: 1.25rem; }
+  .site-nav.is-open { display: flex; }
+  .site-nav ul { flex-direction: column; gap: 0; }
+  .site-nav ul a { display: block; padding: .8rem 0; border-bottom: 1px solid color-mix(in oklab, var(--color-bg) 20%, transparent); }
+  .site-nav__lang { flex-direction: row !important; gap: 1.25rem !important; }
+  .site-nav__lang a { border-bottom: 0 !important; }
+}
+
+/* Hero foto penuh */
+.hero { position: relative; display: grid; min-height: min(88vh, 52rem); color: #fff; background: var(--color-ink); }
+.hero--small { min-height: 30rem; }
+.hero__media, .hero__copy { grid-area: 1 / 1; }
+.hero__media { color: var(--color-accent); }
+.hero__media img, .hero__media svg { width: 100%; height: 100%; object-fit: cover; }
+.hero__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(0 0 0 / .78), rgb(0 0 0 / .15) 65%); }
+.hero__copy { position: relative; z-index: 1; align-self: end; padding-block: clamp(3rem, 8vw, 6rem); }
+.hero__kicker { font: 600 1rem var(--font-heading); text-transform: uppercase; letter-spacing: .12em; color: var(--color-accent); margin-bottom: .75rem; }
+.hero__heading { max-width: 16ch; color: #fff; }
+.hero__text { font-size: 1.2rem; max-width: 44ch; opacity: .9; }
+
+/* Kartu & kolom: garis aksen, tanpa sudut membulat */
+.multicolumn__item { border-top: 4px solid var(--color-ink); padding-top: 1.5rem; }
+.card__title { font-size: 1.35rem; }
+.cta-banner__inner { color: var(--color-on-accent); }
+.cta-banner__inner h2::before { display: none; }
+.stats.section--band { background: var(--color-ink); color: var(--color-bg); --color-accent-text: var(--color-accent); }
+.stats__item dt { color: color-mix(in oklab, var(--color-bg) 70%, var(--color-ink)); }
+
+/* Footer gelap */
+.site-footer { background: var(--color-ink); color: var(--color-bg); padding-top: 4rem; font-size: .95rem; }
+.site-footer__grid { display: grid; grid-template-columns: 2fr 1fr 1.4fr; gap: 2rem; padding-bottom: 3rem; }
+.site-footer__name { font: 800 1.4rem var(--font-heading); text-transform: var(--heading-case); }
+.site-footer__links { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.site-footer a { text-decoration: none; opacity: .75; }
+.site-footer a:hover { opacity: 1; color: var(--color-accent); }
+.site-footer .muted, .site-footer__contact { font-style: normal; color: color-mix(in oklab, var(--color-bg) 70%, var(--color-ink)); }
+.site-footer__contact p { margin-bottom: .4rem; }
+.site-footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; border-top: 1px solid color-mix(in oklab, var(--color-bg) 18%, var(--color-ink)); font-size: .875rem; opacity: .75; }
+.site-footer__bottom p { margin: 0; }
+@media (max-width: 760px) { .site-footer__grid { grid-template-columns: 1fr; } }

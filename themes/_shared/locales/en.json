@@ -1,0 +1,58 @@
+{
+  "general": {
+    "skip_to_content": "Skip to content",
+    "menu": "Menu",
+    "close": "Close",
+    "contact": "Contact",
+    "all_rights": "All rights reserved.",
+    "view_all": "View all",
+    "open_maps": "Open in Google Maps",
+    "map": "Location map"
+  },
+  "templates": {
+    "404": {
+      "title": "Page not found",
+      "text": "The page you are looking for may have been moved or deleted.",
+      "back": "Back to home"
+    }
+  },
+  "products": {
+    "specs": "Specifications",
+    "downloads": "Downloads",
+    "inquiry_heading": "Request a quote"
+  },
+  "collections": {
+    "title": "Collections",
+    "empty": "No products yet.",
+    "all": "View all products",
+    "count": "{{ count }} products"
+  },
+  "blogs": {
+    "empty": "No articles yet."
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search products, articles, pages",
+    "submit": "Search",
+    "results_count": "{{ count }} results for \"{{ terms }}\"",
+    "types": {
+      "product": "Product",
+      "article": "Article",
+      "page": "Page"
+    }
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send message",
+    "success": "Thank you, your message has been sent. We will reply shortly.",
+    "about": "I'm interested in"
+  },
+  "password": {
+    "label": "Password",
+    "enter": "Enter",
+    "wrong": "Wrong password."
+  }
+}

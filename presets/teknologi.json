@@ -1,0 +1,251 @@
+{
+  "key": "teknologi",
+  "name": "Teknologi",
+  "themes": [
+    "bento",
+    "konsol",
+    "lumen"
+  ],
+  "id": {
+    "tagline": "Solusi teknologi untuk bisnis yang bergerak cepat",
+    "hero": {
+      "kicker": "Software & IT",
+      "heading": "Teknologi yang membuat bisnis Anda lebih efisien",
+      "text": "Kami membangun dan mengelola sistem digital yang andal, aman, dan mudah dikembangkan.",
+      "cta": "Diskusikan proyek"
+    },
+    "about": {
+      "heading": "Dibangun untuk jangka panjang",
+      "text": "Arsitektur yang rapi, dokumentasi lengkap, dan dukungan setelah peluncuran."
+    },
+    "services": {
+      "heading": "Layanan kami",
+      "items": [
+        [
+          "Pengembangan aplikasi",
+          "Aplikasi web dan mobile sesuai kebutuhan bisnis."
+        ],
+        [
+          "Integrasi sistem",
+          "Menghubungkan ERP, pembayaran, dan layanan pihak ketiga."
+        ],
+        [
+          "Cloud & keamanan",
+          "Infrastruktur yang stabil dengan pemantauan 24/7."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "150+",
+        "Proyek dirilis"
+      ],
+      [
+        "40",
+        "Engineer"
+      ],
+      [
+        "99,9%",
+        "Uptime layanan"
+      ]
+    ],
+    "faq": [
+      [
+        "Apakah kode menjadi milik kami?",
+        "Ya, seluruh kode dan dokumentasi diserahkan penuh."
+      ],
+      [
+        "Bagaimana proses kerjanya?",
+        "Sprint 2 mingguan dengan demo di setiap akhir sprint."
+      ],
+      [
+        "Apakah ada dukungan setelah rilis?",
+        "Tersedia paket pemeliharaan dan dukungan bulanan."
+      ]
+    ],
+    "cta": {
+      "heading": "Punya ide produk digital?",
+      "text": "Ceritakan kebutuhan Anda, kami siapkan estimasi dalam 3 hari kerja.",
+      "button": "Minta estimasi"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "Tentang Kami",
+        "body": "<p>Kami perusahaan teknologi yang membantu bisnis bertransformasi secara digital.</p><h2>Cara kami bekerja</h2><p>Transparan, iteratif, dan berorientasi hasil.</p>"
+      },
+      "kontak": {
+        "title": "Kontak",
+        "body": "<p>Diskusikan proyek Anda dengan tim kami.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Kebijakan Privasi",
+        "body": "<p>Kami hanya mengumpulkan data yang Anda kirim lewat formulir (nama, email, telepon, dan pesan) untuk menjawab pertanyaan Anda. Data tidak dijual atau dibagikan ke pihak lain.</p><h2>Analytics</h2><p>Kami mengukur kunjungan tanpa cookie dan tanpa menyimpan alamat IP.</p><h2>Hak Anda</h2><p>Anda dapat meminta data Anda dihapus dengan menghubungi kami.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Aplikasi Web",
+        "summary": "Sistem internal, portal, dan dashboard.",
+        "price": "Mulai Rp 25 jt",
+        "specs": [
+          [
+            "Teknologi",
+            "Next.js, Laravel"
+          ]
+        ]
+      },
+      {
+        "title": "Aplikasi Mobile",
+        "summary": "Android dan iOS.",
+        "price": "Mulai Rp 40 jt",
+        "specs": []
+      },
+      {
+        "title": "Integrasi ERP",
+        "summary": "Sinkronisasi data antar sistem.",
+        "price": "Hubungi kami",
+        "specs": []
+      },
+      {
+        "title": "Managed Cloud",
+        "summary": "Pengelolaan server dan keamanan.",
+        "price": "Mulai Rp 3 jt / bulan",
+        "specs": []
+      }
+    ],
+    "collection": "Layanan",
+    "articles": [
+      {
+        "title": "Kapan bisnis perlu aplikasi sendiri?",
+        "excerpt": "Tanda-tanda proses manual sudah menghambat pertumbuhan.",
+        "body": "<p>Spreadsheet yang semakin rumit sering menjadi tanda pertama.</p>"
+      },
+      {
+        "title": "Tips menjaga keamanan data perusahaan",
+        "excerpt": "Langkah dasar yang sering terlewat.",
+        "body": "<p>Mulai dari kata sandi kuat, autentikasi dua faktor, dan backup rutin.</p>"
+      }
+    ]
+  },
+  "en": {
+    "tagline": "Technology solutions for fast-moving businesses",
+    "hero": {
+      "kicker": "Software & IT",
+      "heading": "Technology that makes your business more efficient",
+      "text": "We build and run reliable, secure, and scalable digital systems.",
+      "cta": "Discuss your project"
+    },
+    "about": {
+      "heading": "Built for the long run",
+      "text": "Clean architecture, complete documentation, and support after launch."
+    },
+    "services": {
+      "heading": "Our services",
+      "items": [
+        [
+          "App development",
+          "Web and mobile apps built around your business."
+        ],
+        [
+          "System integration",
+          "Connecting ERP, payments, and third-party services."
+        ],
+        [
+          "Cloud & security",
+          "Stable infrastructure with 24/7 monitoring."
+        ]
+      ]
+    },
+    "stats": [
+      [
+        "150+",
+        "Projects shipped"
+      ],
+      [
+        "40",
+        "Engineers"
+      ],
+      [
+        "99.9%",
+        "Service uptime"
+      ]
+    ],
+    "faq": [
+      [
+        "Do we own the code?",
+        "Yes, all code and documentation are handed over."
+      ],
+      [
+        "How do you work?",
+        "Two-week sprints with a demo at the end of each."
+      ],
+      [
+        "Is there support after launch?",
+        "Maintenance and monthly support plans are available."
+      ]
+    ],
+    "cta": {
+      "heading": "Have a digital product idea?",
+      "text": "Tell us what you need and we will estimate within 3 business days.",
+      "button": "Request an estimate"
+    },
+    "pages": {
+      "tentang-kami": {
+        "title": "About Us",
+        "body": "<p>We are a technology company helping businesses transform digitally.</p><h2>How we work</h2><p>Transparent, iterative, and outcome-driven.</p>"
+      },
+      "kontak": {
+        "title": "Contact",
+        "body": "<p>Discuss your project with our team.</p>"
+      },
+      "kebijakan-privasi": {
+        "title": "Privacy Policy",
+        "body": "<p>We only collect the data you send through our forms (name, email, phone, and message) to answer your enquiry. Your data is never sold or shared.</p><h2>Analytics</h2><p>We measure visits without cookies and without storing IP addresses.</p><h2>Your rights</h2><p>You can ask us to delete your data at any time.</p>"
+      }
+    },
+    "products": [
+      {
+        "title": "Web Applications",
+        "summary": "Internal systems, portals, and dashboards.",
+        "price": "From IDR 25M",
+        "specs": [
+          [
+            "Stack",
+            "Next.js, Laravel"
+          ]
+        ]
+      },
+      {
+        "title": "Mobile Apps",
+        "summary": "Android and iOS.",
+        "price": "From IDR 40M",
+        "specs": []
+      },
+      {
+        "title": "ERP Integration",
+        "summary": "Data sync between systems.",
+        "price": "Contact us",
+        "specs": []
+      },
+      {
+        "title": "Managed Cloud",
+        "summary": "Server and security management.",
+        "price": "From IDR 3M / month",
+        "specs": []
+      }
+    ],
+    "collection": "Services",
+    "articles": [
+      {
+        "title": "When does a business need its own app?",
+        "excerpt": "Signs that manual processes are holding you back.",
+        "body": "<p>Spreadsheets that keep getting more complex are often the first sign.</p>"
+      },
+      {
+        "title": "Tips to keep company data secure",
+        "excerpt": "Basic steps that are often missed.",
+        "body": "<p>Start with strong passwords, two-factor authentication, and regular backups.</p>"
+      }
+    ]
+  }
+}

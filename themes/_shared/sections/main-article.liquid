@@ -1,0 +1,17 @@
+<article class="section article" {{ section.fauqa_attributes }}>
+  <div class="container container--narrow">
+    <p class="article__meta"><a class="link" href="{{ blog.url }}">{{ blog.title }}</a>
+      {%- if article.published_at %} &middot; <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%d %B %Y' }}</time>{% endif -%}
+      {%- if article.author != blank %} &middot; {{ article.author }}{% endif -%}
+    </p>
+    <h1>{{ article.title }}</h1>
+  </div>
+  {%- if article.image -%}
+    <div class="container article__cover">{{ article.image | image_url: width: 1600 | image_tag: alt: article.title, loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 1200px) 1200px, 100vw' }}</div>
+  {%- endif -%}
+  <div class="container container--narrow rte">{{ article.content }}</div>
+</article>
+
+{% schema %}
+{ "name": "Artikel", "settings": [], "enabled_on": { "templates": ["article"] } }
+{% endschema %}

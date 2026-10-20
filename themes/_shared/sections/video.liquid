@@ -1,0 +1,37 @@
+{%- liquid
+  assign url = section.settings.video_url
+  assign embed = ''
+  if url contains 'youtube.com/watch?v='
+    assign id = url | split: 'v=' | last | split: '&' | first
+    assign embed = 'https://www.youtube-nocookie.com/embed/' | append: id
+  elsif url contains 'youtu.be/'
+    assign id = url | split: 'youtu.be/' | last | split: '?' | first
+    assign embed = 'https://www.youtube-nocookie.com/embed/' | append: id
+  elsif url contains 'vimeo.com/'
+    assign id = url | split: 'vimeo.com/' | last | split: '?' | first
+    assign embed = 'https://player.vimeo.com/video/' | append: id
+  endif
+-%}
+<section class="section video" {{ section.fauqa_attributes }}>
+  <div class="container">
+    {%- if section.settings.heading != blank %}<h2 class="section__heading">{{ section.settings.heading }}</h2>{% endif -%}
+    <div class="video__frame">
+      {%- if section.settings.video != blank -%}
+        <video src="{{ section.settings.video | file_url }}" controls preload="metadata" playsinline></video>
+      {%- elsif embed != '' -%}
+        <iframe src="{{ embed }}" title="{{ section.settings.heading | default: 'Video' | escape }}" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      {%- else -%}
+        {{ 'video' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Video", "settings": [
+    { "type": "text", "id": "heading", "label": "Judul" },
+    { "type": "video_url", "id": "video_url", "label": "Link YouTube / Vimeo", "accept": ["youtube", "vimeo"] },
+    { "type": "video", "id": "video", "label": "Atau file video (file manager)" }
+  ],
+  "presets": [{ "name": "Video" }] }
+{% endschema %}

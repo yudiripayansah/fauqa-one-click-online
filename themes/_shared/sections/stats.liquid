@@ -1,0 +1,20 @@
+<section class="section stats{% if section.settings.band %} section--band{% endif %}" {{ section.fauqa_attributes }}>
+  <div class="container">
+    {%- if section.settings.heading != blank %}<h2 class="section__heading">{{ section.settings.heading }}</h2>{% endif -%}
+    <dl class="stats__list">
+      {%- for block in section.blocks -%}
+        <div class="stats__item" {{ block.fauqa_attributes }}><dt>{{ block.settings.label }}</dt><dd>{{ block.settings.value }}</dd></div>
+      {%- endfor -%}
+    </dl>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Statistik", "settings": [{ "type": "text", "id": "heading", "label": "Judul" }, { "type": "checkbox", "id": "band", "label": "Latar penuh (pita warna)", "default": true }],
+  "blocks": [{ "type": "stat", "name": "Angka", "settings": [
+    { "type": "text", "id": "value", "label": "Angka", "default": "250+" },
+    { "type": "text", "id": "label", "label": "Keterangan", "default": "Proyek selesai" }
+  ] }],
+  "max_blocks": 6,
+  "presets": [{ "name": "Statistik", "blocks": [{ "type": "stat", "settings": { "value": "15 tahun", "label": "Pengalaman" } }, { "type": "stat", "settings": { "value": "250+", "label": "Proyek selesai" } }, { "type": "stat", "settings": { "value": "28", "label": "Provinsi terlayani" } }] }] }
+{% endschema %}

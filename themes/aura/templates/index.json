@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": { "kicker": "Buka setiap hari", "heading": "Tempat hangat untuk berkumpul", "text": "Menu musiman dari bahan lokal, disajikan oleh tim yang senang menyambut Anda." },
+      "blocks": {
+        "btn-1": { "type": "button", "settings": { "label": "Lihat menu", "link": "/collections/all", "style": "primary" } },
+        "btn-2": { "type": "button", "settings": { "label": "Lokasi kami", "link": "/pages/kontak", "style": "secondary" } }
+      },
+      "block_order": ["btn-1", "btn-2"]
+    },
+    "products": { "type": "featured-products", "settings": { "heading": "Favorit pelanggan", "limit": 3 } },
+    "about": { "type": "image-with-text", "settings": { "heading": "Cerita di balik dapur kami", "text": "<p>Kami memilih bahan langsung dari petani dan pemasok kecil di sekitar kota.</p>", "button_label": "Tentang kami", "button_link": "/pages/tentang-kami" } },
+    "gallery": {
+      "type": "gallery", "settings": { "heading": "Suasana", "columns": 3 },
+      "blocks": { "g1": { "type": "image", "settings": {} }, "g2": { "type": "image", "settings": {} }, "g3": { "type": "image", "settings": {} } },
+      "block_order": ["g1", "g2", "g3"]
+    },
+    "testimonials": {
+      "type": "testimonials", "settings": { "heading": "Kata mereka" },
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "quote": "Tempatnya nyaman untuk kerja seharian, kopinya konsisten enak.", "name": "Rani", "role": "Pelanggan tetap" } },
+        "t2": { "type": "testimonial", "settings": { "quote": "Pelayanannya ramah dan cepat, cocok untuk acara kantor kecil.", "name": "Bagas", "role": "HR, Studio Kreatif" } },
+        "t3": { "type": "testimonial", "settings": { "quote": "Menu musimannya selalu bikin penasaran untuk datang lagi.", "name": "Dewi", "role": "Food blogger" } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "map": { "type": "map", "settings": { "heading": "Mampir ke tempat kami", "hours": "Senin–Jumat 08.00–22.00\nSabtu–Minggu 09.00–23.00" } },
+    "news": { "type": "blog-posts", "settings": { "heading": "Kabar terbaru", "limit": 3 } }
+  },
+  "order": ["hero", "products", "about", "gallery", "testimonials", "map", "news"]
+}

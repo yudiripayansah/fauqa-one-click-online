@@ -1,0 +1,87 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Bento",
+    "theme_version": "1.0.0",
+    "theme_author": "Fauqa One Click",
+    "theme_style": "Bento Grid"
+  },
+  {
+    "name": "Warna",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Warna aksen",
+        "default": "#1D4ED8"
+      },
+      {
+        "type": "color",
+        "id": "color_on_accent",
+        "label": "Teks di atas aksen",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_text",
+        "label": "Aksen untuk teks",
+        "info": "Versi aksen yang tetap terbaca di latar (kontras ≥ 4,5:1).",
+        "default": "#1D4ED8"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Warna teks",
+        "default": "#0A0A0B"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Latar",
+        "default": "#F3F3F1"
+      }
+    ]
+  },
+  {
+    "name": "Tipografi",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Font judul",
+        "default": "Geist"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Font isi",
+        "default": "Geist"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Lebar halaman",
+        "min": 1000,
+        "max": 1440,
+        "step": 20,
+        "unit": "px",
+        "default": 1240
+      },
+      {
+        "type": "range",
+        "id": "radius",
+        "label": "Sudut membulat",
+        "min": 8,
+        "max": 32,
+        "step": 2,
+        "unit": "px",
+        "default": 22
+      }
+    ]
+  }
+]

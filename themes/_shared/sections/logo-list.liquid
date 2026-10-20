@@ -1,0 +1,26 @@
+<section class="section logo-list" {{ section.fauqa_attributes }}>
+  <div class="container">
+    {%- if section.settings.heading != blank %}<h2 class="logo-list__heading">{{ section.settings.heading }}</h2>{% endif -%}
+    <ul class="logo-list__items">
+      {%- for block in section.blocks -%}
+        <li {{ block.fauqa_attributes }}>
+          {%- capture logo -%}
+            {%- if block.settings.image != blank -%}{{ block.settings.image | image_url: width: 400 | image_tag: alt: block.settings.name, sizes: '160px' }}{%- else -%}<span class="logo-list__placeholder">{{ block.settings.name }}</span>{%- endif -%}
+          {%- endcapture -%}
+          {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" target="_blank" rel="noopener">{{ logo }}</a>{%- else -%}{{ logo }}{%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Logo klien", "settings": [{ "type": "text", "id": "heading", "label": "Judul", "default": "Dipercaya oleh" }],
+  "blocks": [{ "type": "logo", "name": "Logo", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Logo" },
+    { "type": "text", "id": "name", "label": "Nama", "default": "Nama klien" },
+    { "type": "url", "id": "link", "label": "Link" }
+  ] }],
+  "max_blocks": 24,
+  "presets": [{ "name": "Logo klien", "blocks": [{ "type": "logo" }, { "type": "logo" }, { "type": "logo" }, { "type": "logo" }] }] }
+{% endschema %}

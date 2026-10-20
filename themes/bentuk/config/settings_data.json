@@ -1,0 +1,38 @@
+{
+  "current": "Primer",
+  "presets": {
+    "Primer": {
+      "color_accent": "#1D4FA0",
+      "color_ink": "#141414",
+      "color_background": "#F4EFE4",
+      "font_heading": "Jost",
+      "font_body": "Jost",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#1D4FA0",
+      "radius": 0,
+      "page_width": 1240
+    },
+    "Merah": {
+      "color_accent": "#C0201A",
+      "color_ink": "#141414",
+      "color_background": "#FFFFFF",
+      "font_heading": "Jost",
+      "font_body": "Jost",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#C0201A",
+      "radius": 0,
+      "page_width": 1240
+    },
+    "Malam": {
+      "color_accent": "#F2B705",
+      "color_ink": "#F4EFE4",
+      "color_background": "#161616",
+      "font_heading": "Lexend",
+      "font_body": "Lexend",
+      "color_on_accent": "#161616",
+      "color_accent_text": "#F2B705",
+      "radius": 0,
+      "page_width": 1240
+    }
+  }
+}

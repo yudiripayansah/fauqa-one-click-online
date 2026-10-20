@@ -1,0 +1,26 @@
+{%- assign q = section.settings.address | default: site.contact.address -%}
+<section class="section map" {{ section.fauqa_attributes }}>
+  <div class="container map__grid">
+    <div>
+      {%- if section.settings.heading != blank %}<h2>{{ section.settings.heading }}</h2>{% endif -%}
+      <address class="map__address">{{ q }}</address>
+      {%- if site.contact.phone != blank %}<p><a href="tel:{{ site.contact.phone | replace: ' ', '' }}">{{ site.contact.phone }}</a></p>{% endif -%}
+      {%- if section.settings.hours != blank %}<p class="muted">{{ section.settings.hours | newline_to_br }}</p>{% endif -%}
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query={{ q | url_encode }}" target="_blank" rel="noopener">{{ 'general.open_maps' | t }}</a>
+    </div>
+    <div class="map__frame">
+      {%- if q != blank -%}
+        <iframe src="https://maps.google.com/maps?q={{ q | url_encode }}&output=embed" title="{{ 'general.map' | t }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Peta", "settings": [
+    { "type": "text", "id": "heading", "label": "Judul", "default": "Kunjungi kami" },
+    { "type": "textarea", "id": "address", "label": "Alamat", "info": "Kosongkan untuk memakai alamat di pengaturan situs." },
+    { "type": "textarea", "id": "hours", "label": "Jam operasional" }
+  ],
+  "presets": [{ "name": "Peta" }] }
+{% endschema %}
