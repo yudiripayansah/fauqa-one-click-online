@@ -11,7 +11,8 @@
     family={{ settings.font_heading | replace: ' ', '+' }}:wght@400;500;600;700
     {%- if settings.font_body != settings.font_heading %}&family={{ settings.font_body | replace: ' ', '+' }}:wght@400;500;600{% endif -%}
   {%- endcapture %}
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?{{ fonts }}&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?{{ fonts }}&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?{{ fonts }}&display=swap"></noscript>
   {%- style -%}
     :root {
       --color-accent: {{ settings.color_accent }};
