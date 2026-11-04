@@ -1,0 +1,41 @@
+
+<style>
+  .psi-cta { border-top: 1px solid #1A1717; }
+  .psi-cta .psi-h2 { max-width: 860px; margin: 0 auto; }
+  .psi-cta__text { max-width: 620px; margin: 22px auto 0; }
+  .psi-cta .psi-btns { justify-content: center; margin-top: 44px; }
+</style>
+
+<section class="psi-s psi-g psi-g--{{ section.settings.gradient }} psi-pad psi-cta psi-center">
+  <div class="psi-wrap psi-reveal">
+    {%- if section.settings.eyebrow != blank -%}<p class="psi-pill">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    <h2 class="psi-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.text != blank -%}<p class="psi-lead psi-cta__text">{{ section.settings.text }}</p>{%- endif -%}
+    <div class="psi-btns">
+      {%- if section.settings.button1_label != blank -%}
+        <a href="{{ section.settings.button1_link | default: '#' }}" class="psi-btn psi-btn--primary">{{ section.settings.button1_label }} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      {%- endif -%}
+      {%- if section.settings.button2_label != blank -%}
+        <a href="{{ section.settings.button2_link | default: '#' }}" class="psi-btn psi-btn--outline">{{ section.settings.button2_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PSI CTA",
+  "tag": "div",
+  "settings": [
+    { "type": "select", "id": "gradient", "label": "Gradasi latar", "default": "bottom", "options": [ { "value": "top", "label": "Cahaya dari atas" }, { "value": "bottom", "label": "Cahaya dari bawah" }, { "value": "left", "label": "Cahaya dari kiri" }, { "value": "right", "label": "Cahaya dari kanan" }, { "value": "center", "label": "Cahaya di tengah" }, { "value": "diagonal", "label": "Diagonal" }, { "value": "none", "label": "Polos (tanpa gradasi)" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Label kecil", "default": "Serve Passionately" },
+    { "type": "inline_richtext", "id": "heading", "label": "Judul (teks miring = warna aksen)", "default": "Let's Build <em>Exceptional Hospitality Experiences</em> Together" },
+    { "type": "text", "id": "text", "label": "Teks (opsional)" },
+    { "type": "text", "id": "button1_label", "label": "Tombol utama", "default": "Request a Quotation" },
+    { "type": "url", "id": "button1_link", "label": "Link tombol utama" },
+    { "type": "text", "id": "button2_label", "label": "Tombol kedua", "default": "Contact Us" },
+    { "type": "url", "id": "button2_link", "label": "Link tombol kedua" }
+  ],
+  "presets": [ { "name": "PSI CTA" } ]
+}
+{% endschema %}

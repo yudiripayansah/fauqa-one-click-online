@@ -1,0 +1,78 @@
+
+<style>
+  .psi-logos { border-top: 1px solid #1A1717; border-bottom: 1px solid #1A1717; }
+  .psi-logos__title { text-align: center; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--psi-soft); margin: 0; font-weight: 400; }
+  .psi-logos__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-top: 40px; align-items: center; }
+  .psi-logos__item { display: flex; align-items: center; justify-content: center; min-height: {{ section.settings.logo_height | plus: 36 }}px; text-decoration: none; }
+  .psi-logos__item img { max-height: {{ section.settings.logo_height }}px; width: auto; opacity: .65; transition: opacity .25s; }
+  .psi-logos--white .psi-logos__item img { filter: brightness(0) invert(1); }
+  .psi-logos__item:hover img { opacity: 1; }
+  .psi-logos__item { padding: 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,.06); background: rgba(255,255,255,.02); transition: border-color .25s, background .25s; }
+  .psi-logos__item:hover { border-color: rgba(227,93,95,.35); background: rgba(158,29,31,.06); }
+  .psi-logos__empty { display: flex; align-items: center; justify-content: center; width: 100%; height: {{ section.settings.logo_height }}px; border: 1px dashed #3A3333; border-radius: 6px; font-size: 11px; letter-spacing: .06em; color: #8A847F; text-align: center; padding: 0 8px; line-height: 1.3; }
+  .psi-logos__more { text-align: center; margin: 28px 0 0; font-size: 13px; color: #8A847F; }
+</style>
+
+<section class="psi-s psi-g psi-g--{{ section.settings.gradient }} psi-logos{% if section.settings.white %} psi-logos--white{% endif %}" style="padding: {{ section.settings.padding }}px 0;">
+  <div class="psi-wrap">
+    {%- if section.settings.title != blank -%}<h2 class="psi-logos__title psi-reveal">{{ section.settings.title }}</h2>{%- endif -%}
+    <div class="psi-logos__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" class="psi-logos__item psi-reveal" data-psi-delay="{{ forloop.index0 | times: 40 }}" {{ block.fauqa_attributes }}>{%- else -%}<div class="psi-logos__item psi-reveal" data-psi-delay="{{ forloop.index0 | times: 40 }}" {{ block.fauqa_attributes }}>{%- endif -%}
+          {%- if block.settings.logo != blank -%}
+            {{ block.settings.logo | image_url: width: 320 | image_tag: alt: block.settings.name, loading: 'lazy', widths: '160, 240, 320' }}
+          {%- else -%}
+            <span class="psi-logos__empty">[LOGO: {{ block.settings.name }}]</span>
+          {%- endif -%}
+        {%- if block.settings.link != blank -%}</a>{%- else -%}</div>{%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.more != blank -%}<p class="psi-logos__more">{{ section.settings.more }}</p>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PSI Logo Wall",
+  "tag": "div",
+  "settings": [
+    { "type": "select", "id": "gradient", "label": "Gradasi latar", "default": "top", "options": [ { "value": "top", "label": "Cahaya dari atas" }, { "value": "bottom", "label": "Cahaya dari bawah" }, { "value": "left", "label": "Cahaya dari kiri" }, { "value": "right", "label": "Cahaya dari kanan" }, { "value": "center", "label": "Cahaya di tengah" }, { "value": "diagonal", "label": "Diagonal" }, { "value": "none", "label": "Polos (tanpa gradasi)" } ] },
+    { "type": "text", "id": "title", "label": "Judul", "default": "Trusted by Indonesia's leading hotels & resorts" },
+    { "type": "text", "id": "more", "label": "Catatan di bawah", "default": "and many more" },
+    { "type": "checkbox", "id": "white", "label": "Jadikan logo putih (untuk latar gelap)", "default": true },
+    { "type": "range", "id": "logo_height", "label": "Tinggi logo maksimal", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 44 },
+    { "type": "range", "id": "padding", "label": "Jarak atas-bawah", "min": 32, "max": 160, "step": 8, "unit": "px", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Nama (untuk teks alternatif logo)", "default": "Nama klien" },
+        { "type": "image_picker", "id": "logo", "label": "Gambar logo (PNG transparan)" },
+        { "type": "url", "id": "link", "label": "Link (opsional)" }
+      ]
+    }
+  ],
+  "max_blocks": 48,
+  "presets": [
+    {
+      "name": "PSI Logo Wall",
+      "blocks": [
+        { "type": "logo", "settings": { "name": "JW Marriott" } },
+        { "type": "logo", "settings": { "name": "St. Regis" } },
+        { "type": "logo", "settings": { "name": "Grand Hyatt" } },
+        { "type": "logo", "settings": { "name": "Fairmont" } },
+        { "type": "logo", "settings": { "name": "Kempinski" } },
+        { "type": "logo", "settings": { "name": "Mulia Resort & Villas" } },
+        { "type": "logo", "settings": { "name": "The Ritz-Carlton" } },
+        { "type": "logo", "settings": { "name": "Four Seasons" } },
+        { "type": "logo", "settings": { "name": "InterContinental" } },
+        { "type": "logo", "settings": { "name": "Ayana" } },
+        { "type": "logo", "settings": { "name": "Sofitel" } },
+        { "type": "logo", "settings": { "name": "Mandarin Oriental" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

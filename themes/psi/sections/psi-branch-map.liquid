@@ -1,0 +1,121 @@
+
+<style>
+  .psi-branch__row { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; }
+  .psi-branch__copy { flex: 1 1 340px; }
+  .psi-branch__list { margin-top: 32px; display: flex; flex-direction: column; gap: 10px; }
+  .psi-branch__city { all: unset; box-sizing: border-box; cursor: pointer; display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; border-radius: 10px; border: 1px solid var(--psi-line); background: transparent; min-height: 44px; transition: border-color .25s, background .25s; }
+  .psi-branch__city:hover { border-color: #3A3333; }
+  .psi-branch__city:focus-visible { outline: 2px solid var(--psi-hi); outline-offset: 2px; }
+  .psi-branch__city[aria-pressed="true"] { border-color: rgba(227,93,95,.55); background: rgba(158,29,31,.12); }
+  .psi-branch__dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 9px; flex: none; background: #4A4242; transition: background .25s; }
+  .psi-branch__city[aria-pressed="true"] .psi-branch__dot { background: var(--psi-hi); }
+  .psi-branch__name { display: block; font-family: var(--psi-head); font-size: 24px; color: var(--psi-text); }
+  .psi-branch__addr { display: block; font-size: 14px; color: #A8A29E; margin-top: 2px; }
+  .psi-branch__addr a { color: var(--psi-hi); }
+  .psi-branch__map { flex: 1.6 1 520px; padding: 32px; }
+  .psi-branch__map svg { width: 100%; height: auto; display: block; }
+  .psi-branch__ring { fill: #E35D5F; opacity: .18; transform-box: fill-box; transform-origin: center; transform: scale(1); transition: transform .4s ease, opacity .4s; }
+  [data-pin].is-active .psi-branch__ring { transform: scale(2.2); opacity: .28; }
+  @media (prefers-reduced-motion: no-preference) {
+    [data-pin].is-active .psi-branch__ring { animation: psi-pulse 2.4s ease-in-out infinite; }
+    @keyframes psi-pulse { 0%, 100% { transform: scale(1.8); } 50% { transform: scale(2.6); } }
+  }
+  @media (max-width: 749px) { .psi-branch__map { padding: 16px; } .psi-branch__name { font-size: 20px; } }
+</style>
+
+{%- capture route -%}{%- for block in section.blocks -%}{% if forloop.first %}M{% else %} L{% endif %}{{ block.settings.x }} {{ block.settings.y }}{%- endfor -%}{%- endcapture -%}
+
+<section class="psi-s psi-g psi-g--{{ section.settings.gradient }} psi-pad" data-psi-branch>
+  <div class="psi-wrap psi-branch__row">
+    <div class="psi-branch__copy psi-reveal">
+      {%- if section.settings.eyebrow != blank -%}<p class="psi-pill">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="psi-h2">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<p class="psi-lead" style="margin-top: 20px;">{{ section.settings.text }}</p>{%- endif -%}
+      <div class="psi-branch__list">
+        {%- for block in section.blocks -%}
+          <button type="button" class="psi-branch__city" data-city="{{ block.id }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" {{ block.fauqa_attributes }}>
+            <span class="psi-branch__dot"></span>
+            <span>
+              <span class="psi-branch__name">{{ block.settings.name }}</span>
+              {%- if block.settings.address != blank -%}<span class="psi-branch__addr">{{ block.settings.address }}</span>{%- endif -%}
+              {%- if block.settings.phone != blank -%}<span class="psi-branch__addr">{{ block.settings.phone }}</span>{%- endif -%}
+            </span>
+          </button>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="psi-card psi-branch__map psi-reveal" data-psi-delay="100">
+      <svg viewBox="0 0 1000 440" role="img" aria-label="{{ section.settings.map_label | escape }}">
+        <g fill="#262121">
+          <ellipse cx="170" cy="160" rx="170" ry="44" transform="rotate(38 170 160)"/>
+          <ellipse cx="420" cy="322" rx="120" ry="17" transform="rotate(5 420 322)"/>
+          <ellipse cx="556" cy="338" rx="9" ry="7"/>
+          <ellipse cx="582" cy="341" rx="10" ry="7"/>
+          <ellipse cx="625" cy="346" rx="22" ry="7"/>
+          <ellipse cx="690" cy="352" rx="28" ry="6"/>
+          <ellipse cx="760" cy="372" rx="30" ry="9" transform="rotate(-20 760 372)"/>
+          <ellipse cx="430" cy="150" rx="105" ry="95"/>
+          <ellipse cx="620" cy="140" rx="60" ry="9" transform="rotate(-8 620 140)"/>
+          <ellipse cx="600" cy="200" rx="12" ry="60"/>
+          <ellipse cx="625" cy="235" rx="10" ry="35" transform="rotate(-25 625 235)"/>
+          <ellipse cx="585" cy="250" rx="9" ry="35" transform="rotate(15 585 250)"/>
+          <ellipse cx="740" cy="170" rx="12" ry="22"/>
+          <ellipse cx="760" cy="250" rx="22" ry="8"/>
+          <ellipse cx="900" cy="250" rx="100" ry="55" transform="rotate(12 900 250)"/>
+        </g>
+        {%- if section.blocks.size > 1 -%}
+          <path d="{{ route }}" fill="none" stroke="#E35D5F" stroke-width="1.5" stroke-dasharray="4 5"/>
+        {%- endif -%}
+        {%- for block in section.blocks -%}
+          <g data-pin="{{ block.id }}">
+            <circle class="psi-branch__ring" cx="{{ block.settings.x }}" cy="{{ block.settings.y }}" r="9"/>
+            <circle cx="{{ block.settings.x }}" cy="{{ block.settings.y }}" r="7" fill="#E35D5F"/>
+            <text x="{{ block.settings.x | plus: block.settings.label_dx }}" y="{{ block.settings.y | plus: block.settings.label_dy }}" font-family="Roboto, Arial, sans-serif" font-size="16" fill="#F5F2F0">{{ block.settings.name }}</text>
+          </g>
+        {%- endfor -%}
+      </svg>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PSI Branch Map",
+  "tag": "div",
+  "settings": [
+    { "type": "select", "id": "gradient", "label": "Gradasi latar", "default": "left", "options": [ { "value": "top", "label": "Cahaya dari atas" }, { "value": "bottom", "label": "Cahaya dari bawah" }, { "value": "left", "label": "Cahaya dari kiri" }, { "value": "right", "label": "Cahaya dari kanan" }, { "value": "center", "label": "Cahaya di tengah" }, { "value": "diagonal", "label": "Diagonal" }, { "value": "none", "label": "Polos (tanpa gradasi)" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Label kecil", "default": "Our Branch" },
+    { "type": "inline_richtext", "id": "heading", "label": "Judul (teks miring = warna aksen)", "default": "National <em>Distribution Network</em>" },
+    { "type": "text", "id": "text", "label": "Teks", "default": "Distribution across various regions of Indonesia." },
+    { "type": "text", "id": "map_label", "label": "Deskripsi peta (untuk pembaca layar)", "default": "Distribution map of Indonesia showing PSI branches" }
+  ],
+  "blocks": [
+    {
+      "type": "city",
+      "name": "Kota / cabang",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Nama kota", "default": "Nama kota" },
+        { "type": "textarea", "id": "address", "label": "Alamat", "default": "[ALAMAT: ISI DI SINI]" },
+        { "type": "text", "id": "phone", "label": "Telepon (opsional)" },
+        { "type": "header", "content": "Posisi titik di peta" },
+        { "type": "number", "id": "x", "label": "Posisi X (0 = kiri, 1000 = kanan)", "default": 500 },
+        { "type": "number", "id": "y", "label": "Posisi Y (0 = atas, 440 = bawah)", "default": 320 },
+        { "type": "range", "id": "label_dx", "label": "Geser nama ke kanan/kiri", "min": -80, "max": 80, "step": 2, "default": -34 },
+        { "type": "range", "id": "label_dy", "label": "Geser nama ke atas/bawah", "min": -40, "max": 40, "step": 2, "default": -24 }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "PSI Branch Map",
+      "blocks": [
+        { "type": "city", "settings": { "name": "Jakarta", "address": "Kawasan Industri Pulo Gadung, Jl. Pulo Sidik Blok R Kav No. 29A, Jatinegara, Cakung, Jakarta Timur 13930", "x": 335, "y": 308, "label_dx": -34, "label_dy": -24 } },
+        { "type": "city", "settings": { "name": "Surabaya", "x": 505, "y": 318, "label_dx": -36, "label_dy": 42 } },
+        { "type": "city", "settings": { "name": "Bali", "x": 555, "y": 338, "label_dx": -8, "label_dy": -26 } }
+      ]
+    }
+  ]
+}
+{% endschema %}

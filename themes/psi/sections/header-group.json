@@ -1,0 +1,17 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "header": {
+      "type": "psi-header",
+      "settings": {
+        "menu": "main-menu",
+        "shop_label": "Ecommerce",
+        "shop_link": ""
+      }
+    }
+  },
+  "order": [
+    "header"
+  ]
+}

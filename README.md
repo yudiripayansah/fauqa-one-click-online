@@ -13,6 +13,18 @@ Platform website company profile multi-tenant dengan theme Liquid bergaya Shopif
 
 `npm run check` menguji migrasi (RLS, RPC) di PGlite dan render theme dari disk, tanpa database sungguhan.
 
+## Theme PSI
+
+`themes/psi/` mengadaptasi 11 section dari `Downloads/psi-home-shopify` ke engine Fauqa. Homepage mencakup hero video/slider, brand marquee, profil perusahaan, pilar layanan, produk unggulan, logo klien, peta cabang, dan CTA. Header, footer, dan WhatsApp tersedia melalui section group. Halaman produk, koleksi, blog, pencarian, kontak, password, dan 404 mewarisi `themes/_shared/` dengan warna gelap PSI.
+
+- Buat paket lengkap (termasuk file bersama): `npm run theme:package -- psi`. Hasil: `artifacts/psi-theme.zip`. Unggah melalui **Theme → Upload theme**, lalu buka editor dan preview sebelum publish.
+- Daftarkan sebagai theme bawaan: `npm run theme:sync -- psi` memvalidasi tanpa menulis; `npm run theme:sync -- psi --apply` menyinkronkan hanya PSI menggunakan `.env.local`. Tidak membuat user/situs demo dan tidak mengganti theme live atau salinan theme situs.
+- Setelah sinkronisasi, pilih PSI dari daftar theme bawaan di halaman Theme atau wizard situs baru. Menyalin langsung folder `themes/psi/` menjadi ZIP belum cukup karena file `_shared` perlu digabung oleh perintah paket.
+
+Unggah logo, foto, dan video MP4/WebM melalui file manager lalu pilih di editor. Source asal tidak menyertakan media; tanpa media, theme menampilkan gradasi dan placeholder. Judul/teks slide pertama diatur pada section **PSI Hero Video**; media dan tombolnya pada block slide pertama. Judul/teks slide berikutnya diatur pada masing-masing block. Warna, font, dan lebar halaman tersedia di Theme settings.
+
+Menu memakai handle dari menu Fauqa. Produk unggulan memakai koleksi yang dipilih (fallback semua produk), harga berupa teks katalog. Tombol Ecommerce hanya tampil setelah URL toko eksternal diisi; tidak ada keranjang atau checkout internal. WhatsApp memakai nomor section atau kontak situs bila kosong. Perbarui teks perusahaan, alamat cabang, logo klien, dan tautan contoh sebelum publish. CSS/JS dimuat sekali dari layout; animasi diinisialisasi ulang dan dibersihkan saat section diperbarui di editor.
+
 ## Deploy (Vercel)
 
 - Env: `ROOT_DOMAIN=oneclick.fau-qa.com`, `PROTOCOL=https` (+ kunci di `.env.example`).

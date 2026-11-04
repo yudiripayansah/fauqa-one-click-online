@@ -1,0 +1,73 @@
+
+<style>
+  .psi-ft { color: #A8A29E; padding: 80px 0 32px; font-size: 14px; border-top: 1px solid #1A1717; }
+  .psi-ft a { color: #A8A29E; text-decoration: none; }
+  .psi-ft a:hover { color: #fff; }
+  .psi-ft__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 48px; }
+  .psi-ft__title { color: var(--psi-text); font-size: 13px; font-weight: 500; margin: 0 0 18px; letter-spacing: .04em; }
+  .psi-ft__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .psi-ft__rte p { margin: 0 0 10px; }
+  .psi-ft__bottom { border-top: 1px solid #1E1B1B; margin-top: 64px; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #8A847F; }
+  .psi-ft__tag { letter-spacing: .3em; text-transform: uppercase; }
+</style>
+
+<footer class="psi-s psi-g psi-g--{{ section.settings.gradient }} psi-ft">
+  <div class="psi-wrap">
+    <div class="psi-ft__grid">
+      <div>
+        <a href="{{ routes.root_url }}" aria-label="{{ site.name }}">
+          {%- if section.settings.logo != blank -%}
+            {{ section.settings.logo | image_url: width: 500 | image_tag: alt: site.name, loading: 'lazy', style: 'height:44px;width:auto;display:block', widths: '250, 500' }}
+          {%- else -%}
+            <span style="color:#fff;font-family:var(--psi-head);font-size:18px;letter-spacing:.08em;">{{ site.name }}</span>
+          {%- endif -%}
+        </a>
+        {%- if section.settings.about != blank -%}<p style="margin: 24px 0 0; max-width: 280px;">{{ section.settings.about }}</p>{%- endif -%}
+      </div>
+
+      {%- if section.settings.menu != blank -%}
+        <div>
+          <p class="psi-ft__title">{{ section.settings.menu_title }}</p>
+          <ul class="psi-ft__list">
+            {%- for link in linklists[section.settings.menu].links -%}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      <div>
+        <p class="psi-ft__title">{{ section.settings.contact_title }}</p>
+        <div class="psi-ft__rte">{{ section.settings.contact }}</div>
+      </div>
+
+      <div>
+        <p class="psi-ft__title">{{ section.settings.social_title }}</p>
+        <div class="psi-ft__rte">{{ section.settings.social }}</div>
+      </div>
+    </div>
+
+    <div class="psi-ft__bottom">
+      <span>&copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright }}</span>
+      {%- if section.settings.tagline != blank -%}<span class="psi-ft__tag">{{ section.settings.tagline }}</span>{%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "PSI Footer",
+  "settings": [
+    { "type": "select", "id": "gradient", "label": "Gradasi latar", "default": "top", "options": [ { "value": "top", "label": "Cahaya dari atas" }, { "value": "bottom", "label": "Cahaya dari bawah" }, { "value": "left", "label": "Cahaya dari kiri" }, { "value": "right", "label": "Cahaya dari kanan" }, { "value": "center", "label": "Cahaya di tengah" }, { "value": "diagonal", "label": "Diagonal" }, { "value": "none", "label": "Polos (tanpa gradasi)" } ] },
+    { "type": "image_picker", "id": "logo", "label": "Logo (versi untuk latar gelap)" },
+    { "type": "textarea", "id": "about", "label": "Teks singkat", "default": "Importer and distributor of premium hospitality supplies in Indonesia since 2013." },
+    { "type": "text", "id": "menu_title", "label": "Judul kolom menu", "default": "Explore" },
+    { "type": "link_list", "id": "menu", "label": "Menu footer", "default": "footer" },
+    { "type": "text", "id": "contact_title", "label": "Judul kolom kontak", "default": "Contact" },
+    { "type": "richtext", "id": "contact", "label": "Isi kontak", "default": "<p>Kawasan Industri Pulo Gadung, Jl. Pulo Sidik Blok R Kav No. 29A, Jatinegara, Cakung, Jakarta Timur 13930</p><p>T +6221 2246 5353 · F +6221 2983 2438</p><p>Email: [ISI DI SINI] · WhatsApp: [ISI DI SINI]</p>" },
+    { "type": "text", "id": "social_title", "label": "Judul kolom sosial", "default": "Follow & Shop" },
+    { "type": "richtext", "id": "social", "label": "Isi sosial & marketplace", "default": "<p><a href=\"https://www.instagram.com/putrasuryainternusa\">Instagram @putrasuryainternusa</a></p><p>Tokopedia · Shopee · Lazada · Blibli</p>" },
+    { "type": "text", "id": "copyright", "label": "Teks hak cipta", "default": "PT Putra Surya Internusa. All rights reserved." },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Serve Passionately" }
+  ],
+  "enabled_on": { "groups": ["footer"] }
+}
+{% endschema %}

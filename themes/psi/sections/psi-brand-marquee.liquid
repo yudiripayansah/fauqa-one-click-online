@@ -1,0 +1,133 @@
+
+<style>
+  .psi-brands { overflow: hidden; }
+  .psi-brands__head { max-width: 800px; margin: 0 auto; }
+  .psi-brands__marq { overflow: hidden; margin-top: 64px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .psi-brands__track { display: flex; gap: 72px; width: max-content; align-items: center; animation: psi-slide {{ section.settings.speed }}s linear infinite; }
+  .psi-brands__track + .psi-brands__track { margin-top: 36px; animation-direction: reverse; }
+  .psi-brands__marq:hover .psi-brands__track { animation-play-state: paused; }
+  @keyframes psi-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .psi-brands__mark { font-family: var(--psi-head); font-size: 28px; color: #8A847F; white-space: nowrap; text-decoration: none; transition: color .25s; display: inline-flex; align-items: center; }
+  .psi-brands__mark:hover { color: var(--psi-text); }
+  .psi-brands__mark img { height: {{ section.settings.logo_height }}px; width: auto; filter: brightness(0) invert(1); opacity: .6; transition: opacity .25s; }
+  .psi-brands__mark:hover img { opacity: 1; }
+  .psi-brands__empty { display: inline-flex; align-items: center; height: {{ section.settings.logo_height }}px; padding: 0 22px; border: 1px dashed #3A3333; border-radius: 6px; font-family: var(--psi-body); font-size: 12px; letter-spacing: .06em; color: #8A847F; }
+  .psi-brands__chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 64px; }
+  .psi-brands__chip { border: 1px solid #2E2929; border-radius: 999px; padding: 10px 18px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #E7E2DE; text-decoration: none; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; background: var(--psi-card); }
+  .psi-brands__chip:hover { border-color: var(--psi-hi); color: #fff; }
+  @media (prefers-reduced-motion: reduce) {
+    .psi-brands__track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; gap: 24px 48px; padding: 0 20px; }
+    .psi-brands__track [aria-hidden="true"] { display: none; }
+  }
+  @media (max-width: 749px) { .psi-brands__mark { font-size: 22px; } .psi-brands__track { gap: 48px; } }
+</style>
+
+
+<section class="psi-s psi-g psi-g--{{ section.settings.gradient }} psi-pad psi-brands">
+  <div class="psi-wrap psi-center psi-brands__head psi-reveal">
+    {%- if section.settings.eyebrow != blank -%}<p class="psi-pill">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    <h2 class="psi-h2">{{ section.settings.heading }}</h2>
+  </div>
+
+  <div class="psi-brands__marq">
+    {%- for row in (1..2) -%}
+      {%- assign row_id = row | append: '' -%}
+      {%- assign has_items = false -%}
+      {%- for block in section.blocks -%}{%- if block.settings.row == row_id -%}{%- assign has_items = true -%}{%- endif -%}{%- endfor -%}
+      {%- if has_items -%}
+        <div class="psi-brands__track">
+          {%- for copy in (1..2) -%}
+            {%- for block in section.blocks -%}
+              {%- if block.settings.row != row_id -%}{%- continue -%}{%- endif -%}
+              {%- capture inner -%}
+                {%- if block.settings.logo != blank -%}
+                  {{ block.settings.logo | image_url: width: 300 | image_tag: alt: block.settings.name, loading: 'lazy', widths: '150, 300' }}
+                {%- else -%}
+                  <span class="psi-brands__empty">[LOGO: {{ block.settings.name }}]</span>
+                {%- endif -%}
+              {%- endcapture -%}
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="psi-brands__mark"{% if copy == 2 %} aria-hidden="true" tabindex="-1"{% else %} {{ block.fauqa_attributes }}{% endif %}>{{ inner }}</a>
+              {%- else -%}
+                <span class="psi-brands__mark"{% if copy == 2 %} aria-hidden="true"{% else %} {{ block.fauqa_attributes }}{% endif %}>{{ inner }}</span>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="psi-wrap psi-center">
+    {%- if section.settings.categories != blank -%}
+      {%- assign cats = section.settings.categories | split: ',' -%}
+      <div class="psi-brands__chips">
+        {%- for c in cats -%}
+          {%- assign c = c | strip -%}
+          {%- if c != blank -%}<a href="{{ section.settings.categories_link | default: '#' }}" class="psi-brands__chip">{{ c }}</a>{%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <div style="margin-top: 44px;"><a href="{{ section.settings.button_link | default: '#' }}" class="psi-btn psi-btn--primary">{{ section.settings.button_label }}</a></div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PSI Brand Marquee",
+  "tag": "div",
+  "settings": [
+    { "type": "select", "id": "gradient", "label": "Gradasi latar", "default": "top", "options": [ { "value": "top", "label": "Cahaya dari atas" }, { "value": "bottom", "label": "Cahaya dari bawah" }, { "value": "left", "label": "Cahaya dari kiri" }, { "value": "right", "label": "Cahaya dari kanan" }, { "value": "center", "label": "Cahaya di tengah" }, { "value": "diagonal", "label": "Diagonal" }, { "value": "none", "label": "Polos (tanpa gradasi)" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Label kecil", "default": "Our Brand Portfolio" },
+    { "type": "inline_richtext", "id": "heading", "label": "Judul (teks miring = warna aksen)", "default": "Exclusive partner for <em>over 30 international brands</em>" },
+    { "type": "range", "id": "logo_height", "label": "Tinggi logo", "min": 24, "max": 72, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "speed", "label": "Lama satu putaran (makin besar makin pelan)", "min": 20, "max": 90, "step": 5, "unit": "s", "default": 40 },
+    { "type": "text", "id": "categories", "label": "Kategori (pisahkan dengan koma)", "default": "Glassware, Tableware, Kitchen Equipment, Refrigeration, Bar & Wine Equipment, Hospitality Supplies" },
+    { "type": "url", "id": "categories_link", "label": "Link kategori (mis. halaman Brand List)" },
+    { "type": "text", "id": "button_label", "label": "Teks tombol", "default": "Explore All Brands" },
+    { "type": "url", "id": "button_link", "label": "Link tombol" }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Nama brand", "default": "Nama brand" },
+        { "type": "image_picker", "id": "logo", "label": "Logo (PNG transparan)" },
+        { "type": "url", "id": "link", "label": "Link (opsional)" },
+        { "type": "select", "id": "row", "label": "Baris", "default": "1", "options": [ { "value": "1", "label": "Baris 1" }, { "value": "2", "label": "Baris 2" } ] }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "PSI Brand Marquee",
+      "blocks": [
+        { "type": "brand", "settings": { "name": "Riedel", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Spiegelau", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Nachtmann", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Jakobsen Design", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Legle Porcelain", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Rational", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Hoshizaki", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Liebherr", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Winterhalter", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Josper", "row": "1" } },
+        { "type": "brand", "settings": { "name": "Robot Coupe", "row": "2" } },
+        { "type": "brand", "settings": { "name": "Coravin", "row": "2" } },
+        { "type": "brand", "settings": { "name": "Korkmaz", "row": "2" } },
+        { "type": "brand", "settings": { "name": "Giesser", "row": "2" } },
+        { "type": "brand", "settings": { "name": "Saint James", "row": "2" } },
+        { "type": "brand", "settings": { "name": "Mepra", "row": "2" } },
+        { "type": "brand", "settings": { "name": "Cocktail Kingdom", "row": "2" } },
+        { "type": "brand", "settings": { "name": "Matfer Bourgeat", "row": "2" } },
+        { "type": "brand", "settings": { "name": "The Glencairn Glass", "row": "2" } },
+        { "type": "brand", "settings": { "name": "Halton", "row": "2" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,86 @@
+
+<style>
+  .psi-pillars__head { max-width: 760px; margin: 0 auto 56px; }
+  .psi-pillars__card { padding: 32px; }
+  .psi-pillars__card .psi-h3 { margin: 22px 0 10px; font-size: 24px; }
+  .psi-pillars__text { margin: 0; color: var(--psi-soft); font-size: 15px; }
+  .psi-pillars__text p { margin: 0; }
+</style>
+
+<section class="psi-s psi-g psi-g--{{ section.settings.gradient }} psi-pad{% if section.settings.alt %} psi-alt{% endif %}">
+  <div class="psi-wrap">
+    <div class="psi-pillars__head psi-center psi-reveal">
+      {%- if section.settings.eyebrow != blank -%}<p class="psi-pill">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="psi-h2">{{ section.settings.heading }}</h2>{%- endif -%}
+    </div>
+    <div class="psi-grid" style="grid-template-columns: repeat(auto-fit, minmax({{ section.settings.min_width }}px, 1fr));">
+      {%- for block in section.blocks -%}
+        <div class="psi-card psi-pillars__card psi-reveal" data-psi-delay="{{ forloop.index0 | times: 70 }}" {{ block.fauqa_attributes }}>
+          <div class="psi-tile">
+            {%- case block.settings.icon -%}
+              {%- when 'glass' -%}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3h8l-1 7a3 3 0 01-6 0z"/><path d="M12 13v7M8 21h8"/></svg>
+              {%- when 'globe' -%}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>
+              {%- when 'truck' -%}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
+              {%- when 'heart' -%}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>
+              {%- when 'refresh' -%}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 12a8 8 0 01-14 5.3M4 12a8 8 0 0114-5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+              {%- when 'shield' -%}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              {%- when 'star' -%}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>
+              {%- when 'people' -%}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c.8-3.5 3.2-5 6-5s5.2 1.5 6 5M10 20c.8-3.5 3.2-5 6-5s5.2 1.5 6 5"/></svg>
+              {%- else -%}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/></svg>
+            {%- endcase -%}
+          </div>
+          <h3 class="psi-h3">{{ block.settings.title }}</h3>
+          <div class="psi-pillars__text">{{ block.settings.text }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PSI Pillars",
+  "tag": "div",
+  "settings": [
+    { "type": "select", "id": "gradient", "label": "Gradasi latar", "default": "right", "options": [ { "value": "top", "label": "Cahaya dari atas" }, { "value": "bottom", "label": "Cahaya dari bawah" }, { "value": "left", "label": "Cahaya dari kiri" }, { "value": "right", "label": "Cahaya dari kanan" }, { "value": "center", "label": "Cahaya di tengah" }, { "value": "diagonal", "label": "Diagonal" }, { "value": "none", "label": "Polos (tanpa gradasi)" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Label kecil", "default": "Who We Are" },
+    { "type": "inline_richtext", "id": "heading", "label": "Judul (teks miring = warna aksen)", "default": "Comprehensive solutions for <em>every hospitality need</em>" },
+    { "type": "range", "id": "min_width", "label": "Lebar minimal kartu", "min": 200, "max": 380, "step": 20, "unit": "px", "default": 300 },
+    { "type": "checkbox", "id": "alt", "label": "Latar sedikit lebih terang", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Kartu",
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Ikon", "default": "glass",
+          "options": [
+            { "value": "glass", "label": "Gelas" },
+            { "value": "globe", "label": "Globe" },
+            { "value": "truck", "label": "Truk / distribusi" },
+            { "value": "heart", "label": "Hati (Comfort)" },
+            { "value": "refresh", "label": "Panah putar (Adaptive)" },
+            { "value": "shield", "label": "Perisai (Responsible)" },
+            { "value": "star", "label": "Bintang (Excellent Service)" },
+            { "value": "people", "label": "Orang (Synergy)" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Judul", "default": "Judul kartu" },
+        { "type": "richtext", "id": "text", "label": "Teks", "default": "<p>Teks kartu.</p>" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "PSI Pillars",
+      "blocks": [
+        { "type": "pillar", "settings": { "icon": "glass", "title": "Comprehensive Solutions", "text": "<p>Comprehensive solutions for utensils and equipment, combining functional utility with design aesthetics.</p>" } },
+        { "type": "pillar", "settings": { "icon": "globe", "title": "Diverse Product Offerings", "text": "<p>Items sourced from leading international manufacturers and local industries, for back-of-house and front-of-house.</p>" } },
+        { "type": "pillar", "settings": { "icon": "truck", "title": "Efficient Supply Chain", "text": "<p>Reliable and consistent management of imports and distribution across various regions of Indonesia.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,147 @@
+
+{%- liquid
+  assign overlay = false
+  if section.settings.transparent_home and template.name == 'index'
+    assign overlay = true
+  endif
+-%}
+
+<style>
+  .psi-header-wrapper { position: sticky; top: 0; z-index: 50; }
+  body.template-index .psi-header-wrapper:has(.psi-hd--overlay) { position: absolute; width: 100%; }
+  .psi-hd { position: relative; top: 0; z-index: 50; background: rgba(5,5,5,.94); border-bottom: 1px solid #1E1B1B; }
+  .psi-hd--overlay { position: absolute; left: 0; right: 0; background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,0)); border-bottom: 0; }
+  .psi-hd__bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 96px; max-width: 1440px; margin: 0 auto; padding: 0 6.5%; }
+  .psi-hd__left, .psi-hd__right { display: flex; align-items: center; gap: 16px; }
+  .psi-hd__icon { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; color: #fff; text-decoration: none; position: relative; background: none; border: 0; cursor: pointer; }
+  .psi-hd__icon:hover { color: var(--psi-hi); }
+  .psi-hd__count { position: absolute; top: 4px; right: 2px; min-width: 18px; height: 18px; border-radius: 9px; background: var(--psi-accent); color: #fff; font-size: 11px; line-height: 18px; text-align: center; font-weight: 500; }
+  .psi-hd__nav { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; }
+  .psi-hd__nav > li { position: relative; }
+  .psi-hd__nav a { color: #fff; text-decoration: none; font-family: var(--psi-head); font-size: 17px; font-weight: 400; display: inline-flex; align-items: center; gap: 4px; padding: 6px 0; border-bottom: 2px solid transparent; }
+  .psi-hd__nav > li > a[aria-current="page"], .psi-hd__nav > li > a:hover { border-bottom-color: var(--psi-hi); }
+  .psi-hd__drop { position: absolute; top: 100%; left: -18px; min-width: 220px; list-style: none; margin: 0; padding: 12px 0; background: #100E0E; border: 1px solid #262222; border-radius: 10px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s, transform .2s, visibility .2s; }
+  .psi-hd__nav > li:hover .psi-hd__drop, .psi-hd__nav > li:focus-within .psi-hd__drop { opacity: 1; visibility: visible; transform: none; }
+  .psi-hd__drop a { display: block; padding: 10px 18px; font-size: 15px; border: 0; color: #E7E2DE; }
+  .psi-hd__drop a:hover { color: var(--psi-hi); }
+  .psi-hd__shop { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,.45); color: #fff; text-decoration: none; font-family: var(--psi-head); font-size: 14px; letter-spacing: .02em; white-space: nowrap; transition: background .25s, border-color .25s, color .25s; }
+  .psi-hd__shop:hover { background: var(--psi-accent); border-color: var(--psi-accent); color: #fff; }
+  .psi-hd__shop--solid { background: var(--psi-accent); border-color: var(--psi-accent); }
+  .psi-hd__shop--solid:hover { background: var(--psi-accent-hover); border-color: var(--psi-accent-hover); }
+  .psi-hd__logo img { width: auto; }
+  .psi-hd__logo-text { color: #fff; font-family: var(--psi-head); font-size: 18px; letter-spacing: .08em; text-decoration: none; }
+  .psi-hd__mobile { display: none; }
+  .psi-hd__mobile summary { list-style: none; }
+  .psi-hd__mobile summary::-webkit-details-marker { display: none; }
+  .psi-hd__panel { position: fixed; inset: 0 0 0 0; top: 96px; background: #050505; padding: 24px 20px 48px; overflow-y: auto; z-index: 60; }
+  .psi-hd__panel ul { list-style: none; margin: 0; padding: 0; }
+  .psi-hd__panel a { display: block; color: #fff; text-decoration: none; font-family: var(--psi-head); font-size: 22px; padding: 14px 0; border-bottom: 1px solid #1E1B1B; }
+  .psi-hd__panel ul ul a { font-size: 16px; padding-left: 16px; color: #B5AFAA; }
+  @media (max-width: 989px) {
+    .psi-hd__nav { display: none; }
+    .psi-hd__mobile { display: block; }
+    .psi-hd__bar { height: 76px; padding: 0 20px; }
+    .psi-hd__panel { top: 76px; }
+    .psi-hd__right { gap: 8px; }
+    .psi-hd__shop { height: 34px; padding: 0 12px; font-size: 12px; }
+    .psi-hd__shop svg { display: none; }
+  }
+  @media (max-width: 420px) { .psi-hd__shop { display: none; } .psi-hd__panel .psi-hd__shop-m { display: block; } }
+  .psi-hd__shop-m { display: none; }
+</style>
+
+<header class="psi-s psi-hd{% if overlay %} psi-hd--overlay{% endif %}">
+  <div class="psi-hd__bar">
+    <div class="psi-hd__left">
+      <details class="psi-hd__mobile">
+        <summary class="psi-hd__icon" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </summary>
+        <div class="psi-hd__panel">
+          <ul>
+            {%- for link in linklists[section.settings.menu].links -%}
+              <li>
+                <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                {%- if link.links != blank -%}
+                  <ul>
+                    {%- for child in link.links -%}
+                      <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+            {%- if section.settings.shop_label != blank and section.settings.shop_link != blank -%}
+              <li class="psi-hd__shop-m"><a href="{{ section.settings.shop_link | default: '#' }}"{% if section.settings.shop_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.shop_label }} ↗</a></li>
+            {%- endif -%}
+          </ul>
+        </div>
+      </details>
+
+      {%- if section.settings.show_search -%}
+        <a href="{{ routes.search_url }}" class="psi-hd__icon" aria-label="{{ 'search.title' | t }}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </a>
+      {%- endif -%}
+
+      <nav aria-label="Main">
+        <ul class="psi-hd__nav">
+          {%- for link in linklists[section.settings.menu].links -%}
+            <li>
+              <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>
+                {{- link.title -}}
+                {%- if link.links != blank -%}
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="opacity:.7"><path d="M6 9l6 6 6-6"/></svg>
+                {%- endif -%}
+              </a>
+              {%- if link.links != blank -%}
+                <ul class="psi-hd__drop">
+                  {%- for child in link.links -%}
+                    <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="psi-hd__right">
+      {%- if section.settings.shop_label != blank and section.settings.shop_link != blank -%}
+        <a href="{{ section.settings.shop_link | default: '#' }}" class="psi-hd__shop{% if section.settings.shop_solid %} psi-hd__shop--solid{% endif %}"{% if section.settings.shop_new_tab %} target="_blank" rel="noopener"{% endif %}>
+          {{- section.settings.shop_label -}}
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      {%- endif -%}
+      <a href="{{ routes.root_url }}" class="psi-hd__logo" aria-label="{{ site.name }}">
+        {%- if section.settings.logo != blank -%}
+          {%- assign logo_style = 'height:' | append: section.settings.logo_height | append: 'px' -%}
+          {{ section.settings.logo | image_url: width: 600 | image_tag: alt: site.name, style: logo_style, loading: 'eager', widths: '200, 300, 400, 600' }}
+        {%- else -%}
+          <span class="psi-hd__logo-text">{{ site.name }}</span>
+        {%- endif -%}
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "PSI Header",
+  "class": "psi-header-wrapper",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo (versi putih untuk latar gelap)" },
+    { "type": "range", "id": "logo_height", "label": "Tinggi logo", "min": 24, "max": 72, "step": 2, "unit": "px", "default": 40 },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "transparent_home", "label": "Transparan di atas video Home", "default": true },
+    { "type": "checkbox", "id": "show_search", "label": "Tampilkan ikon cari", "default": true },
+    { "type": "header", "content": "Tombol Ecommerce" },
+    { "type": "text", "id": "shop_label", "label": "Teks tombol (kosongkan untuk menyembunyikan)", "default": "Ecommerce" },
+    { "type": "url", "id": "shop_link", "label": "Link ke website ecommerce" },
+    { "type": "checkbox", "id": "shop_new_tab", "label": "Buka di tab baru", "default": true },
+    { "type": "checkbox", "id": "shop_solid", "label": "Tombol berwarna merah (bukan garis)", "default": true }
+  ],
+  "enabled_on": { "groups": ["header"] }
+}
+{% endschema %}

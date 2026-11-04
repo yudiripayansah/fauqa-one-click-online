@@ -1,0 +1,76 @@
+
+<style>
+  .psi-about__row { display: flex; flex-wrap: wrap; gap: 72px; align-items: center; }
+  .psi-about--flip .psi-about__row { flex-direction: row-reverse; }
+  .psi-about__media { flex: 1 1 420px; aspect-ratio: 4 / 5; max-height: 620px; border-radius: 12px; overflow: hidden; }
+  .psi-about__media img { width: 100%; height: 100%; object-fit: cover; }
+  .psi-about__copy { flex: 1 1 460px; }
+  .psi-about__stats { display: flex; gap: 48px; flex-wrap: wrap; margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--psi-line); }
+  .psi-about__num { font-family: var(--psi-head); font-size: 40px; line-height: 1; color: var(--psi-hi); }
+  .psi-about__lbl { font-size: 13px; color: var(--psi-soft); margin-top: 6px; }
+</style>
+
+<section class="psi-s psi-g psi-g--{{ section.settings.gradient }} psi-pad psi-about{% if section.settings.flip %} psi-about--flip{% endif %}">
+  <div class="psi-wrap psi-about__row">
+    {%- if section.settings.image != blank -%}
+      <div class="psi-about__media psi-reveal">
+        {{ section.settings.image | image_url: width: 1200 | image_tag: alt: section.settings.image.alt, loading: 'lazy', sizes: '(min-width: 990px) 560px, 100vw', widths: '400, 600, 800, 1000, 1200' }}
+      </div>
+    {%- else -%}
+      <div class="psi-about__media psi-ph psi-reveal">[FOTO: tim / showroom / gudang PSI]</div>
+    {%- endif -%}
+    <div class="psi-about__copy psi-reveal" data-psi-delay="80">
+      {%- if section.settings.eyebrow != blank -%}<p class="psi-pill">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="psi-h2">{{ section.settings.heading }}</h2>
+      <div class="psi-lead" style="margin-top: 28px;">{{ section.settings.text }}</div>
+      {%- if section.blocks.size > 0 -%}
+        <div class="psi-about__stats">
+          {%- for block in section.blocks -%}
+            <div {{ block.fauqa_attributes }}><div class="psi-about__num">{{ block.settings.number }}</div><div class="psi-about__lbl">{{ block.settings.label }}</div></div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <div style="margin-top: 40px;"><a href="{{ section.settings.button_link | default: '#' }}" class="psi-btn psi-btn--outline">{{ section.settings.button_label }}</a></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PSI About Intro",
+  "tag": "div",
+  "settings": [
+    { "type": "select", "id": "gradient", "label": "Gradasi latar", "default": "left", "options": [ { "value": "top", "label": "Cahaya dari atas" }, { "value": "bottom", "label": "Cahaya dari bawah" }, { "value": "left", "label": "Cahaya dari kiri" }, { "value": "right", "label": "Cahaya dari kanan" }, { "value": "center", "label": "Cahaya di tengah" }, { "value": "diagonal", "label": "Diagonal" }, { "value": "none", "label": "Polos (tanpa gradasi)" } ] },
+    { "type": "image_picker", "id": "image", "label": "Foto" },
+    { "type": "checkbox", "id": "flip", "label": "Foto di kanan", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Label kecil", "default": "About PSI" },
+    { "type": "inline_richtext", "id": "heading", "label": "Judul (teks miring = warna aksen)", "default": "Serving Indonesia's hospitality industry <em>since 2013</em>" },
+    { "type": "richtext", "id": "text", "label": "Teks", "default": "<p>Founded in 2013 by Damian Salvetti Thamrin, Faye Louise, and Olivier Salvetti Thamrin, Putra Surya Internusa has grown from a small enterprise into a leading importer and supplier for Indonesia's hospitality industry. Today, Putra Surya Internusa is the exclusive partner and sole distributor for over 30 major brands.</p>" },
+    { "type": "text", "id": "button_label", "label": "Teks tombol", "default": "Learn More" },
+    { "type": "url", "id": "button_link", "label": "Link tombol" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Angka",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Angka", "default": "2013" },
+        { "type": "text", "id": "label", "label": "Keterangan", "default": "Founded" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "PSI About Intro",
+      "blocks": [
+        { "type": "stat", "settings": { "number": "2013", "label": "Founded" } },
+        { "type": "stat", "settings": { "number": "30+", "label": "International brands" } },
+        { "type": "stat", "settings": { "number": "3", "label": "Cities: Jakarta, Surabaya, Bali" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

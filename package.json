@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "eslint",
     "check": "node scripts/check-db.mjs && node scripts/check-theme.mjs",
-    "seed": "node --env-file=.env.local scripts/seed.mjs"
+    "seed": "node --env-file=.env.local scripts/seed.mjs",
+    "theme:package": "node scripts/package-theme.mjs",
+    "theme:sync": "node --env-file=.env.local scripts/sync-theme.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",

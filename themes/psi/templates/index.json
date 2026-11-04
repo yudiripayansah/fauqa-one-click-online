@@ -1,0 +1,435 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "Elevating hospitality experiences across Indonesia",
+        "text": "<p>Exclusive partner and sole distributor for 30+ international brands in glassware, tableware, kitchen equipment and bar essentials.</p>",
+        "label": "Highlights",
+        "height": 100,
+        "overlay": 55,
+        "text_size": "small",
+        "interval": 7
+      },
+      "blocks": {
+        "b1": {
+          "type": "slide",
+          "settings": {
+            "button_link": "/collections/all"
+          }
+        },
+        "b2": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "SERVE PASSIONATELY",
+            "heading": "Premium equipment for every kitchen, bar and table",
+            "text": "<p>From back-of-house operations to front-of-house presentation, sourced from leading international manufacturers.</p>",
+            "button_label": "View products"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "brands": {
+      "type": "psi-brand-marquee",
+      "settings": {
+        "button_link": "/collections",
+        "categories_link": "/collections/all"
+      },
+      "blocks": {
+        "b1": {
+          "type": "brand",
+          "settings": {
+            "name": "Riedel",
+            "row": "1"
+          }
+        },
+        "b2": {
+          "type": "brand",
+          "settings": {
+            "name": "Spiegelau",
+            "row": "1"
+          }
+        },
+        "b3": {
+          "type": "brand",
+          "settings": {
+            "name": "Nachtmann",
+            "row": "1"
+          }
+        },
+        "b4": {
+          "type": "brand",
+          "settings": {
+            "name": "Jakobsen Design",
+            "row": "1"
+          }
+        },
+        "b5": {
+          "type": "brand",
+          "settings": {
+            "name": "Legle Porcelain",
+            "row": "1"
+          }
+        },
+        "b6": {
+          "type": "brand",
+          "settings": {
+            "name": "Rational",
+            "row": "1"
+          }
+        },
+        "b7": {
+          "type": "brand",
+          "settings": {
+            "name": "Hoshizaki",
+            "row": "1"
+          }
+        },
+        "b8": {
+          "type": "brand",
+          "settings": {
+            "name": "Liebherr",
+            "row": "1"
+          }
+        },
+        "b9": {
+          "type": "brand",
+          "settings": {
+            "name": "Winterhalter",
+            "row": "1"
+          }
+        },
+        "b10": {
+          "type": "brand",
+          "settings": {
+            "name": "Josper",
+            "row": "1"
+          }
+        },
+        "b11": {
+          "type": "brand",
+          "settings": {
+            "name": "Robot Coupe",
+            "row": "2"
+          }
+        },
+        "b12": {
+          "type": "brand",
+          "settings": {
+            "name": "Coravin",
+            "row": "2"
+          }
+        },
+        "b13": {
+          "type": "brand",
+          "settings": {
+            "name": "Korkmaz",
+            "row": "2"
+          }
+        },
+        "b14": {
+          "type": "brand",
+          "settings": {
+            "name": "Giesser",
+            "row": "2"
+          }
+        },
+        "b15": {
+          "type": "brand",
+          "settings": {
+            "name": "Saint James",
+            "row": "2"
+          }
+        },
+        "b16": {
+          "type": "brand",
+          "settings": {
+            "name": "Mepra",
+            "row": "2"
+          }
+        },
+        "b17": {
+          "type": "brand",
+          "settings": {
+            "name": "Cocktail Kingdom",
+            "row": "2"
+          }
+        },
+        "b18": {
+          "type": "brand",
+          "settings": {
+            "name": "Matfer Bourgeat",
+            "row": "2"
+          }
+        },
+        "b19": {
+          "type": "brand",
+          "settings": {
+            "name": "The Glencairn Glass",
+            "row": "2"
+          }
+        },
+        "b20": {
+          "type": "brand",
+          "settings": {
+            "name": "Halton",
+            "row": "2"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10",
+        "b11",
+        "b12",
+        "b13",
+        "b14",
+        "b15",
+        "b16",
+        "b17",
+        "b18",
+        "b19",
+        "b20"
+      ]
+    },
+    "about": {
+      "type": "psi-about-intro",
+      "settings": {
+        "button_link": "/pages/tentang-kami"
+      },
+      "blocks": {
+        "b1": {
+          "type": "stat",
+          "settings": {
+            "number": "2013",
+            "label": "Founded"
+          }
+        },
+        "b2": {
+          "type": "stat",
+          "settings": {
+            "number": "30+",
+            "label": "International brands"
+          }
+        },
+        "b3": {
+          "type": "stat",
+          "settings": {
+            "number": "3",
+            "label": "Cities: Jakarta, Surabaya, Bali"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "pillars": {
+      "type": "psi-pillars",
+      "settings": {},
+      "blocks": {
+        "b1": {
+          "type": "pillar",
+          "settings": {
+            "icon": "glass",
+            "title": "Comprehensive Solutions",
+            "text": "<p>Comprehensive solutions for utensils and equipment, combining functional utility with design aesthetics.</p>"
+          }
+        },
+        "b2": {
+          "type": "pillar",
+          "settings": {
+            "icon": "globe",
+            "title": "Diverse Product Offerings",
+            "text": "<p>Items sourced from leading international manufacturers and local industries, for back-of-house and front-of-house.</p>"
+          }
+        },
+        "b3": {
+          "type": "pillar",
+          "settings": {
+            "icon": "truck",
+            "title": "Efficient Supply Chain",
+            "text": "<p>Reliable and consistent management of imports and distribution across various regions of Indonesia.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "products": {
+      "type": "psi-featured-products",
+      "settings": {
+        "collection": "all",
+        "show_price": true
+      }
+    },
+    "clients": {
+      "type": "psi-logo-wall",
+      "settings": {},
+      "blocks": {
+        "b1": {
+          "type": "logo",
+          "settings": {
+            "name": "JW Marriott"
+          }
+        },
+        "b2": {
+          "type": "logo",
+          "settings": {
+            "name": "St. Regis"
+          }
+        },
+        "b3": {
+          "type": "logo",
+          "settings": {
+            "name": "Grand Hyatt"
+          }
+        },
+        "b4": {
+          "type": "logo",
+          "settings": {
+            "name": "Fairmont"
+          }
+        },
+        "b5": {
+          "type": "logo",
+          "settings": {
+            "name": "Kempinski"
+          }
+        },
+        "b6": {
+          "type": "logo",
+          "settings": {
+            "name": "Mulia Resort & Villas"
+          }
+        },
+        "b7": {
+          "type": "logo",
+          "settings": {
+            "name": "The Ritz-Carlton"
+          }
+        },
+        "b8": {
+          "type": "logo",
+          "settings": {
+            "name": "Four Seasons"
+          }
+        },
+        "b9": {
+          "type": "logo",
+          "settings": {
+            "name": "InterContinental"
+          }
+        },
+        "b10": {
+          "type": "logo",
+          "settings": {
+            "name": "Ayana"
+          }
+        },
+        "b11": {
+          "type": "logo",
+          "settings": {
+            "name": "Sofitel"
+          }
+        },
+        "b12": {
+          "type": "logo",
+          "settings": {
+            "name": "Mandarin Oriental"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10",
+        "b11",
+        "b12"
+      ]
+    },
+    "branches": {
+      "type": "psi-branch-map",
+      "settings": {},
+      "blocks": {
+        "b1": {
+          "type": "city",
+          "settings": {
+            "name": "Jakarta",
+            "address": "Kawasan Industri Pulo Gadung, Jl. Pulo Sidik Blok R Kav No. 29A, Jatinegara, Cakung, Jakarta Timur 13930",
+            "x": 335,
+            "y": 308,
+            "label_dx": -34,
+            "label_dy": -24
+          }
+        },
+        "b2": {
+          "type": "city",
+          "settings": {
+            "name": "Surabaya",
+            "x": 505,
+            "y": 318,
+            "label_dx": -36,
+            "label_dy": 42
+          }
+        },
+        "b3": {
+          "type": "city",
+          "settings": {
+            "name": "Bali",
+            "x": 555,
+            "y": 338,
+            "label_dx": -8,
+            "label_dy": -26
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "cta": {
+      "type": "psi-cta",
+      "settings": {
+        "button1_link": "/pages/kontak",
+        "button2_link": "/pages/kontak"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "brands",
+    "about",
+    "pillars",
+    "products",
+    "clients",
+    "branches",
+    "cta"
+  ]
+}

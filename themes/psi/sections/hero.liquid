@@ -1,0 +1,262 @@
+
+{%- liquid
+  case section.settings.text_size
+    when 'large'
+      assign t_title = 64
+      assign t_text = 18
+    when 'medium'
+      assign t_title = 48
+      assign t_text = 16
+    else
+      assign t_title = 36
+      assign t_text = 15
+  endcase
+  assign t_title_m = t_title | times: 0.75 | round
+-%}
+<style>
+  #psi-hero-{{ section.id }} .psi-hero__title { font-size: {{ t_title }}px; }
+  #psi-hero-{{ section.id }} .psi-hero__text { font-size: {{ t_text }}px; }
+  @media (max-width: 749px) { #psi-hero-{{ section.id }} .psi-hero__title { font-size: {{ t_title_m }}px; } }
+  #psi-hero-{{ section.id }} { height: {{ section.settings.height }}vh; min-height: 600px; }
+  #psi-hero-{{ section.id }} .psi-hero__shade { background: linear-gradient(0deg, rgba(0,0,0,{{ section.settings.overlay | divided_by: 100.0 }}) 0%, rgba(0,0,0,{{ section.settings.overlay | divided_by: 300.0 }}) 45%, rgba(0,0,0,0) 75%); }
+  .psi-hero { overflow: hidden; display: flex; align-items: flex-end; background: #070605; }
+  .psi-hero__slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .9s ease, visibility .9s; }
+  .psi-hero__slide.is-active { opacity: 1; visibility: visible; }
+  .psi-hero__media, .psi-hero__media video, .psi-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .psi-hero__media--empty { background: radial-gradient(ellipse 45% 60% at 62% 52%, rgba(158,29,31,.5), rgba(7,6,5,0) 72%), #070605; }
+  .psi-hero__mobile { display: none; }
+  .psi-hero__shade { position: absolute; inset: 0; pointer-events: none; }
+  .psi-hero__copy { position: absolute; left: 0; right: 0; bottom: 104px; max-width: 1440px; margin: 0 auto; padding: 0 6.5%; }
+  .psi-hero__copy-in { max-width: 520px; }
+  .psi-hero__eyebrow { margin: 0 0 12px; font-size: 11px; letter-spacing: .18em; font-weight: 500; color: #fff; text-transform: uppercase; }
+  .psi-hero__title { line-height: 1.15; font-weight: 300; color: #fff; }
+  .psi-hero__text { line-height: 1.5; margin: 14px 0 24px; color: #E7E2DE; font-weight: 400; max-width: 440px; }
+  .psi-hero__text p { margin: 0; }
+  .psi-hero__cta { display: inline-flex; align-items: center; gap: 16px; color: #fff; text-decoration: none; font-family: var(--psi-head); font-size: 15px; }
+  .psi-hero__circ { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.7); display: inline-flex; align-items: center; justify-content: center; transition: background .3s, color .3s; }
+  .psi-hero__cta:hover .psi-hero__circ { background: #fff; color: #000; }
+  .psi-hero__slide .psi-hero__copy-in > * { transform: translateY(14px); opacity: 0; transition: transform .7s ease, opacity .7s ease; }
+  .psi-hero__slide.is-active .psi-hero__copy-in > * { transform: none; opacity: 1; }
+  .psi-hero__slide.is-active .psi-hero__copy-in > *:nth-child(2) { transition-delay: .08s; }
+  .psi-hero__slide.is-active .psi-hero__copy-in > *:nth-child(3) { transition-delay: .16s; }
+  .psi-hero__slide.is-active .psi-hero__copy-in > *:nth-child(4) { transition-delay: .24s; }
+  .psi-hero__nav { position: relative; z-index: 2; width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 6.5% 32px; display: flex; gap: 36px; align-items: center; }
+  .psi-hero__bar { flex: 1; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; display: flex; align-items: center; }
+  .psi-hero__bar span { display: block; width: 100%; height: 2px; background: rgba(255,255,255,.28); position: relative; overflow: hidden; }
+  .psi-hero__bar span::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #fff; }
+  .psi-hero__bar.is-done span::after { width: 100%; }
+  .psi-hero__bar.is-hold span::after { width: 35%; }
+  .psi-hero__bar.is-run span::after { animation: psi-fill var(--psi-interval, 7000ms) linear forwards; }
+  @keyframes psi-fill { from { width: 0; } to { width: 100%; } }
+  .psi-hero__toggle { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: none; color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .psi-hero .icon-play { display: none; }
+  .psi-hero.is-paused .icon-play { display: block; }
+  .psi-hero.is-paused .icon-pause { display: none; }
+  @media (max-width: 749px) {
+    .psi-hero__media--video { display: none; }
+    .psi-hero__mobile { display: block; }
+    .psi-hero__copy { bottom: 96px; padding: 0 20px; }
+    .psi-hero__nav { padding: 0 20px 24px; gap: 16px; }
+  }
+</style>
+
+<section id="psi-hero-{{ section.id }}" class="psi-s psi-hero" data-psi-hero data-interval="{{ section.settings.interval }}" aria-roledescription="carousel" aria-label="{{ section.settings.label | escape }}">
+  {%- for block in section.blocks -%}
+    <div class="psi-hero__slide{% if forloop.first %} is-active{% endif %}" aria-roledescription="slide" aria-label="{{ forloop.index }} / {{ forloop.length }}" {{ block.fauqa_attributes }}>
+      {%- if block.settings.video != blank -%}
+        <div class="psi-hero__media{% if block.settings.image != blank %} psi-hero__media--video{% endif %}">
+          {%- assign video_src = block.settings.video -%}
+          {%- unless video_src contains '://' or video_src contains '//' -%}{%- assign video_src = video_src | file_url -%}{%- endunless -%}
+          <video src="{{ video_src | escape }}" loop muted playsinline preload="metadata"{% if block.settings.image != blank %} poster="{{ block.settings.image | image_url: width: 1920 | escape }}"{% endif %}></video>
+        </div>
+        {%- if block.settings.image != blank -%}
+          <div class="psi-hero__media psi-hero__mobile">
+            {{ block.settings.image | image_url: width: 1200 | image_tag: alt: block.settings.image.alt, loading: 'eager', sizes: '100vw', widths: '600, 900, 1200' }}
+          </div>
+        {%- endif -%}
+      {%- elsif block.settings.image != blank -%}
+        <div class="psi-hero__media">
+          {%- if forloop.first -%}{%- assign load = 'eager' -%}{%- else -%}{%- assign load = 'lazy' -%}{%- endif -%}
+          {{ block.settings.image | image_url: width: 2400 | image_tag: alt: block.settings.image.alt, loading: load, sizes: '100vw', widths: '750, 1100, 1500, 1920, 2400' }}
+        </div>
+      {%- else -%}
+        <div class="psi-hero__media psi-hero__media--empty"></div>
+      {%- endif -%}
+      <div class="psi-hero__shade"></div>
+
+      <div class="psi-hero__copy">
+        <div class="psi-hero__copy-in">
+          {%- if block.settings.eyebrow != blank -%}<p class="psi-hero__eyebrow">{{ block.settings.eyebrow }}</p>{%- endif -%}
+          {%- if forloop.first -%}
+            <h1 class="psi-h1 psi-hero__title">{% if forloop.first %}{{ section.settings.heading }}{% else %}{{ block.settings.heading }}{% endif %}</h1>
+          {%- else -%}
+            <h2 class="psi-h1 psi-hero__title">{% if forloop.first %}{{ section.settings.heading }}{% else %}{{ block.settings.heading }}{% endif %}</h2>
+          {%- endif -%}
+          {%- if block.settings.text != blank or section.settings.text != blank -%}<div class="psi-hero__text">{% if forloop.first %}{{ section.settings.text }}{% else %}{{ block.settings.text }}{% endif %}</div>{%- endif -%}
+          {%- if block.settings.button_label != blank -%}
+            <a class="psi-hero__cta" href="{{ block.settings.button_link | default: '#' }}">
+              {{- block.settings.button_label -}}
+              <span class="psi-hero__circ"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  {%- endfor -%}
+
+  {%- if section.blocks.size > 1 or section.blocks.first.settings.video != blank -%}
+    <div class="psi-hero__nav">
+      {%- for block in section.blocks -%}
+        <button type="button" class="psi-hero__bar" aria-label="Show slide {{ forloop.index }}"><span></span></button>
+      {%- endfor -%}
+      <button type="button" class="psi-hero__toggle" aria-pressed="false" aria-label="Pause" data-label-pause="Pause" data-label-play="Play">
+        <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+        <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
+      </button>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "PSI Hero Video",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Judul (slide pertama)",
+      "default": "Elevating hospitality experiences across Indonesia"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Teks (slide pertama)",
+      "default": "<p>Exclusive partner and sole distributor for 30+ international brands in glassware, tableware, kitchen equipment and bar essentials.</p>"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Nama section (untuk pembaca layar)",
+      "default": "Highlights"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Tinggi",
+      "min": 60,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "label": "Gelapkan video (agar teks terbaca)",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Ukuran tulisan",
+      "default": "small",
+      "options": [
+        {
+          "value": "small",
+          "label": "Kecil (fokus ke video)"
+        },
+        {
+          "value": "medium",
+          "label": "Sedang"
+        },
+        {
+          "value": "large",
+          "label": "Besar"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "interval",
+      "label": "Ganti slide setiap",
+      "min": 4,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "default": 7
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video (MP4, tanpa suara, 10–20 detik, < 10 MB)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Foto (pengganti video di HP, atau dipakai jika tanpa video)"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Label kecil",
+          "default": "SINCE 2013"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Judul (slide berikutnya)",
+          "default": "Elevating hospitality experiences across Indonesia"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Teks (slide berikutnya)",
+          "default": "<p>Exclusive partner and sole distributor for 30+ international brands in glassware, tableware, kitchen equipment and bar essentials.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Teks tombol",
+          "default": "Discover our brands"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link tombol"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "PSI Hero Video",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "SERVE PASSIONATELY",
+            "heading": "Premium equipment for every kitchen, bar and table",
+            "text": "<p>From back-of-house operations to front-of-house presentation, sourced from leading international manufacturers.</p>",
+            "button_label": "View products"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

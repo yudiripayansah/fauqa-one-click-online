@@ -1,0 +1,23 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "psi-footer",
+      "settings": {
+        "menu": "footer"
+      }
+    },
+    "whatsapp": {
+      "type": "psi-whatsapp",
+      "settings": {
+        "number": "",
+        "label": "WhatsApp"
+      }
+    }
+  },
+  "order": [
+    "footer",
+    "whatsapp"
+  ]
+}

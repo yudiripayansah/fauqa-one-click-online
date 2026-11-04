@@ -1,0 +1,16 @@
+{
+  "current": "PSI",
+  "presets": {
+    "PSI": {
+      "color_accent": "#9E1D1F",
+      "color_ink": "#F5F2F0",
+      "color_background": "#050505",
+      "color_on_accent": "#FFFFFF",
+      "color_accent_text": "#E35D5F",
+      "font_heading": "Open Sans",
+      "font_body": "Roboto",
+      "page_width": 1240,
+      "radius": 8
+    }
+  }
+}

@@ -1,0 +1,97 @@
+
+{%- liquid
+  assign main_number = section.settings.number | default: site.contact.whatsapp | remove: '+' | remove: ' ' | remove: '-'
+  assign main_text = section.settings.message | url_encode
+-%}
+
+<style>
+  .psi-wa { position: fixed; z-index: 70; bottom: 24px; {% if section.settings.position == 'left' %}left{% else %}right{% endif %}: 24px; background: none; font-family: var(--psi-body); }
+  .psi-wa summary { list-style: none; }
+  .psi-wa summary::-webkit-details-marker { display: none; }
+  .psi-wa__btn { display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 22px 0 18px; border-radius: 999px; background: #25D366; color: #fff; text-decoration: none; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 12px 32px rgba(0,0,0,.35); transition: transform .25s, box-shadow .25s; }
+  .psi-wa__btn:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,.45); }
+  .psi-wa__btn--icon { width: 56px; padding: 0; justify-content: center; border-radius: 50%; }
+  .psi-wa__panel { position: absolute; bottom: 72px; transform-origin: bottom right; animation: psi-wa-pop .25s ease; {% if section.settings.position == 'left' %}left{% else %}right{% endif %}: 0; width: min(340px, calc(100vw - 48px)); border-radius: 14px; overflow: hidden; background: var(--psi-card); border: 1px solid var(--psi-line); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+  @keyframes psi-wa-pop { from { opacity: 0; transform: translateY(8px) scale(.96); } to { opacity: 1; transform: none; } }
+  .psi-wa__head { padding: 20px 22px; background: linear-gradient(135deg, #9E1D1F, #5E1112); color: #fff; }
+  .psi-wa__title { margin: 0; font-family: var(--psi-head); font-size: 18px; }
+  .psi-wa__sub { margin: 4px 0 0; font-size: 13px; opacity: .85; }
+  .psi-wa__list { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .psi-wa__item { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: var(--psi-text); transition: background .2s; min-height: 44px; }
+  .psi-wa__item:hover { background: rgba(255,255,255,.05); }
+  .psi-wa__avatar { width: 40px; height: 40px; border-radius: 50%; flex: none; background: rgba(37,211,102,.15); color: #25D366; display: inline-flex; align-items: center; justify-content: center; }
+  .psi-wa__name { display: block; font-size: 15px; }
+  .psi-wa__role { display: block; font-size: 12px; color: var(--psi-soft); }
+  .psi-wa__close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; border: 0; background: rgba(255,255,255,.15); color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+  @media (max-width: 749px) {
+    .psi-wa { bottom: 16px; {% if section.settings.position == 'left' %}left{% else %}right{% endif %}: 16px; }
+    .psi-wa__btn { width: 56px; padding: 0; justify-content: center; }
+    .psi-wa__label { display: none; }
+  }
+</style>
+
+{%- capture wa_icon -%}
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.1-3.6A8 8 0 1 1 8.3 18.6z"/><path d="M9 8.6c.2-.5.6-.6.9-.6h.4c.2 0 .3.1.4.4l.6 1.4c.1.2 0 .4-.1.6l-.5.6c.6 1.2 1.6 2.1 2.8 2.7l.6-.6c.2-.2.4-.2.6-.1l1.4.6c.3.1.4.2.4.4v.5c0 .4-.2.7-.6.9-.5.3-1.3.4-2.3 0a8 8 0 0 1-4.3-4.3c-.4-1-.3-1.7-.1-2.2z" fill="currentColor" stroke="none"/></svg>
+{%- endcapture -%}
+
+{%- if main_number != blank or section.blocks.size > 0 -%}
+{%- if section.blocks.size > 0 -%}
+  <details class="psi-s psi-wa">
+    <summary class="psi-wa__btn{% if section.settings.label == blank %} psi-wa__btn--icon{% endif %}" aria-label="{{ section.settings.label | default: 'WhatsApp' | escape }}">
+      {{ wa_icon }}{%- if section.settings.label != blank -%}<span class="psi-wa__label">{{ section.settings.label }}</span>{%- endif -%}
+    </summary>
+    <div class="psi-wa__panel" role="dialog" aria-label="WhatsApp">
+      <div class="psi-wa__head">
+        <p class="psi-wa__title">{{ section.settings.title }}</p>
+        {%- if section.settings.subtitle != blank -%}<p class="psi-wa__sub">{{ section.settings.subtitle }}</p>{%- endif -%}
+      </div>
+      <div class="psi-wa__list">
+        {%- for block in section.blocks -%}
+          {%- assign n = block.settings.number | default: section.settings.number | default: site.contact.whatsapp | remove: '+' | remove: ' ' | remove: '-' -%}
+          {%- assign t = block.settings.message | default: section.settings.message | url_encode -%}
+          <a class="psi-wa__item" href="https://wa.me/{{ n }}?text={{ t }}" target="_blank" rel="noopener" {{ block.fauqa_attributes }}>
+            <span class="psi-wa__avatar">{{ wa_icon }}</span>
+            <span><span class="psi-wa__name">{{ block.settings.name }}</span>{%- if block.settings.role != blank -%}<span class="psi-wa__role">{{ block.settings.role }}</span>{%- endif -%}</span>
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </details>
+{%- else -%}
+  <div class="psi-s psi-wa">
+    <a class="psi-wa__btn{% if section.settings.label == blank %} psi-wa__btn--icon{% endif %}" href="https://wa.me/{{ main_number }}?text={{ main_text }}" target="_blank" rel="noopener" aria-label="{{ section.settings.label | default: 'WhatsApp' | escape }}">
+      {{ wa_icon }}{%- if section.settings.label != blank -%}<span class="psi-wa__label">{{ section.settings.label }}</span>{%- endif -%}
+    </a>
+  </div>
+{%- endif -%}
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "PSI WhatsApp Chat",
+  "settings": [
+    { "type": "text", "id": "number", "label": "Nomor WhatsApp utama (format 62..., tanpa 0 di depan)", "info": "Contoh: 6281234567890" },
+    { "type": "textarea", "id": "message", "label": "Pesan otomatis", "default": "Hello PSI, I would like to ask about your products." },
+    { "type": "text", "id": "label", "label": "Teks tombol (kosongkan = ikon bulat saja)" },
+    { "type": "select", "id": "position", "label": "Posisi", "default": "right", "options": [ { "value": "right", "label": "Kanan bawah" }, { "value": "left", "label": "Kiri bawah" } ] },
+    { "type": "header", "content": "Kotak sapaan (muncul jika ada blok Kontak)" },
+    { "type": "text", "id": "title", "label": "Judul", "default": "Hi there!" },
+    { "type": "text", "id": "subtitle", "label": "Subjudul", "default": "Our team typically replies within working hours." }
+  ],
+  "blocks": [
+    {
+      "type": "contact",
+      "name": "Kontak",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Nama / divisi", "default": "Sales" },
+        { "type": "text", "id": "role", "label": "Keterangan", "default": "[ISI DI SINI]" },
+        { "type": "text", "id": "number", "label": "Nomor WhatsApp (kosongkan = pakai nomor utama)" },
+        { "type": "textarea", "id": "message", "label": "Pesan otomatis (kosongkan = pakai pesan utama)" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "enabled_on": { "groups": ["footer"] }
+}
+{% endschema %}

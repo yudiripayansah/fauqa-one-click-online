@@ -56,6 +56,25 @@ for (const key of themeKeys()) {
   assert.match(home.html, /hreflang="en" href="https:\/\/acme.example.com\/en"/);
   assert.match(home.html, /<a href="\/" aria-current="page">Beranda<\/a>/);
   const homeTypes = Object.values(JSON.parse(files['templates/index.json']).sections).map((x) => x.type);
+  if (key === 'psi') {
+    assert.match(home.html, /class="psi-feat__title">Produk 1<\/h3>/, 'PSI memakai katalog Fauqa');
+    assert.match(home.html, /Mulai Rp 85.000/, 'PSI memakai harga teks');
+    assert.equal((home.html.match(/href="\/theme-assets\/t\/1\/psi-base.css"/g) ?? []).length, 1, 'CSS PSI hanya dimuat sekali');
+    assert.equal((home.html.match(/src="\/theme-assets\/t\/1\/psi-animations.js"/g) ?? []).length, 1, 'JS PSI hanya dimuat sekali');
+    assert.doesNotMatch(home.html, /aria-label="Cart|href="https:\/\/wa.me\/62\?/, 'tidak ada keranjang atau nomor dummy');
+    const tpl = JSON.parse(files['templates/index.json']);
+    tpl.sections.hero.blocks.b1.settings.video = 'files/intro.mp4';
+    tpl.sections.products.settings.collection = 'atap';
+    const engineWithMedia = createThemeEngine({ ...files, 'templates/index.json': JSON.stringify(tpl) }, { assetBase: '/theme-assets/t/1/' });
+    const media = await renderSitePage(engineWithMedia, {
+      site, content: { ...content, files: [...content.files, { id: 'video1', name: 'intro.mp4', folder: '', mime: 'video/mp4', src: 'https://cdn.test/intro.mp4', variants: {} }] },
+      path: '/', baseUrl: 'https://acme.example.com', loaders,
+    });
+    assert.match(media.html, /<video src="https:\/\/cdn.test\/intro.mp4" loop muted playsinline/, 'video dari file manager');
+    assert.match(media.html, /href="\/collections\/atap"/, 'koleksi dipilih berdasarkan handle');
+    assert.doesNotMatch(media.html, /class="psi-feat__title">Produk 3</, 'produk di luar koleksi disembunyikan');
+    assert.match(home.html, /href="https:\/\/wa.me\/081200001111\?text=/, 'WhatsApp mengikuti kontak situs');
+  }
   if (homeTypes.includes('featured-products')) assert.match(home.html, /href="\/products\/produk-1"/, 'produk unggulan');
   if (homeTypes.includes('blog-posts')) {
     assert.match(home.html, /href="\/blogs\/berita\/pabrik-baru"/, 'artikel terbaru');
