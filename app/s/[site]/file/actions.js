@@ -29,20 +29,23 @@ export async function uploadFile(fd) {
   return { ok: true, file: { id: row.id, name: row.name, src: fileUrl(row.storage_path), thumb: row.variants[400] ? fileUrl(row.variants[400]) : fileUrl(row.storage_path), mime: row.mime } };
 }
 
-// Untuk pemilih file (editor konten). kind: 'image' | 'any'
-export async function listFiles(slug, kind = 'any') {
+// Untuk pemilih file (editor konten). kind: 'image' | 'any'. Per batch PICK_PER, cari di server → { files, more }.
+const PICK_PER = 60;
+export async function listFiles(slug, kind = 'any', term = '', offset = 0) {
   const fd = new FormData();
   fd.set('site', slug);
   const { site, supabase } = await contentAction(fd);
-  let q = supabase.from('files').select('id, name, folder, storage_path, mime, variants, width, height, alt').eq('site_id', site.id).order('created_at', { ascending: false }).limit(500);
+  const from = Math.max(0, Number(offset) || 0);
+  let q = supabase.from('files').select('id, name, folder, storage_path, mime, variants, width, height, alt').eq('site_id', site.id).order('created_at', { ascending: false }).range(from, from + PICK_PER);
   if (kind === 'image') q = q.like('mime', 'image/%');
+  if (term) q = q.ilike('name', `%${String(term).slice(0, 100).replace(/[%_\\]/g, '')}%`);
   const { data } = await q;
-  return data.map((f) => ({
+  return { more: data.length > PICK_PER, files: data.slice(0, PICK_PER).map((f) => ({
     id: f.id, name: f.name, folder: f.folder, mime: f.mime, alt: f.alt, width: f.width,
     src: fileUrl(f.storage_path),
     thumb: f.variants?.[400] ? fileUrl(f.variants[400]) : fileUrl(f.storage_path),
     large: fileUrl(f.variants?.[1200] ?? f.variants?.[800] ?? f.storage_path),
-  }));
+  })) };
 }
 
 export async function updateFile(fd) {

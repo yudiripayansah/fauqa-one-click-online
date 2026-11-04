@@ -1,17 +1,21 @@
 import { Suspense } from 'react';
 import { requireSite } from '@/lib/dal';
 import { createClient } from '@/lib/supabase/server';
-import { Card, PageHeader, TableSkeleton, btn, inputCls, td, th } from '@/components/admin/ui';
+import { Card, PageHeader, Pager, TableSkeleton, btn, inputCls, likeTerm, pageOf, pageRange, td, th } from '@/components/admin/ui';
 import { SubmitButton } from '@/components/admin/client';
 import { addRedirect, deleteRedirect, importRedirects } from './actions';
 
 export const metadata = { title: 'Redirect' };
 
-async function Redirects({ params }) {
-  const { site: slug } = await params;
+async function Redirects({ params, searchParams }) {
+  const [{ site: slug }, { q = '', page }] = await Promise.all([params, searchParams]);
+  const n = pageOf(page);
   const { site } = await requireSite(slug);
   const supabase = await createClient();
-  const { data: rows } = await supabase.from('redirects').select('id, from_path, to_url, hits').eq('site_id', site.id).order('from_path');
+  let query = supabase.from('redirects').select('id, from_path, to_url, hits', { count: 'exact' }).eq('site_id', site.id).order('from_path');
+  if (q) query = query.or(`from_path.ilike.${likeTerm(q)},to_url.ilike.${likeTerm(q)}`);
+  const { data, count } = await query.range(...pageRange(n));
+  const rows = data ?? []; // null bila halaman melewati jumlah data (416)
   return (
     <div className="max-w-5xl space-y-6">
       <PageHeader title="Redirect" description="Arahkan URL lama ke halaman baru (301), berguna saat pindah dari website lama. Hanya berlaku bila URL lama tidak ditemukan." />
@@ -23,6 +27,13 @@ async function Redirects({ params }) {
           <SubmitButton>Tambah</SubmitButton>
         </form>
       </Card>
+      {(count > 0 || q) && (
+        <form className="flex gap-2" role="search">
+          <input type="search" name="q" defaultValue={q} placeholder="Cari URL lama atau tujuan" aria-label="Cari redirect" className={`${inputCls} max-w-xs`} />
+          <button className={btn.secondary}>Cari</button>
+        </form>
+      )}
+      {q && rows.length === 0 && <p className="text-sm text-muted">Tidak ada redirect yang cocok.</p>}
       {rows.length > 0 && (
         <div className="overflow-x-auto rounded-card border border-line bg-surface">
           <table className="w-full text-sm">
@@ -43,6 +54,7 @@ async function Redirects({ params }) {
           </table>
         </div>
       )}
+      <Pager page={n} count={count} href={(p) => `/s/${slug}/redirect?${new URLSearchParams({ ...(q && { q }), page: String(p) })}`} />
       <Card title="Impor CSV" description="Satu baris per redirect: url_lama,url_baru. Redirect yang sudah ada ditimpa.">
         <form action={importRedirects} className="space-y-3">
           <input type="hidden" name="site" value={slug} />
@@ -57,6 +69,6 @@ async function Redirects({ params }) {
   );
 }
 
-export default function RedirectsPage({ params }) {
-  return <Suspense fallback={<TableSkeleton />}><Redirects params={params} /></Suspense>;
+export default function RedirectsPage({ params, searchParams }) {
+  return <Suspense fallback={<TableSkeleton />}><Redirects params={params} searchParams={searchParams} /></Suspense>;
 }

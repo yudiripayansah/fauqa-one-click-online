@@ -61,13 +61,26 @@ export function RichText({ name, defaultValue = '', site, id, minHeight = 'min-h
 export function FileDialog({ site, kind = 'any', multiple = false, onPick, onClose }) {
   const ref = useRef(null);
   const [files, setFiles] = useState(null);
+  const [more, setMore] = useState(false);
   const [q, setQ] = useState('');
   const [error, setError] = useState('');
   const [pending, start] = useTransition();
+  const [loadingMore, startMore] = useTransition();
+  const req = useRef(0); // abaikan hasil pencarian lama yang datang terlambat
+  const load = (term, offset = 0) => {
+    const id = offset ? req.current : ++req.current;
+    return listFiles(site, kind, term, offset).then((r) => {
+      if (id !== req.current) return;
+      setFiles((prev) => (offset ? [...(prev ?? []), ...r.files] : r.files));
+      setMore(r.more);
+    });
+  };
+  useEffect(() => { ref.current?.showModal(); }, []);
+  // Cari di server (pustaka bisa ribuan file); jeda sebentar agar tidak memanggil per ketukan.
   useEffect(() => {
-    ref.current?.showModal();
-    listFiles(site, kind).then(setFiles);
-  }, [site, kind]);
+    const t = setTimeout(() => load(q.trim()), q ? 250 : 0);
+    return () => clearTimeout(t);
+  }, [site, kind, q]); // eslint-disable-line react-hooks/exhaustive-deps
   const upload = (list) => start(async () => {
     setError('');
     for (const file of list) {
@@ -77,9 +90,9 @@ export function FileDialog({ site, kind = 'any', multiple = false, onPick, onClo
       const res = await uploadFile(fd);
       if (res.error) setError((e) => (e ? `${e} ` : '') + res.error);
     }
-    setFiles(await listFiles(site, kind));
+    await load(q.trim());
   });
-  const shown = (files ?? []).filter((f) => !q || f.name.toLowerCase().includes(q.toLowerCase()));
+  const shown = files ?? [];
   return (
     <dialog ref={ref} onClose={onClose} className="m-auto w-[min(96vw,56rem)] rounded-card border border-line bg-surface p-0 text-ink backdrop:bg-black/40">
       <div className="flex flex-wrap items-center gap-3 border-b border-line p-4">
@@ -95,7 +108,7 @@ export function FileDialog({ site, kind = 'any', multiple = false, onPick, onClo
       {error && <p role="alert" className="px-4 pt-3 text-sm text-danger">{error}</p>}
       <div className="max-h-[60vh] overflow-y-auto p-4">
         {files === null ? <p className="text-sm text-muted">Memuat…</p> : shown.length === 0 ? (
-          <p className="py-10 text-center text-sm text-muted">Belum ada file. Unggah dari tombol di atas.</p>
+          <p className="py-10 text-center text-sm text-muted">{q ? 'Tidak ada file yang cocok.' : 'Belum ada file. Unggah dari tombol di atas.'}</p>
         ) : (
           <ul className="grid grid-cols-3 gap-3 sm:grid-cols-5">
             {shown.map((f) => (
@@ -109,6 +122,13 @@ export function FileDialog({ site, kind = 'any', multiple = false, onPick, onClo
             ))}
           </ul>
         )}
+        {more && (
+          <div className="mt-4 text-center">
+            <button type="button" className={btn.secondary} disabled={loadingMore} onClick={() => startMore(() => load(q.trim(), shown.length))}>
+              {loadingMore ? 'Memuat…' : 'Muat lebih banyak'}
+            </button>
+          </div>
+        )}
       </div>
     </dialog>
   );
@@ -117,7 +137,7 @@ export function FileDialog({ site, kind = 'any', multiple = false, onPick, onClo
 function Thumb({ file, className = 'aspect-square' }) {
   return file.mime?.startsWith('image/')
     // eslint-disable-next-line @next/next/no-img-element
-    ? <img src={file.thumb ?? file.src} alt="" className={`${className} w-full rounded-md bg-line/40 object-cover`} />
+    ? <img src={file.thumb ?? file.src} alt="" loading="lazy" className={`${className} w-full rounded-md bg-line/40 object-cover`} />
     : <span className={`${className} flex w-full items-center justify-center rounded-md bg-line/40 text-xs font-semibold uppercase text-muted`}>{file.name.split('.').pop()}</span>;
 }
 

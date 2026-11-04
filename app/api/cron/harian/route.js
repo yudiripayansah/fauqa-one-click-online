@@ -2,6 +2,7 @@
 // hapus spam form > 30 hari (PRD §4.7), hapus permanen situs yang dihapus > 30 hari beserta file-nya (PRD §4.1).
 import { createAdminClient } from '@/lib/supabase/server';
 import { storagePaths } from '@/lib/files';
+import { all } from '@/lib/site/data';
 import { addDays, todayIn } from '@/lib/analytics-report';
 
 const ok = ({ data, error }) => { if (error) throw new Error(error.message); return data; };
@@ -20,9 +21,9 @@ export async function GET(req) {
   // ponytail: maks. 20 situs per hari; naikkan bila antrean penghapusan menumpuk.
   const sites = ok(await db.from('sites').select('id').lt('deleted_at', month).limit(20));
   for (const { id } of sites) {
-    const files = ok(await db.from('files').select('storage_path, variants').eq('site_id', id));
+    const files = await all(() => db.from('files').select('storage_path, variants').eq('site_id', id).order('id'));
     const themes = ok(await db.from('themes').select('id').eq('site_id', id)).map((t) => t.id);
-    const assets = themes.length ? ok(await db.from('theme_files').select('storage_path').in('theme_id', themes).not('storage_path', 'is', null)) : [];
+    const assets = themes.length ? await all(() => db.from('theme_files').select('storage_path').in('theme_id', themes).not('storage_path', 'is', null).order('id')) : [];
     const sitePaths = files.flatMap(storagePaths).filter(Boolean);
     // Aset theme bawaan (builtin/...) dipakai bersama; hanya aset unggahan theme situs ini yang dihapus.
     const themePaths = assets.map((a) => a.storage_path).filter((p) => themes.some((t) => p.startsWith(`${t}/`)));

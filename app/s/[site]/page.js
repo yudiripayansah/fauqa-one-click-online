@@ -6,6 +6,7 @@ import { Card, PageHeader, btn } from '@/components/admin/ui';
 import { SubmitButton } from '@/components/admin/client';
 import { siteUrl } from '@/lib/hosts';
 import { createAdminClient, createClient } from '@/lib/supabase/server';
+import { all } from '@/lib/site/data';
 import { setStatus } from '../actions';
 
 const STATUS_TONE = {
@@ -103,13 +104,13 @@ async function Overview({ site }) {
 async function Quota({ site }) {
   const supabase = await createClient();
   const count = (t, extra = (q) => q) => extra(supabase.from(t).select('id', { count: 'exact', head: true }).eq('site_id', site.id)).then((r) => r.count ?? 0);
-  const [{ data: row }, pages, products, articles, themes, domains, { data: files }] = await Promise.all([
+  const [{ data: row }, pages, products, articles, themes, domains, files] = await Promise.all([
     supabase.from('sites').select('plans (name, limits)').eq('id', site.id).single(),
     count('pages'), count('products'), count('articles'), count('themes'), count('domains', (q) => q.eq('type', 'custom')),
-    supabase.from('files').select('size').eq('site_id', site.id),
+    all(() => supabase.from('files').select('size').eq('site_id', site.id).order('id')),
   ]);
   const l = row.plans?.limits ?? {};
-  const mb = (files ?? []).reduce((n, f) => n + (f.size ?? 0), 0) / 1048576;
+  const mb = files.reduce((n, f) => n + Number(f.size ?? 0), 0) / 1048576;
   const rows = [
     ['Halaman', pages, l.pages], ['Produk', products, l.products], ['Artikel', articles, l.articles],
     ['Storage', mb, l.storage_mb, (v) => `${v < 10 ? v.toFixed(1) : Math.round(v)} MB`], ['Theme tersimpan', themes, l.themes], ['Custom domain', domains, l.custom_domains],

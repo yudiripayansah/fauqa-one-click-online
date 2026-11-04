@@ -3,18 +3,20 @@ import Link from 'next/link';
 import { requireSite } from '@/lib/dal';
 import { createClient } from '@/lib/supabase/server';
 import { fileRefs } from '@/lib/files';
-import { PageHeader, EmptyState, TableSkeleton, btn, inputCls, td, th } from '@/components/admin/ui';
+import { PageHeader, EmptyState, Pager, TableSkeleton, btn, inputCls, likeTerm, pageOf, pageRange, td, th } from '@/components/admin/ui';
 import { StatusBadge } from '@/components/admin/content';
 
 export const metadata = { title: 'Produk' };
 
 async function List({ params, searchParams }) {
-  const [{ site: slug }, { q = '' }] = await Promise.all([params, searchParams]);
+  const [{ site: slug }, { q = '', page }] = await Promise.all([params, searchParams]);
+  const n = pageOf(page);
   const { site } = await requireSite(slug);
   const supabase = await createClient();
   let query = supabase.from('products').select('id, title, handle, status, price_label, media', { count: 'exact' }).eq('site_id', site.id).order('position').order('created_at', { ascending: false });
-  if (q) query = query.ilike('title', `%${q.replace(/[%_]/g, '')}%`);
-  const { data: products, count } = await query;
+  if (q) query = query.ilike('title', likeTerm(q));
+  const { data, count } = await query.range(...pageRange(n));
+  const products = data ?? []; // null bila halaman melewati jumlah data (416)
   const thumbs = Object.fromEntries((await fileRefs(supabase, site.id, products.map((p) => p.media[0]).filter(Boolean))).map((f) => [f.id, f]));
   return (
     <div className="max-w-5xl space-y-6">
@@ -34,7 +36,7 @@ async function List({ params, searchParams }) {
                 return (
                   <tr key={p.id} className="border-b border-line last:border-0 hover:bg-line/30">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <td className={`${td} w-16`}>{t ? <img src={t.thumb} alt="" className="size-12 rounded-md object-cover" /> : <span className="block size-12 rounded-md bg-line/60" />}</td>
+                    <td className={`${td} w-16`}>{t ? <img src={t.thumb} alt="" loading="lazy" className="size-12 rounded-md object-cover" /> : <span className="block size-12 rounded-md bg-line/60" />}</td>
                     <td className={td}><Link href={`/s/${slug}/produk/${p.id}`} className="font-medium hover:text-accent">{p.title}</Link><span className="block text-xs text-muted">/products/{p.handle}</span></td>
                     <td className={`${td} text-muted`}>{p.price_label || '—'}</td>
                     <td className={td}><StatusBadge status={p.status} /></td>
@@ -45,6 +47,7 @@ async function List({ params, searchParams }) {
           </table>
         </div>
       )}
+      <Pager page={n} count={count} href={(p) => `/s/${slug}/produk?${new URLSearchParams({ ...(q && { q }), page: String(p) })}`} />
     </div>
   );
 }

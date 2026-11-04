@@ -82,3 +82,23 @@ export function TableSkeleton({ rows = 6 }) {
 
 export const th = 'px-4 py-3 text-left text-xs font-medium text-muted';
 export const td = 'px-4 py-3 align-middle';
+
+// Paging daftar panjang (PostgREST juga memotong hasil di 1000 baris). range → argumen .range(), href(n) → URL halaman n.
+export const PER_PAGE = 50;
+export const pageOf = (v) => Math.max(1, Number.parseInt(v, 10) || 1);
+export const pageRange = (n, per = PER_PAGE) => [(n - 1) * per, n * per - 1];
+export const likeTerm = (q) => `%${String(q).replace(/[%_\\,()]/g, '')}%`;
+
+export function Pager({ page, count, href, per = PER_PAGE }) {
+  const last = Math.max(1, Math.ceil((count ?? 0) / per));
+  if (last <= 1 && page <= 1) return null;
+  return (
+    <nav aria-label="Halaman daftar" className="flex flex-wrap items-center justify-between gap-2 text-sm text-muted">
+      <span>{(page - 1) * per < (count ?? 0) ? `${(page - 1) * per + 1}–${Math.min(page * per, count)} dari ${count} · halaman ${page} dari ${last}` : 'Halaman ini kosong.'}</span>
+      <span className="flex gap-2">
+        {page > 1 && <Link href={href(Math.min(page - 1, last))} className={btn.secondary}>Sebelumnya</Link>}
+        {page < last && <Link href={href(page + 1)} className={btn.secondary}>Berikutnya</Link>}
+      </span>
+    </nav>
+  );
+}

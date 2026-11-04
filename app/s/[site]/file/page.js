@@ -2,9 +2,9 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { requireSite } from '@/lib/dal';
 import { createClient } from '@/lib/supabase/server';
-import { ACCEPT, fileUsage, formatSize, kindOf } from '@/lib/files';
-import { fileUrl } from '@/lib/site/data';
-import { Card, Field, PageHeader, TableSkeleton, btn, inputCls, inlineInputCls, td, th } from '@/components/admin/ui';
+import { ACCEPT, fileUsage, formatSize } from '@/lib/files';
+import { all, fileUrl } from '@/lib/site/data';
+import { Card, Field, PageHeader, Pager, TableSkeleton, btn, inputCls, inlineInputCls, likeTerm, pageOf, pageRange, td, th } from '@/components/admin/ui';
 import { CopyButton, SubmitButton } from '@/components/admin/client';
 import { deleteFile, updateFile } from './actions';
 import Uploader from './Uploader';
@@ -12,24 +12,36 @@ import Uploader from './Uploader';
 export const metadata = { title: 'File' };
 
 const TYPES = [['', 'Semua'], ['image', 'Gambar'], ['video', 'Video'], ['document', 'Dokumen'], ['font', 'Font']];
+const PER = 60; // kelipatan kolom grid (2/4/6)
+const COLS = 'id, name, folder, storage_path, mime, size, width, height, variants, alt, created_at, site_id';
+const MEDIA = ['image', 'video', 'font'];
+// Filter tipe di database, sama dengan kindOf(): dokumen = selain gambar/video/font.
+const byType = (q, type) => (MEDIA.includes(type) ? q.like('mime', `${type}/%`)
+  : type === 'document' ? MEDIA.reduce((acc, k) => acc.not('mime', 'like', `${k}/%`), q) : q);
 
 async function Manager({ params, searchParams }) {
   const [{ site: slug }, sp] = await Promise.all([params, searchParams]);
   const { folder = '', q = '', type = '', view = 'grid', file: selectedId } = sp;
+  const n = pageOf(sp.page);
   const { site } = await requireSite(slug);
   const supabase = await createClient();
-  const [{ data: all }, { data: plan }] = await Promise.all([
-    supabase.from('files').select('id, name, folder, storage_path, mime, size, width, height, variants, alt, created_at, site_id').eq('site_id', site.id).order('created_at', { ascending: false }),
+  let list = supabase.from('files').select(COLS, { count: 'exact' }).eq('site_id', site.id).order('created_at', { ascending: false });
+  list = byType(q ? list.ilike('name', likeTerm(q)) : list.eq('folder', folder), type);
+  // Statistik & folder cukup kolom kecil dari semua baris; isi grid dipaging di database.
+  const [meta, { data: plan }, { data: listed, count }, { data: picked }] = await Promise.all([
+    all(() => supabase.from('files').select('size, folder').eq('site_id', site.id).order('id')),
     supabase.from('sites').select('plans (limits)').eq('id', site.id).single(),
+    list.range(...pageRange(n, PER)),
+    selectedId ? supabase.from('files').select(COLS).eq('site_id', site.id).eq('id', selectedId).maybeSingle() : { data: null },
   ]);
-  const used = all.reduce((n, f) => n + Number(f.size), 0);
+  const files = listed ?? []; // null bila halaman melewati jumlah data (416)
+  const used = meta.reduce((sum, f) => sum + Number(f.size), 0);
   const quota = (plan?.plans?.limits?.storage_mb ?? 1024) * 1024 * 1024;
-  const folders = [...new Set(all.flatMap((f) => f.folder.split('/').map((_, i, a) => a.slice(0, i + 1).join('/'))).filter(Boolean))].sort();
+  const folders = [...new Set(meta.flatMap((f) => f.folder.split('/').map((_, i, a) => a.slice(0, i + 1).join('/'))).filter(Boolean))].sort();
   if (folder && !folders.includes(folder)) folders.push(folder);
-  const files = all.filter((f) => (q ? f.name.toLowerCase().includes(q.toLowerCase()) : f.folder === folder) && (!type || kindOf(f.mime) === type));
-  const selected = all.find((f) => f.id === selectedId);
+  const selected = picked;
   const usage = selected ? await fileUsage(supabase, selected) : [];
-  const link = (extra) => `/s/${slug}/file?${new URLSearchParams(Object.entries({ folder, q, type, view, ...extra }).filter(([, v]) => v))}`;
+  const link = (extra) => `/s/${slug}/file?${new URLSearchParams(Object.entries({ folder, q, type, view, page: n > 1 ? String(n) : '', ...extra }).filter(([, v]) => v))}`;
   const thumb = (f) => fileUrl(f.variants?.[400] ?? f.storage_path);
 
   return (
@@ -143,6 +155,7 @@ async function Manager({ params, searchParams }) {
               </Card>
             )}
           </div>
+          <Pager page={n} count={count} per={PER} href={(p) => link({ page: String(p), file: '' })} />
         </div>
       </div>
     </div>

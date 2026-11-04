@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { requireSite } from '@/lib/dal';
 import { createClient } from '@/lib/supabase/server';
-import { Card, PageHeader, EmptyState, TableSkeleton, btn, inlineInputCls, td, th } from '@/components/admin/ui';
+import { Card, EmptyState, PageHeader, Pager, TableSkeleton, btn, inlineInputCls, pageOf, pageRange, td, th } from '@/components/admin/ui';
 import { ConfirmButton, SubmitButton } from '@/components/admin/client';
 import { StatusBadge } from '@/components/admin/content';
 import { saveBlog, deleteBlog } from './actions';
@@ -12,16 +12,18 @@ export const metadata = { title: 'Blog' };
 const fmt = (d) => (d ? new Intl.DateTimeFormat('id', { dateStyle: 'medium', timeZone: 'Asia/Jakarta' }).format(new Date(d)) : '—');
 
 async function List({ params, searchParams }) {
-  const [{ site: slug }, { blog: blogFilter }] = await Promise.all([params, searchParams]);
+  const [{ site: slug }, { blog: blogFilter, page }] = await Promise.all([params, searchParams]);
+  const n = pageOf(page);
   const { site } = await requireSite(slug);
   const supabase = await createClient();
-  const [{ data: blogs }, { data: articles }] = await Promise.all([
+  const [{ data: blogs }, { data: rows, count }] = await Promise.all([
     supabase.from('blogs').select('id, title, handle').eq('site_id', site.id).order('title'),
     (() => {
-      const q = supabase.from('articles').select('id, title, status, published_at, blog_id').eq('site_id', site.id).order('published_at', { ascending: false, nullsFirst: true });
+      const q = supabase.from('articles').select('id, title, status, published_at, blog_id', { count: 'exact' }).eq('site_id', site.id).order('published_at', { ascending: false, nullsFirst: true }).range(...pageRange(n));
       return blogFilter ? q.eq('blog_id', blogFilter) : q;
     })(),
   ]);
+  const articles = rows ?? []; // null bila halaman melewati jumlah data (416)
   const blogName = Object.fromEntries(blogs.map((b) => [b.id, b.title]));
   return (
     <div className="max-w-5xl space-y-6">
@@ -75,6 +77,7 @@ async function List({ params, searchParams }) {
           </table>
         </div>
       )}
+      <Pager page={n} count={count} href={(p) => `/s/${slug}/blog?${new URLSearchParams({ ...(blogFilter && { blog: blogFilter }), page: String(p) })}`} />
     </div>
   );
 }

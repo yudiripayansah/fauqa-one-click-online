@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { requireSite, FORM_TYPE } from '@/lib/dal';
 import { createClient } from '@/lib/supabase/server';
-import { Card, PageHeader, TableSkeleton, btn, inputCls, td, th } from '@/components/admin/ui';
+import { Card, PageHeader, Pager, TableSkeleton, btn, inputCls, pageOf, pageRange, td, th } from '@/components/admin/ui';
 import { SubmitButton } from '@/components/admin/client';
 import { saveRecipients } from './actions';
 
@@ -12,12 +12,14 @@ const TABS = [['', 'Kotak masuk'], ['new', 'Baru'], ['done', 'Selesai'], ['spam'
 const fmt = (d) => new Intl.DateTimeFormat('id', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Jakarta' }).format(new Date(d));
 
 async function Inbox({ params, searchParams }) {
-  const [{ site: slug }, { status = '' }] = await Promise.all([params, searchParams]);
+  const [{ site: slug }, { status = '', page }] = await Promise.all([params, searchParams]);
+  const n = pageOf(page);
   const { site } = await requireSite(slug);
   const supabase = await createClient();
-  let q = supabase.from('form_submissions').select('id, form_type, fields, status, created_at, products (title)').eq('site_id', site.id).order('created_at', { ascending: false }).limit(200);
+  let q = supabase.from('form_submissions').select('id, form_type, fields, status, created_at, products (title)', { count: 'exact' }).eq('site_id', site.id).order('created_at', { ascending: false }).range(...pageRange(n));
   q = status ? q.eq('status', status) : q.neq('status', 'spam');
-  const [{ data: rows }, { data: s }] = await Promise.all([q, supabase.from('sites').select('settings').eq('id', site.id).single()]);
+  const [{ data, count }, { data: s }] = await Promise.all([q, supabase.from('sites').select('settings').eq('id', site.id).single()]);
+  const rows = data ?? []; // null bila halaman melewati jumlah data (416)
   const manage = ['owner', 'admin'].includes(site.role);
   return (
     <div className="max-w-5xl space-y-6">
@@ -48,6 +50,7 @@ async function Inbox({ params, searchParams }) {
           </table>
         </div>
       )}
+      <Pager page={n} count={count} href={(p) => `/s/${slug}/form?${new URLSearchParams({ ...(status && { status }), page: String(p) })}`} />
       {manage && (
         <Card title="Notifikasi email" description="Setiap kiriman baru dikirim ke email ini. Kosongkan untuk memakai email owner. Balas email notifikasi untuk menjawab pengirim.">
           <form action={saveRecipients} className="flex flex-wrap gap-2">

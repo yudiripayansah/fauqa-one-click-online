@@ -2,21 +2,29 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { requireSite } from '@/lib/dal';
 import { createClient } from '@/lib/supabase/server';
-import { PageHeader, EmptyState, TableSkeleton, btn, td, th } from '@/components/admin/ui';
+import { EmptyState, PageHeader, Pager, TableSkeleton, btn, inputCls, likeTerm, pageOf, pageRange, td, th } from '@/components/admin/ui';
 import { StatusBadge } from '@/components/admin/content';
 
 export const metadata = { title: 'Halaman' };
 
-async function List({ params }) {
-  const { site: slug } = await params;
+async function List({ params, searchParams }) {
+  const [{ site: slug }, { q = '', page }] = await Promise.all([params, searchParams]);
+  const n = pageOf(page);
   const { site } = await requireSite(slug);
   const supabase = await createClient();
-  const { data: pages } = await supabase.from('pages').select('id, title, handle, status, published_at, updated_at').eq('site_id', site.id).order('title');
+  let query = supabase.from('pages').select('id, title, handle, status, published_at, updated_at', { count: 'exact' }).eq('site_id', site.id).order('title');
+  if (q) query = query.ilike('title', likeTerm(q));
+  const { data, count } = await query.range(...pageRange(n));
+  const pages = data ?? []; // null bila halaman melewati jumlah data (416)
   return (
     <div className="max-w-5xl space-y-6">
       <PageHeader title="Halaman" description="Halaman statis seperti Tentang Kami, Kontak, dan Kebijakan Privasi."
         action={<Link href={`/s/${slug}/halaman/baru`} className={btn.primary}>Tambah halaman</Link>} />
-      {pages.length === 0 ? <EmptyState title="Belum ada halaman" actionHref={`/s/${slug}/halaman/baru`} actionLabel="Tambah halaman" /> : (
+      <form className="flex gap-2" role="search">
+        <input type="search" name="q" defaultValue={q} placeholder="Cari judul halaman" aria-label="Cari halaman" className={`${inputCls} max-w-xs`} />
+        <button className={btn.secondary}>Cari</button>
+      </form>
+      {pages.length === 0 ? <EmptyState title={q ? 'Tidak ada halaman yang cocok' : 'Belum ada halaman'} actionHref={`/s/${slug}/halaman/baru`} actionLabel="Tambah halaman" /> : (
         <div className="overflow-x-auto rounded-card border border-line bg-surface">
           <table className="w-full text-sm">
             <thead className="border-b border-line"><tr><th className={th}>Judul</th><th className={th}>URL</th><th className={th}>Status</th></tr></thead>
@@ -35,10 +43,11 @@ async function List({ params }) {
           </table>
         </div>
       )}
+      <Pager page={n} count={count} href={(p) => `/s/${slug}/halaman?${new URLSearchParams({ ...(q && { q }), page: String(p) })}`} />
     </div>
   );
 }
 
-export default function PagesPage({ params }) {
-  return <Suspense fallback={<TableSkeleton />}><List params={params} /></Suspense>;
+export default function PagesPage({ params, searchParams }) {
+  return <Suspense fallback={<TableSkeleton />}><List params={params} searchParams={searchParams} /></Suspense>;
 }
